@@ -6,62 +6,32 @@ $black: #1B1B1F
 
 $font-suisse-intl-reg: SuisseIntl-Regular, sans-serif
 $font-suisse-intl-bold: SuisseIntl-Bold, sans-serif
-$font-legal: DINPro-CondLight, sans-serif
-$font-riffic-bold: Riffic-Bold, sans-serif
+$font-exo2-reg: Exo2-Regular, sans-serif
+$font-exo2-semib: Exo2-SemiBold, sans-serif
+$font-exo2-bold: Exo2-Bold, sans-serif
+$font-exo2-ex-bold: Exo2-ExtraBold, sans-serif
+$font-exo2-black: Exo2-Black, sans-serif
+
+
+
+body.light
+  background: $blue
 
 body
   overscroll-behavior: none
+  -webkit-tap-highlight-color: transparent
+  background: $blue
   img
     max-width: 100%
     height: auto
-.land
-  height: calc(100% - 83px)
-  position: relative
-  &__logo
-    position: absolute
-    top: 0
-    left: 0
-    max-width: 300px
-.footer
-  background: $blue
-  height: 83px
-  display: flex
-  padding: 5px 20px 5px 35px
-  align-items: center
-  justify-content: space-between
-  &__wrap
-    display: flex
-    align-items: center
-  &__text
-    color: $white
-    font-family: $font-suisse-intl-reg
-    font-size: 14px
-    line-height: 22px
-    max-width: 975px
-    opacity: .8
-  &__licensed
-    display: flex
-    align-items: center
-    gap: 18px
-    margin: 0 35px 0 auto
-    flex-shrink: 0
-  &__btns
-    display: flex
-    align-items: center
-  &__appstore
-    display: block
-    background: url("../img/appleBtn.png") no-repeat 0 0/contain
-    width: 114px
-    height: 38px
-  &__googlePlay
-    display: block
-    background: url("../img/googleBtn.svg") no-repeat 0 0/contain
-    width: 128px
-    height: 38px
-    margin-left: 10px
 
-.legal
-  font-family: $font-legal
-  font-size: 4.7vw
-  padding: 0 15px
-  text-align: center
+.fav-page
+  background: $blue
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.welcome
+  display: flex
+  align-items: center
+
