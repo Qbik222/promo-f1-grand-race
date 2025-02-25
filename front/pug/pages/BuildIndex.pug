@@ -529,31 +529,30 @@
                             .bet__column-name-item(data-translate="Williams") КОМАНДА «ВІЛЬЯМС»
                         a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
     .confirm._container
-        .confirm__prediction
+        .confirm__prediction._betConfirmed
             .confirm__prediction-no(data-translate="betNoConfirmed") Прогноз не підтверджено
             .confirm__prediction-yes(data-translate="betConfirmed") Прогноз підтверджено
             .confirm__upd
-                .confirm__upd-btn
+                .confirm__upd-btn._btn-popup
                 .confirm__upd-text
-                    .confirm__upd-text-item(data-translate="lastUpd") Останнє оновлення було
+                    .confirm__upd-text-item(data-translate="lastUpd") Останнє оновлення було о
                     .confirm__upd-text-item 23:45
         .confirm__timer
             .confirm__timer-title(data-translate="timerTitle") Залишилось часу для прогнозу
             .timer
+                .timer__days
+                    span.timer__days-item 0
+                    span.timer__days-item 0
+                    span.timer__days-text(data-translate="timerDays") Днів
                 .timer__hours
                     span.timer__hours-item 0
                     span.timer__hours-item 0
-                    span.timer__hours-text(data-translate="timerDays") Днів
-                span.timer__separator
+                    span.timer__hours-text(data-translate="timerHours") Годин
                 .timer__minutes
                     span.timer__minutes-item 0
                     span.timer__minutes-item 0
-                    span.timer__hours-text(data-translate="timerHours") Годин
-                span.timer__separator
-                .timer__seconds
-                    span.timer__seconds-item 0
-                    span.timer__seconds-item 0
-                    span.timer__hours-text(data-translate="timerMinutes") Хвилин
+                    span.timer__minutes-text(data-translate="timerMinutes") Хвилин
+
             .confirm__anim
                 .confirm__anim-body
                 .confirm__anim-arrow

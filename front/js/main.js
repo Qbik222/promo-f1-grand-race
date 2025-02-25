@@ -1,8 +1,8 @@
 (function (){
     function startCountdown(endTime) {
+        const daysEls = document.querySelectorAll(".timer__days-item");
         const hoursEls = document.querySelectorAll(".timer__hours-item");
         const minutesEls = document.querySelectorAll(".timer__minutes-item");
-        const secondsEls = document.querySelectorAll(".timer__seconds-item");
 
         function updateTimer() {
             const now = new Date().getTime();
@@ -10,19 +10,19 @@
 
             if (timeLeft <= 0) {
                 clearInterval(timerInterval);
+                updateDigits(daysEls, "00");
                 updateDigits(hoursEls, "00");
                 updateDigits(minutesEls, "00");
-                updateDigits(secondsEls, "00");
                 return;
             }
 
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
             const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
             const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
-            const seconds = Math.floor((timeLeft / 1000) % 60);
 
+            updateDigits(daysEls, String(days).padStart(2, "0"));
             updateDigits(hoursEls, String(hours).padStart(2, "0"));
             updateDigits(minutesEls, String(minutes).padStart(2, "0"));
-            updateDigits(secondsEls, String(seconds).padStart(2, "0"));
         }
 
         function updateDigits(elements, value) {
@@ -31,13 +31,13 @@
         }
 
         updateTimer();
-        const timerInterval = setInterval(updateTimer, 1000);
+        const timerInterval = setInterval(updateTimer, 60000);
     }
 
     const now = new Date();
-    const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59).getTime();
+    const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59).getTime();
 
-    startCountdown(endOfDay);
+    startCountdown(endOfMonth);
 
 
 })()
