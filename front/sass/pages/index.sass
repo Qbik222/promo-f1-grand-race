@@ -400,7 +400,7 @@ body
     display: flex
     flex-direction: column
     align-items: center
-    padding: 100px 0 0 0
+    padding: 95px 0 0 0
     z-index: 1
     &-no, &-yes
       font-size: 24px
@@ -514,3 +514,245 @@ body
       z-index: 2
   &__btn
     margin-top: 20px
+
+.results
+  position: relative
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  padding-top: 65px
+  &::before
+    content: ""
+    display: block
+    top: 45px
+    left: 0
+    width: 100%
+    height: 420px
+    background: url("../img/results/results-decor-desc.png") no-repeat 0 0/cover
+    background-size: 100% 100%
+    position: absolute
+  &__first, &__second, &__third
+    display: flex
+    flex-direction: column
+    align-items: center
+  &__first
+    max-width: 172px
+    z-index: 3
+    margin: 0 -16px 80px -43px
+    position: relative
+    .results
+      &__top
+        &-decor
+          left: 53.5%
+          top: -10px
+        &-wrap
+          top: -25px
+          left: 5px
+  &__second
+    max-width: 183px
+    z-index: 2
+    margin: 0 -10px 20px 10px
+    position: relative
+    .results
+      &__top
+        &-decor
+          top: 12px
+          left: 51%
+        &-wrap
+          top: 7px
+  &__third
+    max-width: 142px
+    z-index: 2
+    position: relative
+    .results
+      &__top
+        &-decor
+          top: -6px
+          left: 49%
+        &-wrap
+          top: -10px
+
+  &__top
+    position: absolute
+    right: 65px
+    top: 95px
+    display: flex
+    align-items: center
+    &-place, &-info
+      position: relative
+      z-index: 2
+    &-place
+      width: 30px
+      display: flex
+      align-items: center
+      justify-content: center
+      color: $white
+      font-family: $font-exo2-black
+      font-size: 20px
+      border-right: 1px solid rgba($white, .3)
+      height: calc(100% - 2px)
+      margin-right: 7px
+      padding-left: 1px
+    &-info
+      display: flex
+      flex-direction: column
+      color: $white
+      &-id, &-points
+        font-size: 12px
+        text-transform: uppercase
+      &-id
+        opacity: .5
+      &-points
+        font-family: $font-exo2-bold
+    &-decor
+      height: 300px
+      width: 49px
+      background: linear-gradient(180deg, #0000A7 0%, rgba(0, 0, 167, 0.00) 100%)
+      opacity: .7
+      position: absolute
+      left: 50%
+      top: 0
+      transform: translate(-50%, 0)
+      z-index: 0
+      border-radius: 4px
+      display: flex
+      justify-content: center
+      color: $blue
+      font-size: 44px
+      font-family: $font-exo2-black
+    &-pers
+      position: relative
+      z-index: 1
+    &-wrap
+      z-index: 2
+      position: relative
+      align-self: center
+      transform: translate(0, -100%)
+      width: 140px
+      height: 40px
+      border-radius: 5px
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%)
+      display: flex
+      align-items: center
+      &::before
+        content: ""
+        display: block
+        width: calc(100% - 2px)
+        height: calc(100% - 2px)
+        position: absolute
+        left: 1px
+        top: 1px
+        z-index: 0
+        border-radius: inherit
+        background: #000094
+  &__podium
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 468px
+    height: 107px
+    z-index: 0
+    background: url("../img/results/podium-desc.png") no-repeat 0 0/contain
+    @media screen and (max-width: 1050px)
+      background: url("../img/results/podium-mob.png") no-repeat 0 0/contain
+  &__subtitle
+    max-width: 375px
+    color: $white
+    font-size: 17px
+    font-family: $font-exo2-reg
+    margin-top: 19px
+  &__popup
+    display: flex
+    align-items: center
+    gap: 8px
+    margin-top: 16px
+    &-text
+      color: $white
+      font-family: $font-exo2-reg
+      font-size: 14px
+      text-transform: uppercase
+      &:nth-child(2)
+        position: relative
+        opacity: .8
+        bottom: 2px
+        &::before
+          content: ""
+          display: block
+          width: 100%
+          height: 1px
+          background: $white
+          position: absolute
+          left: 50%
+          bottom: -1px
+          transform: translate(-50%, 0)
+  &__prize
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    padding: 10px 17px 5px 0
+    background: url("../img/results/prize-decor.png") no-repeat 0 0/cover
+    background-size: 100% 100%
+    margin-top: 20px
+    &-amount
+      color: $magenta
+      font-family: $font-exo2-ex-bold
+      font-size: 20px
+      text-transform: uppercase
+      display: flex
+      align-items: center
+      margin-bottom: 4px
+      &::after
+        content: ""
+        display: block
+        width: .55em
+        height: .78em
+        background: url("../img/money-icon.png") no-repeat 0 0/contain
+        margin: 3px 0 0 5px
+    &-fond
+      color: $magenta
+      text-transform: uppercase
+      font-family: $font-exo2-semib
+      font-size: 11px
+      letter-spacing: 0
+  &__you
+    margin-top: 23px
+    display: flex
+    align-items: center
+    background: $magenta
+    border-radius: 8px
+    color: $white
+    text-transform: uppercase
+    padding: 0 0 0 15px
+    max-height: 65px
+    &-place
+      font-size: 37px
+      font-family: $font-exo2-ex-bold
+      margin-right: 7px
+    &-text
+      font-size: 12px
+      line-height: 14px
+      max-width: 40px
+      margin-right: 5px
+    &-info
+      display: flex
+      align-items: flex-start
+      flex-direction: column
+      padding-left: 6px
+      border-left: 1px solid rgba($white, .2)
+      &-id
+        font-size: 12px
+      &-points
+        font-family: $font-exo2-ex-bold
+        font-size: 12px
+    &-pers
+      max-width: 118px
+      align-self: flex-end
+      margin: 0 -18px -3px 0
+  &__btn
+    margin-top: 20px
+  &__bottom
+    max-width: 352px
+    color: $white
+    font-size: 10px
+    opacity: .7
+    margin-top: 11px

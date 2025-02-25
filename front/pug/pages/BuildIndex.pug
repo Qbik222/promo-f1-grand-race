@@ -562,30 +562,19 @@
         .results__title._title(data-translate="resultsTitle") Сезонний Батл
         .results__subtitle(data-translate="resultsSubitle") Більше правильних прогнозів — більше балів в залікову таблицю.
         .results__popup
-            .results__popup-btn
+            .results__popup-btn._btn-popup
             .results__popup-text(data-translate="btnPopup") Детальніше
+        .results__prize
+            .results__prize-amount(data-translate="racePrizeAmount") 40 000
+            .results__prize-fond(data-translate="prizeFond") Призовий фонд
         .results__top
-            .results__first
-                .results__top-wrap
-                    .results__top-place
-                    .results__top-info
-                        .results__top-info-id user 100300268
-                        .results__top-info-points #[span(data-translate="points") балів] 109
-                .results__top-decor
-                .results__top-pers
-                    picture
-                        source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/results/pers-first-mob.png")
-                        source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/results/pers-first-mob.png")
-                        source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/results/pers-first-tab.png")
-                        source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/results/pers-first-desc.png")
-                        img(src="./img/results/pers-first-desc.png" alt="Favbet")
             .results__second
                 .results__top-wrap
-                    .results__top-place
+                    .results__top-place 2
                     .results__top-info
                         .results__top-info-id user 100300268
                         .results__top-info-points #[span(data-translate="points") балів] 109
-                .results__top-decor
+                .results__top-decor 2
                 .results__top-pers
                     picture
                         source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/results/pers-second-mob.png")
@@ -593,13 +582,27 @@
                         source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/results/pers-second-tab.png")
                         source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/results/pers-second-desc.png")
                         img(src="./img/results/pers-second-desc.png" alt="Favbet")
-            .results__third
+            .results__first
                 .results__top-wrap
-                    .results__top-place
+                    .results__top-place 1
                     .results__top-info
                         .results__top-info-id user 100300268
                         .results__top-info-points #[span(data-translate="points") балів] 109
-                .results__top-decor
+                .results__top-decor 1
+                .results__top-pers
+                    picture
+                        source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/results/pers-first-mob.png")
+                        source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/results/pers-first-mob.png")
+                        source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/results/pers-first-tab.png")
+                        source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/results/pers-first-desc.png")
+                        img(src="./img/results/pers-first-desc.png" alt="Favbet")
+            .results__third
+                .results__top-wrap
+                    .results__top-place 3
+                    .results__top-info
+                        .results__top-info-id user 100300268
+                        .results__top-info-points #[span(data-translate="points") балів] 109
+                .results__top-decor 3
                 .results__top-pers
                     picture
                         source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/results/pers-third-mob.png")
@@ -610,19 +613,19 @@
             .results__podium
         .results__you
             .results__you-place 299
-            .results__you-text(data-translate="youText")
+            .results__you-text(data-translate="youText") твоє місце
             .results__you-info
                 .results__you-info-id user 100300268
                 .results__you-info-points
                     span(data-translate="youPoints") кількість балів:
                     span 7
-                .results__you-pers
-                    picture
-                        source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/results/pers-you-mob.png")
-                        source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/results/pers-you-mob.png")
-                        source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/results/pers-you-tab.png")
-                        source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/results/pers-you-desc.png")
-                        img(src="./img/results/pers-you-desc.png" alt="Favbet")
+            .results__you-pers
+                picture
+                    source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/results/pers-you-mob.png")
+                    source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/results/pers-you-mob.png")
+                    source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/results/pers-you-mob.png")
+                    source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/results/pers-you-desc.png")
+                    img(src="./img/results/pers-you-desc.png" alt="Favbet")
         .results__btn.btn взяти участь
         .results__bottom(data-translate="resultsBottom") *Загальний призовий фонд Акції «Грандіозні перегони» складається з 1 500 000 електронних грошових замінників. Деталі на сайті www.favbet.ua. Період дії акції – з 12:00 10.03.2025 до 23:59 07.12.2024 року
 
