@@ -37,6 +37,12 @@ $font-exo2-black: Exo2-Black, sans-serif
 body.light
   background: $blue
 
+picture.light
+  display: block
+
+picture.dark
+  display: none
+
 body
   overscroll-behavior: none
   -webkit-tap-highlight-color: transparent
@@ -652,9 +658,29 @@ body
     width: 468px
     height: 107px
     z-index: 0
-    background: url("../img/results/podium-desc.png") no-repeat 0 0/contain
-    @media screen and (max-width: 1050px)
-      background: url("../img/results/podium-mob.png") no-repeat 0 0/contain
+    &::before
+      content: ""
+      display: block
+      width: 100%
+      height: 100%
+      position: absolute
+      left: 0
+      top: 0
+      z-index: 2
+      background: url("../img/results/podium-desc.png") no-repeat 0 0/contain
+      @media screen and (max-width: 1050px)
+        background: url("../img/results/podium-mob.png") no-repeat 0 0/contain
+    &::after
+      content: ""
+      display: block
+      z-index: 1
+      position: absolute
+      top: -140px
+      left: 50%
+      transform: translate(-50%, 0)
+      width: 440px
+      height: 270px
+      background: url("../img/results/light.png") no-repeat 0 0/contain
   &__subtitle
     max-width: 375px
     color: $white
@@ -756,3 +782,151 @@ body
     font-size: 10px
     opacity: .7
     margin-top: 11px
+
+.road
+  min-width: 575px
+  max-width: 575px
+  height: 515px
+  position: relative
+  padding-top: 50px
+  z-index: 0
+  &__bg
+    position: absolute
+    z-index: 0
+    min-width: 925px
+    max-width: 925px
+    height: 675px
+    left: 50%
+    top: 50px
+    transform: translate(-50%, -50%)
+
+
+  &__car
+    position: relative
+    z-index: 1
+
+.drop
+  max-width: 515px
+  min-width: 515px
+  margin: auto
+  z-index: 3
+  padding: 10px 0
+  .dropdown
+    outline: none!important
+    cursor: pointer
+    position: relative
+    width: 100%
+    z-index: 1
+    text-align: start
+    summary::-webkit-details-marker
+      display: none
+    > summary
+      list-style: none
+    summary
+      padding: 7px 16px
+      font-size: 14px
+      line-height: 14px
+      letter-spacing: 1px
+      width: 100%
+      outline: none!important
+      position: relative
+      display: flex
+      align-items: center
+      user-select: none
+      background: url("../img/drop-bg.png") no-repeat 0 0/cover
+      background-size: 100% 100%
+      //background: rgba($blue, .5)
+      //border: 1px solid rgba($white, .1)
+      border-radius: 10px
+      color: $white
+      ::-webkit-details-marker
+        display: none
+      &:after
+        content: ''
+        background: url("../img/drop-arrow.png") no-repeat 0 0/contain
+        display: inline-block
+        width: 24px
+        height: 24px
+        margin-left: auto
+    &[open]
+      summary
+        &:after
+          transform: rotate(180deg)
+    .drop-txt
+      margin-top: 5px
+      overflow-wrap: break-word
+      padding: 16px
+      text-align: start
+      cursor: auto
+      border: 1px solid rgba($white, .2)
+      background: rgba(0, 0, 61, 0.30)
+      background-size: 100% 100%
+      color: $white
+      &-list
+        max-height: 300px
+        overflow-y: scroll
+        padding-right: 20px
+        scrollbar-width: auto
+        font-family: $font-suisse-intl-reg
+        font-size: 14px
+        line-height: 22px
+        &::-webkit-scrollbar
+          background: rgba($white, .3)
+          width: 3px
+          border-radius: 50px
+        &::-webkit-scrollbar-thumb
+          position: relative
+          border-radius: 50px
+          background: $green
+      tr,td,th
+        font-family: $font-suisse-intl-reg
+        color: $white
+      p, h2, h3, h4, h5, h6, strong, span
+        margin-bottom: 10px
+        font-family: $font-suisse-intl-reg
+        display: block
+        font-size: 16px
+        line-height: 26px
+        color: $white
+        @media screen and (max-width: 600px)
+          font-size: 13px
+          line-height: 20px
+        &:last-child
+          margin-bottom: 0
+        a
+          color: $green
+          text-decoration: underline
+          font-family: $font-suisse-intl-reg
+          position: relative
+          &:hover
+            text-decoration: none
+      strong
+        margin-bottom: 10px
+        font-size: 16px
+        font-family: $font-suisse-intl-reg
+        color: $white
+        display: block
+      .retreat1
+        padding-left: 20px
+      .retreat2
+        padding-left: 30px
+      .circle
+        padding-left: 20px
+        &:before
+          content: ''
+          width: 4px
+          height: 4px
+          background: $white
+          border-radius: 50%
+          display: inline-block
+          margin: 0 5px 3px 0
+
+
+// en styles
+
+.fav-page.en
+  picture.light
+    display: none
+
+  picture.dark
+    display: block

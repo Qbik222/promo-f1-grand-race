@@ -629,24 +629,41 @@
         .results__btn.btn взяти участь
         .results__bottom(data-translate="resultsBottom") *Загальний призовий фонд Акції «Грандіозні перегони» складається з 1 500 000 електронних грошових замінників. Деталі на сайті www.favbet.ua. Період дії акції – з 12:00 10.03.2025 до 23:59 07.12.2024 року
 
-    .drop._container
+    .drop
         details.dropdown
-            summary(data-translate="rulesBtn")
+            summary(data-translate="rulesBtn") Історія прогнозів
             .drop-txt
                 .drop-txt-list(data-translate="rulesText")
-    .drop._container
+    .drop
         details.dropdown
-            summary(data-translate="rulesBtn")
+            summary(data-translate="rulesBtn") Правила
             .drop-txt
-                .drop-txt-list(data-translate="rulesText")
+                .drop-txt-list(data-translate="rulesText").
+                    1. Натисни кнопку «Взяти участь».
+                    Авторизуйся на акційній сторінці, натиснувши кнопку «Авторизуйся», або зареєструйся як користувач. Натисни кнопку «Взяти участь» на сторінці акції.
+                    2. Роби ставки на спортивні події на казино.
+                    З 23 жовтня по 19 листопада 2023 року роби ставки протягом 4-х акційних тижнів на спортивні події та крути слоти в казино у розділах Спорт, LIVE та Казино та заробляй по 1 балу за кожні 200 UAH.
+                    Ставки на спортивні події повинні бути від 200 UAH розраховані з результатом «Виграш» та з коефіцієнтом від 1.5 (ординар) або від 3.5 (експрес від 3 подій), без використання «CashOut» та «Повернення ставки».Ставки в розділі Казино повинні бути від 5 UAH.
+                    3. Отримуй бали та вигравай призи.
+                    Чим більше балів, тим більше шансів здобути приз.
+                    Бали нараховуватимуться та відображатимуться в таблиці «Результати». Після завершення кожного Акційного тижня перших 300 переможців, які наберуть найбільше балів, матимуть право на отримання бонусних призів.
+                    4. Накопичуй квитки та приймай участь у розіграші.Щотижня приймай участь в розіграші спортивних призів Акції.
+                    Квитки нараховуватимуться та відображатимуться в таблиці «Результати» за бали. Отримуй за кожні 5 балів по 1 квитку. Чим більше квитків, тим більше шансів виграти приз. Щотижня приймай участь в розіграші спортивних призів Акції. Розіграш буде проведено в онлайн-трансляцію на YouTube з посиланням на відео на сторінці Акції.
+                    Переможці розіграшу будуть опубліковані  в таблиці “Результати” протягом 72 годин після закінчення акційного тижня та відео розіграшу буде опубліковано на офіційному каналі платформи YouTube за посиланням https://www.youtube.com/@favbetua.
     .road
         .road__bg
-            picture
-                source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/road/bg-mob.png")
-                source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/road/bg-mob.png")
-                source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/road/bg-tab.png")
-                source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/road/bg-desc.png")
-                img(src="./img/road/bg-desc.png" alt="Favbet")
+            picture.light
+                source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/road/road-mob.png")
+                source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/road/road-mob.png")
+                source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/road/road-tab.png")
+                source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/road/road-desc.png")
+                img(src="./img/road/road-desc.png" alt="Favbet")
+            picture.dark
+                source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/road/road-mob-dark.png")
+                source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/road/road-mob-dark.png")
+                source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/road/road-tab-dark.png")
+                source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/road/road-desc-dark.png")
+                img(src="./img/road/road-desc-dark.png" alt="Favbet")
         .road__car
             picture
                 source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/road/car-mob.png")
