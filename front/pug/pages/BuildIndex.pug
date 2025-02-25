@@ -34,18 +34,18 @@
                     img(src="./img/welcome/title-desc.png" alt="Favbet")
             .welcome__prize
                 .welcome__prize-item(data-translate="prizeFond") Призовий фонд
-                .welcome__prize-item(data-translate="prizeFondAmount") 1 500 000 ₴
+                .welcome__prize-item(data-translate="prizeFondAmount") 1 500 000
                 .welcome__prize-item(data-translate="prizeFondText") Прогнозуй результати Гран-прі Змагайся за 40 000 ₴ кожного заїзду
             .welcome__btn.btn взяти участь
-    .race
+    .race._container
         .race__slider
             .race__item
                 .race__item-wrap
                     .race__text(data-translate="raceText") Гран-прі
-                    .race__country(data-translate="Britain") Велика Британія
+                    .race__country._title(data-translate="Britain") Велика Британія
                     .race__date 04.07 — 06.07
                     .race__prize
-                        .race__prize-amount(data-translate="racePrizeAmount") 40 000 ₴
+                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
                         .race__prize-fond(data-translate="prizeFond") Призовий фонд
                 .race__bolid
                     .race__bolid-decor
@@ -57,254 +57,478 @@
                         picture
                             source(media="(max-width: 600px) and (orientation: portrait)" srcset="/img/race/car-mob.png")
                             source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="/img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-tab.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
                             source(media="(min-width: 601px) and (orientation: landscape)" srcset="/img/race/car-desc.png")
                             img(src="./img/race/car-desc.png" alt="Favbet")
                     .race__bolid-map
                         picture
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="/img/race/map-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="/img/race/map-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/map-tab.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="/img/race/map-desc.png")
-                            img(src="./img/race/map-desc.png" alt="Favbet")
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="/img/race/map/british.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="/img/race/map/british.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/map/british.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="/img/race/map/british.png")
+                            img(src="./img/race/map/british.png" alt="Favbet")
         .race__nav
-            .race__nav-right
             .race__nav-left
-            .race__nav-counter
-    .bet
+            .race__nav-right
+            .race__nav-counter 12/24
+    .bet._container._margin-top._racer
         .bet__item._racer
             .bet__text(data-translate="betText") етап
-            .bet__title(data-translate="betTitleRacer") Обери переможця Гран-прі*
-            .bet__btn(data-translate="btnPopup") Детальніше
+            .bet__title._title(data-translate="betTitleRacer") Обери переможця Гран-прі*
+            .bet__your-wrap
+                .bet__btn
+                    .bet__btn-item._btn-popup
+                    .bet__btn-item(data-translate="btnPopup") Детальніше
+                .bet__your
+                    .bet__your-item #[span(data-translate="yourBet") Твій прогноз —] #[span(data-translate="MaxVerstappen") Макс Ферстаппен ]
+                    .bet__your-item(data-translate="yourBetText") Ти можеш змінити його до початку гран-прі.
             .bet__wrap
                 .bet__column
                     .bet__column-item
                         .bet__column-place 1
                         .bet__column-flag
+                            img(src="./img/bet/flag/netherlands.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="MaxVerstappen") Макс Ферстаппен
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 2
                         .bet__column-flag
+                            img(src="./img/bet/flag/british.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="LandoNorris") Ландо Норріс
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 3
                         .bet__column-flag
+                            img(src="./img/bet/flag/monaco.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="CharlesLeclerc") Шарль Леклер
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 4
                         .bet__column-flag
+                            img(src="./img/bet/flag/australia.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="OscarPiastri") Оскар Піастрі
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 5
                         .bet__column-flag
+                            img(src="./img/bet/flag/spain.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="CarlosSainz") Карлос Сайнс
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 6
                         .bet__column-flag
+                            img(src="./img/bet/flag/british.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="GeorgeRussell") Джордж Рассел
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 7
                         .bet__column-flag
+                            img(src="./img/bet/flag/british.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="LewisHamilton") Льюїс Гамільтон
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 8
                         .bet__column-flag
+                            img(src="./img/bet/flag/australia.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="LiamLawson") Ліам Лоусон
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 9
                         .bet__column-flag
+                            img(src="./img/bet/flag/italia.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="AndreaKimiAntonelli") Андреа Кімі Антонеллі
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 10
                         .bet__column-flag
+                            img(src="./img/bet/flag/canada.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="LanceStroll") Ленс Стролл
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                 .bet__column
                     .bet__column-item
                         .bet__column-place 11
                         .bet__column-flag
+                            img(src="./img/bet/flag/spain.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="FernandoAlonso") Фернандо Алонсо
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 12
                         .bet__column-flag
+                            img(src="./img/bet/flag/france.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="PierreGasly") П'єр Гаслі
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 13
                         .bet__column-flag
+                            img(src="./img/bet/flag/australia.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="JackDoohan") Джек Дуган
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 14
                         .bet__column-flag
+                            img(src="./img/bet/flag/france.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="IsackHadjar") Ісак Хаджар
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 15
                         .bet__column-flag
+                            img(src="./img/bet/flag/japan.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="YukiTsunoda") Юкі Цунода
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 16
                         .bet__column-flag
+                            img(src="./img/bet/flag/france.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="EstebanOcon") Естебан Окон
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 17
                         .bet__column-flag
+                            img(src="./img/bet/flag/british.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="OliverBearman") Олівер Берман
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") Твій прогноз
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 18
                         .bet__column-flag
+                            img(src="./img/bet/flag/newzel.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="AlexanderAlbon") Александр Албон
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 19
                         .bet__column-flag
+                            img(src="./img/bet/flag/german.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="NicoHulkenberg") Ніко Хюлькенберг
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 20
                         .bet__column-flag
+                            img(src="./img/bet/flag/brazil.svg" alt="flag")
                         .bet__column-name
                             .bet__column-name-item(data-translate="GabrielBortoleto") Габріель Бортолето
                             .bet__column-name-item McLaren
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+        .bet__item._map
+            .bet__text(data-translate="betText") етап
+            .bet__title._title(data-translate="betTitleRacer") Обери переможця Гран-прі*
+            .bet__your-wrap
+                .bet__btn
+                    .bet__btn-item._btn-popup
+                    .bet__btn-item(data-translate="btnPopup") Детальніше
+                .bet__your
+                    .bet__your-item #[span(data-translate="yourBet") Твій прогноз —] #[span(data-translate="MaxVerstappen") Макс Ферстаппен ]
+                    .bet__your-item(data-translate="yourBetText") Ти можеш змінити його до початку гран-прі.
+            .bet__wrap
+                .bet__column
+                    .bet__column-item
+                        .bet__column-place 1
+                        .bet__column-flag
+                            img(src="./img/bet/flag/netherlands.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="MaxVerstappen") Макс Ферстаппен
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                    .bet__column-item
+                        .bet__column-place 2
+                        .bet__column-flag
+                            img(src="./img/bet/flag/british.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="LandoNorris") Ландо Норріс
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                    .bet__column-item
+                        .bet__column-place 3
+                        .bet__column-flag
+                            img(src="./img/bet/flag/monaco.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="CharlesLeclerc") Шарль Леклер
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                    .bet__column-item
+                        .bet__column-place 4
+                        .bet__column-flag
+                            img(src="./img/bet/flag/australia.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="OscarPiastri") Оскар Піастрі
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                    .bet__column-item
+                        .bet__column-place 5
+                        .bet__column-flag
+                            img(src="./img/bet/flag/spain.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="CarlosSainz") Карлос Сайнс
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                    .bet__column-item
+                        .bet__column-place 6
+                        .bet__column-flag
+                            img(src="./img/bet/flag/british.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="GeorgeRussell") Джордж Рассел
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                    .bet__column-item
+                        .bet__column-place 7
+                        .bet__column-flag
+                            img(src="./img/bet/flag/british.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="LewisHamilton") Льюїс Гамільтон
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                    .bet__column-item
+                        .bet__column-place 8
+                        .bet__column-flag
+                            img(src="./img/bet/flag/australia.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="LiamLawson") Ліам Лоусон
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                    .bet__column-item
+                        .bet__column-place 9
+                        .bet__column-flag
+                            img(src="./img/bet/flag/italia.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="AndreaKimiAntonelli") Андреа Кімі Антонеллі
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                    .bet__column-item
+                        .bet__column-place 10
+                        .bet__column-flag
+                            img(src="./img/bet/flag/canada.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="LanceStroll") Ленс Стролл
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                .bet__column
+                    .bet__column-item
+                        .bet__column-place 11
+                        .bet__column-flag
+                            img(src="./img/bet/flag/spain.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="FernandoAlonso") Фернандо Алонсо
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                    .bet__column-item
+                        .bet__column-place 12
+                        .bet__column-flag
+                            img(src="./img/bet/flag/france.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="PierreGasly") П'єр Гаслі
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                    .bet__column-item
+                        .bet__column-place 13
+                        .bet__column-flag
+                            img(src="./img/bet/flag/australia.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="JackDoohan") Джек Дуган
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                    .bet__column-item
+                        .bet__column-place 14
+                        .bet__column-flag
+                            img(src="./img/bet/flag/france.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="IsackHadjar") Ісак Хаджар
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                    .bet__column-item
+                        .bet__column-place 15
+                        .bet__column-flag
+                            img(src="./img/bet/flag/japan.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="YukiTsunoda") Юкі Цунода
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                    .bet__column-item
+                        .bet__column-place 16
+                        .bet__column-flag
+                            img(src="./img/bet/flag/france.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="EstebanOcon") Естебан Окон
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                    .bet__column-item
+                        .bet__column-place 17
+                        .bet__column-flag
+                            img(src="./img/bet/flag/british.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="OliverBearman") Олівер Берман
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn Твій прогноз
+
+                    .bet__column-item
+                        .bet__column-place 18
+                        .bet__column-flag
+                            img(src="./img/bet/flag/newzel.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="AlexanderAlbon") Александр Албон
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                    .bet__column-item
+                        .bet__column-place 19
+                        .bet__column-flag
+                            img(src="./img/bet/flag/german.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="NicoHulkenberg") Ніко Хюлькенберг
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+
+                    .bet__column-item
+                        .bet__column-place 20
+                        .bet__column-flag
+                            img(src="./img/bet/flag/brazil.svg" alt="flag")
+                        .bet__column-name
+                            .bet__column-name-item(data-translate="GabrielBortoleto") Габріель Бортолето
+                            .bet__column-name-item McLaren
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
         .bet__item._team
             .bet__text(data-translate="betText") етап
-            .bet__title(data-translate="betTitleRacer") Обери переможця Гран-прі*
-            .bet__btn(data-translate="btnPopup") Детальніше
+            .bet__title._title(data-translate="betTitleRacer") Обери переможця Гран-прі*
+            .bet__your-wrap
+                .bet__btn
+                    .bet__btn-item._btn-popup
+                    .bet__btn-item(data-translate="btnPopup") Детальніше
+                .bet__your
+                    .bet__your-item #[span(data-translate="yourBet") Твій прогноз —] #[span(data-translate="MaxVerstappen") Макс Ферстаппен ]
+                    .bet__your-item(data-translate="yourBetText") Ти можеш змінити його до початку гран-прі.
             .bet__wrap
                 .bet__column
                     .bet__column-item
                         .bet__column-place 1
                         .bet__column-name
                             .bet__column-name-item(data-translate="McLaren") КОМАНДА «МАКЛАРЕН»
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 2
                         .bet__column-name
                             .bet__column-name-item(data-translate="Ferrari") КОМАНДА «ФЕРАРІ»
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 3
                         .bet__column-name
                             .bet__column-name-item(data-translate="RedBull") КОМАНДА «РЕДБУЛ»
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 4
                         .bet__column-name
                             .bet__column-name-item(data-translate="Mercedes") КОМАНДА «МЕРСЕДЕС»
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 5
                         .bet__column-name
                             .bet__column-name-item(data-translate="Alpine") КОМАНДА «АЛЬПІН»
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                 .bet__column
                     .bet__column-item
                         .bet__column-place 6
                         .bet__column-name
                             .bet__column-name-item(data-translate="AstonMartin") КОМАНДА «АСТОН МАРТІН»
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 7
                         .bet__column-name
                             .bet__column-name-item(data-translate="Haas") КОМАНДА «ХААС»
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 8
                         .bet__column-name
                             .bet__column-name-item(data-translate="KickSauber") КОМАНДА «КІК САУБЕР»
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 9
                         .bet__column-name
                             .bet__column-name-item(data-translate="RacingBulls") КОМАНДА «РЕЙСІНГ БУЛС»
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
 
                     .bet__column-item
                         .bet__column-place 10
                         .bet__column-name
                             .bet__column-name-item(data-translate="Williams") КОМАНДА «ВІЛЬЯМС»
-                        .bet__column-btn(data-translate="playBtn") ЗРОБИТИ ПРОГНОЗ
-    .confirm
+                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+    .confirm._container
         .confirm__prediction
             .confirm__prediction-no(data-translate="betNoConfirmed") Прогноз не підтверджено
             .confirm__prediction-yes(data-translate="betConfirmed") Прогноз підтверджено
@@ -335,8 +559,8 @@
                 .confirm__anim-arrow
         .confirm__btn.btn погнали
 
-    .results
-        .results__title(data-translate="resultsTitle") Сезонний Батл
+    .results._container
+        .results__title._title(data-translate="resultsTitle") Сезонний Батл
         .results__subtitle(data-translate="resultsSubitle") Більше правильних прогнозів — більше балів в залікову таблицю.
         .results__popup
             .results__popup-btn
@@ -403,12 +627,12 @@
         .results__btn.btn взяти участь
         .results__bottom(data-translate="resultsBottom") *Загальний призовий фонд Акції «Грандіозні перегони» складається з 1 500 000 електронних грошових замінників. Деталі на сайті www.favbet.ua. Період дії акції – з 12:00 10.03.2025 до 23:59 07.12.2024 року
 
-    .drop
+    .drop._container
         details.dropdown
             summary(data-translate="rulesBtn")
             .drop-txt
                 .drop-txt-list(data-translate="rulesText")
-    .drop
+    .drop._container
         details.dropdown
             summary(data-translate="rulesBtn")
             .drop-txt
