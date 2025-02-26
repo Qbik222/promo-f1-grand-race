@@ -247,11 +247,28 @@ body
     padding-top: 26px
     background: url("../img/race/slide-decor.png") no-repeat 0 0/cover
     background-size: 100% 100%
+    position: absolute
+    left: 0
+    top: 25px
+    opacity: 0
+    width: 100%
+    &._active
+      position: relative
+      opacity: 1
+      top: 0
+      .race
+        &__item
+          &-wrap
+            perspective: 100px
+            transition: all 2s ease-in-out
+            transform: rotate3d(1, 1, 1, 360deg)
     &-wrap
       display: flex
       flex-direction: column
       align-items: flex-start
       align-self: flex-start
+      perspective: 100px
+      transform: rotate3d(1, 1, 1, 0deg)
   &__text
     color: $white
     text-transform: uppercase
@@ -302,6 +319,17 @@ body
     height: 400px
     position: relative
     pointer-events: none
+    margin: 0 80px 0 auto
+    &._move
+      .race__bolid-car
+        transform: translate(-300%, -50%)
+      .race__bolid-smoke
+        &-front, &-back
+          opacity: 0 !important
+          transition: opacity .2s linear
+      .race__bolid-map
+        opacity: 0
+        transition: opacity 1s ease
     &-smoke
       &-front, &-back
         position: absolute
@@ -357,6 +385,7 @@ body
       left: 50%
       top: 50%
       transform: translate(-50%, -50%)
+      transition: all  1.5s  ease-out
       picture
         z-index: 2
         position: relative

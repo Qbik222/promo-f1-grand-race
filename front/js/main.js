@@ -44,8 +44,9 @@
 
     function startSmoke(carSelector, smokeClass, maxCount, interval, delay, fadeTime, removeDelay, extraClass = '') {
         const car = document.querySelector(carSelector);
-        if (!car || !car.parentElement.parentElement.classList.contains("_active")) return;
+
         function createSmoke() {
+            if (!car || !car.parentElement.parentElement.classList.contains("_active")) return;
             if (car.querySelectorAll(`.${smokeClass}${extraClass ? `.${extraClass}` : ''}`).length < maxCount) {
                 const smoke = document.createElement('div');
                 smoke.classList.add(smokeClass);
