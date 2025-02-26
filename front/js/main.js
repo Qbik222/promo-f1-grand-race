@@ -40,4 +40,32 @@
     startCountdown(endOfMonth);
 
 
+
+
+    function startSmoke(carSelector, smokeClass, maxCount, interval, delay, fadeTime, removeDelay, extraClass = '') {
+        const car = document.querySelector(carSelector);
+        if (!car || !car.parentElement.parentElement.classList.contains("_active")) return;
+        function createSmoke() {
+            if (car.querySelectorAll(`.${smokeClass}${extraClass ? `.${extraClass}` : ''}`).length < maxCount) {
+                const smoke = document.createElement('div');
+                smoke.classList.add(smokeClass);
+                if (extraClass) smoke.classList.add(extraClass);
+                car.appendChild(smoke);
+                setTimeout(() => smoke.classList.add("_opacity"), fadeTime);
+                setTimeout(() => smoke.remove(), fadeTime + removeDelay);
+            }
+        }
+        createSmoke();
+        setTimeout(createSmoke, delay);
+        setInterval(() => {
+            createSmoke();
+            setTimeout(createSmoke, delay);
+        }, interval);
+    }
+    startSmoke('.race__bolid-car', 'race__bolid-smoke-front', 2, 900, 500, 100, 800);
+    startSmoke('.race__bolid-car', 'race__bolid-smoke-back', 4, 900, 500, 100, 800);
+    startSmoke('.race__bolid-car', 'race__bolid-smoke-back', 2, 900, 500, 100, 800, "_large");
+
+
+
 })()

@@ -12,6 +12,9 @@ $font-exo2-bold: Exo2-Bold, sans-serif
 $font-exo2-ex-bold: Exo2-ExtraBold, sans-serif
 $font-exo2-black: Exo2-Black, sans-serif
 
+//._opacity
+//  scale: 1.5
+
 ._title
   color: $white
   text-transform: uppercase
@@ -94,6 +97,8 @@ body
   background: url("../img/welcome/bg-desc.jpg") no-repeat 0 0/cover
   position: relative
   overflow: hidden
+  &__btn
+    animation: welcomeBtn 1.2s ease-in-out
   &__right
     display: flex
     flex-direction: column
@@ -103,6 +108,7 @@ body
     z-index: 2
   &__title
     max-width: 300px
+    animation: welcomeTitle .5s ease-in-out
   &__prize
     display: flex
     flex-direction: column
@@ -111,7 +117,9 @@ body
     margin: 20px 0
     padding: 20px 0
     background: url("../img/welcome/right-decor.png") no-repeat 0 0/contain
+
     &-item
+      animation: welcomeTitle .9s ease-in-out
       &:nth-child(1)
         font-family: $font-exo2-semib
         font-size: 17px
@@ -143,6 +151,89 @@ body
     min-width: 915px
     height: 410px
     z-index: 1
+    &-wheel
+      position: absolute
+      width: 75px
+      height: 125px
+      bottom: 105px
+      left: 243px
+      z-index: 3
+      animation: spinWheel 1s linear infinite
+      //background: url("../img/welcome/wheel/frame6.png") no-repeat 0 0/cover
+      //background-size: 55px 110px
+      //background-position: 17px 19px
+    &-img
+      z-index: 2
+      position: relative
+      &::before
+        content: ""
+        position: absolute
+        display: block
+        width: 22px
+        height: 29px
+        background: url("../img/welcome/wheel/wheel-front.png") no-repeat 0 0/contain
+        z-index: 2
+        bottom: 203px
+        left: 316px
+        animation: wheelAnim .5s linear infinite
+      &::after
+        content: ""
+        position: absolute
+        display: block
+        width: 12px
+        height: 24px
+        background: url("../img/welcome/wheel/wheel-back.png") no-repeat 0 0/contain
+        z-index: 2
+        bottom: 200px
+        left: 116px
+        animation: wheelAnim .5s linear infinite
+    &-smoke
+      position: absolute
+      width: 100%
+      height: 100%
+      left: 0
+      top: 0
+      &-front
+        width: 300px
+        height: 120px
+        position: absolute
+        bottom: 106px
+        left: -20px
+        z-index: 3
+        background: url("../img/welcome/smoke-front.png") no-repeat 0 0/contain
+        .front-before, .front-after
+          content: ""
+          display: block
+          position: absolute
+          width: 100%
+          height: 100%
+          background: url("../img/welcome/smoke-front.png") no-repeat 0 0/contain
+          transform-origin: right bottom
+        .front-before
+          z-index: 2
+        .front-after
+          z-index: 1
+      &-back
+        width: 245px
+        height: 245px
+        position: absolute
+        bottom: 176px
+        left: 20px
+        //background: url("../img/welcome/smoke-back.png") no-repeat 0 0/contain
+        z-index: 1
+        .front-before, .front-after
+          content: ""
+          display: block
+          position: absolute
+          width: 100%
+          height: 100%
+          background: url("../img/welcome/smoke-back.png") no-repeat 0 0/contain
+          transform-origin: right bottom
+        .front-before
+          z-index: 3
+        .front-after
+          z-index: 1
+
 
 .race
   padding-top: 25px
@@ -211,6 +302,53 @@ body
     height: 400px
     position: relative
     pointer-events: none
+    &-smoke
+      &-front, &-back
+        position: absolute
+        //transition: opacity 1.2s ease-out, transform 1.5s ease-out
+        //animation: bolidFrontSmoke 2s infinite
+      &-front
+        width: 182px
+        height: 32px
+        background: url("../img/race/front-smoke.png") no-repeat 0 0/contain
+        top: 95px
+        left: 120px
+        z-index: 3
+        transform-origin: left bottom
+        animation: smokeRaceAnim 1s linear
+      &-back
+        width: 171px
+        height: 40px
+        background: url("../img/race/back-smoke-small.png") no-repeat 0 0/contain
+        z-index: 3
+        right: -55px
+        top: 90px
+        transform-origin: left bottom
+        animation: smokeRaceAnim 1s linear
+        opacity: 0
+        &._large
+          width: 268px
+          height: 116px
+          z-index: 0
+          background: url("../img/race/back-smoke-large.png") no-repeat 0 0/contain
+          top: 0
+          right: -65px
+    &-wheel
+      &-front, &-back
+        position: absolute
+        width: 48px
+        height: 45px
+        z-index: 2
+        animation: rotate360 1s linear infinite
+      &-front
+        background: url("../img/race/front-wheel.png") no-repeat 0 0/contain
+        bottom: 140px
+        left: 100px
+      &-back
+        background: url("../img/race/back-wheel.png") no-repeat 0 0/contain
+        bottom: 138px
+        left: 503px
+
     &-car
       min-width: 100%
       max-width: 100%
@@ -219,6 +357,9 @@ body
       left: 50%
       top: 50%
       transform: translate(-50%, -50%)
+      picture
+        z-index: 2
+        position: relative
     &-map
       min-width: 110%
       max-width: 110%
@@ -518,6 +659,8 @@ body
     &-arrow
       background: url("../img/confirm/arrow-speedometer.png") no-repeat 0 0/contain
       z-index: 2
+      transform: rotate(0deg)
+      animation: speedometer 5s ease infinite
   &__btn
     margin-top: 20px
 
@@ -537,6 +680,7 @@ body
     background: url("../img/results/results-decor-desc.png") no-repeat 0 0/cover
     background-size: 100% 100%
     position: absolute
+    pointer-events: none
   &__first, &__second, &__third
     display: flex
     flex-direction: column
@@ -790,6 +934,7 @@ body
   position: relative
   padding-top: 50px
   z-index: 0
+  pointer-events: none
   &__bg
     position: absolute
     z-index: 0
@@ -921,6 +1066,227 @@ body
           display: inline-block
           margin: 0 5px 3px 0
 
+// animations
+
+@keyframes welcomeTitle
+  0%
+    opacity: 0
+    transform: translate(-10px, 0)
+  100%
+    opacity: 1
+
+@keyframes welcomePrize
+  0%
+    opacity: 0
+    transform: translate(-70px, 0)
+  100%
+    opacity: 1
+
+@keyframes welcomeBtn
+  0%
+    opacity: 0
+    transform: translate(0, 20px)
+  100%
+    opacity: 1
+
+@keyframes smokeRaceAnim
+  0%
+    scale: 1
+  50%
+    scale: 1.3
+    opacity: 1
+  100%
+    scale: 1.5
+    opacity: 0
+
+
+@keyframes bolidFrontSmoke
+  0%, 34%, 64%, 100%
+    transform: scale(1)
+    opacity: 1
+  30%, 60%, 94%
+    transform: scale(1.38)
+    opacity: 1
+  33%, 63%, 95%
+    transform: scale(1.4)
+    opacity: 0
+  33.5%, 63.5%, 96%
+    transform: scale(1)
+    opacity: 0
+
+
+//@keyframes bolidFrontSmoke
+//  0%
+//    scale: 1
+//  30%
+//    scale: 1.38
+//    opacity: 1
+//  33%
+//    scale: 1.4
+//    opacity: 0
+//  33.5%
+//    scale: 1
+//    opacity: 0
+//  34%
+//    scale: 1
+//    opacity: 1
+//  60%
+//    scale: 1.38
+//    opacity: 1
+//  63%
+//    scale: 1.4
+//    opacity: 0
+//  63.5%
+//    scale: 1
+//    opacity: 0
+//  64%
+//    scale: 1
+//    opacity: 1
+//  94%
+//    scale: 1.38
+//    opacity: 1
+//  94.5%
+//    scale: 1
+//    opacity: 0
+//  95%
+//    scale: 1.4
+//    opacity: 0
+//  96%
+//    scale: 1
+//    opacity: 0
+//  100%
+//    scale: 1
+//    opacity: 1
+
+
+
+@keyframes spinWheel
+  0%, 100%
+    background: url("../img/welcome/wheel/frame1.png") no-repeat 0 0/cover
+    background-size: 100% 100%
+  14%
+    background: url("../img/welcome/wheel/frame2.png") no-repeat 0 0/cover
+    background-size: 100% 100%
+  28%
+    background: url("../img/welcome/wheel/frame3.png") no-repeat 0 0/cover
+    background-size: 100% 100%
+  42%
+    background: url("../img/welcome/wheel/frame4.png") no-repeat 0 0/cover
+    background-size: 100% 100%
+  56%
+    background: url("../img/welcome/wheel/frame5.png") no-repeat 0 0/cover
+    background-size: 100% 100%
+  70%
+    background: url("../img/welcome/wheel/frame6.png") no-repeat 0 0/cover
+    background-size: 100% 100%
+
+@keyframes rotate360
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(-360deg)
+
+@keyframes speedometer
+  0%, 100%
+    transform: rotate(0deg)
+  20%
+    transform: rotate(44deg)
+  40%
+    transform: rotate(-33deg)
+  55%
+    transform: rotate(55deg)
+  65%
+    transform: rotate(39deg)
+  75%
+    transform: rotate(60deg)
+  78%
+    transform: rotate(57deg)
+  81%
+    transform: rotate(61deg)
+  84%
+    transform: rotate(57deg)
+  87%
+    transform: rotate(61deg)
+  90%
+    transform: rotate(57deg)
+  93%
+    transform: rotate(61deg)
+
+
+
+@keyframes wheelAnim
+  0%
+    opacity: 1
+  100%
+    opacity: 0
+    transform: translate(-5px, -9px)
+
+@keyframes smokeAnim
+  0%
+    transform: scale(1)
+    opacity: 1
+  50%
+    //transform: scale(1.5)
+    opacity: 1
+  75%
+    opacity: 1
+  80%
+    transform: scale(1.5)
+  85%
+    opacity: 0
+    transform: scale(1.5)
+  100%
+    transform: scale(1)
+    opacity: 0
+
+@keyframes smokeAnim2
+  0%
+    transform: scale(1.05)
+    opacity: .5
+  50%
+    //transform: scale(1.5)
+    opacity: 1
+  75%
+    opacity: 1
+  80%
+    transform: scale(1.5)
+  85%
+    opacity: 0
+    transform: scale(1.5)
+  100%
+    transform: scale(1)
+    opacity: 0
+
+
+.smokeAnim
+  .front-before
+    animation: smokeAnim 2.5s linear infinite
+    z-index: 1
+    opacity: 0
+    transition: opacity .3s linear
+  .front-after
+    animation: smokeAnim2 2.5s linear infinite
+    transition: opacity .3s linear
+    z-index: 2
+    opacity: 0
+    animation-delay: 1.5s
+
+.smokeScale
+  &::before
+    transition: all 1.8s linear
+    scale: 1.45
+
+.smokeOpacity
+  &::before
+    transition: all .4s linear
+    opacity: 0
+    scale: 1.55
+
+.frontSmokeAfter
+  &::before
+    animation: frontSmokeBefore 2.3s linear
+    opacity: 0
+
 
 // en styles
 
@@ -930,3 +1296,4 @@ body
 
   picture.dark
     display: block
+

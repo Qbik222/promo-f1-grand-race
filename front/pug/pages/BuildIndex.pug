@@ -14,16 +14,19 @@
                 .welcome__pers-decor-item
                 .welcome__pers-decor-item
             .welcome__pers-smoke
-                .welcome__pers-smoke-front
-                .welcome__pers-smoke-back
-
-            .welcome__pers-wheel
-            picture.welcome__pers-img
-                source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/welcome/car-mob.png")
-                source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/welcome/car-mob.png")
-                source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/welcome/car-tab.png")
-                source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/welcome/car-desc.png")
-                img(src="./img/welcome/car-desc.png" alt="Favbet")
+                .welcome__pers-smoke-front.smokeAnim
+                    .front-before
+                    .front-after
+                .welcome__pers-smoke-back.smokeAnim
+                    .front-before
+                    .front-after
+                .welcome__pers-wheel
+                picture.welcome__pers-img
+                    source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/welcome/car-mob.png")
+                    source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/welcome/car-mob.png")
+                    source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/welcome/car-tab.png")
+                    source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/welcome/car-desc.png")
+                    img(src="./img/welcome/car-desc.png" alt="Favbet")
         .welcome__right
             .welcome__title
                 picture
@@ -39,7 +42,7 @@
             .welcome__btn.btn взяти участь
     .race._container
         .race__slider
-            .race__item
+            .race__item._active
                 .race__item-wrap
                     .race__text(data-translate="raceText") Гран-прі
                     .race__country._title(data-translate="Britain") Велика Британія
@@ -60,6 +63,8 @@
                             source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
                             source(media="(min-width: 601px) and (orientation: landscape)" srcset="/img/race/car-desc.png")
                             img(src="./img/race/car-desc.png" alt="Favbet")
+                        .race__bolid-wheel-front
+                        .race__bolid-wheel-back
                     .race__bolid-map
                         picture
                             source(media="(max-width: 600px) and (orientation: portrait)" srcset="/img/race/map/british.png")
