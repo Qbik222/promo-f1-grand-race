@@ -261,12 +261,10 @@ body
       position: relative
       opacity: 1
       top: 0
-      .race
-        &__item
-          &-wrap
-            perspective: 100px
-            transition: all 2s ease-in-out
-            transform: rotate3d(1, 1, 1, 360deg)
+      //.race
+      //  &__item
+      //    &-wrap
+
     &-wrap
       display: flex
       flex-direction: column
@@ -326,6 +324,9 @@ body
     position: relative
     pointer-events: none
     margin: 0 80px 0 auto
+    &._arrive
+      .race__bolid-car
+        transform: translate(300%, -50%)
     &._move
       .race__bolid-car
         transform: translate(-300%, -50%)
@@ -1199,21 +1200,22 @@ body
   0%, 100%
     background: url("../img/welcome/wheel/frame1.png") no-repeat 0 0/cover
     background-size: 100% 100%
-  14%
+  16.6%
     background: url("../img/welcome/wheel/frame2.png") no-repeat 0 0/cover
     background-size: 100% 100%
-  28%
+  33.2%
     background: url("../img/welcome/wheel/frame3.png") no-repeat 0 0/cover
     background-size: 100% 100%
-  42%
+  49.8%
     background: url("../img/welcome/wheel/frame4.png") no-repeat 0 0/cover
     background-size: 100% 100%
-  56%
+  66.4%
     background: url("../img/welcome/wheel/frame5.png") no-repeat 0 0/cover
     background-size: 100% 100%
-  70%
+  83%
     background: url("../img/welcome/wheel/frame6.png") no-repeat 0 0/cover
     background-size: 100% 100%
+
 
 @keyframes rotate360
   0%
