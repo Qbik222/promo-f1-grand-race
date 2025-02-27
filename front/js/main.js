@@ -17,7 +17,6 @@
         function moveSlide(direction) {
             const currentBolid = slides[currentSlide].querySelector(".race__bolid");
             currentBolid.classList.add("_move");
-
             let nextSlide = direction === "next" ? currentSlide + 1 : currentSlide - 1;
             if (nextSlide < 0) nextSlide = slides.length - 1;
             if (nextSlide >= slides.length) nextSlide = 0;
@@ -40,8 +39,20 @@
             }, 1500);
         }
 
-        slideMoveLeft.addEventListener("click", () => moveSlide("prev"));
-        slideMoveRight.addEventListener("click", () => moveSlide("next"));
+        slideMoveLeft.addEventListener("click", () => {
+            moveSlide("prev")
+            document.querySelector(".race__nav").style.pointerEvents = "none"
+            setTimeout(()=>{
+                document.querySelector(".race__nav").style.pointerEvents = "initial"
+            }, 2000)
+        });
+        slideMoveRight.addEventListener("click", () => {
+            moveSlide("next")
+            document.querySelector(".race__nav").style.pointerEvents = "none"
+            setTimeout(()=>{
+                document.querySelector(".race__nav").style.pointerEvents = "initial"
+            }, 2000)
+        });
 
         updateSlider(currentSlide);
 
