@@ -5,15 +5,45 @@
         const slideMoveRight = document.querySelector(".race__nav-right")
         const slideCounter = document.querySelector(".race__nav-counter")
 
-        let currentSLide = 0
+        let currentSlide = 0
 
-        // slides.forEach((slide, i) =>{
-        //
-        // })
 
-        function setSlider(slides){
-
+        function updateSlider(index) {
+            slides.forEach(slide => slide.classList.remove("_active"));
+            slides[index].classList.add("_active");
+            slideCounter.textContent = `${index + 1}/${slides.length}`;
         }
+
+        function moveSlide(direction) {
+            const currentBolid = slides[currentSlide].querySelector(".race__bolid");
+            currentBolid.classList.add("_move");
+
+            let nextSlide = direction === "next" ? currentSlide + 1 : currentSlide - 1;
+            if (nextSlide < 0) nextSlide = slides.length - 1;
+            if (nextSlide >= slides.length) nextSlide = 0;
+
+            const nextBolid = slides[nextSlide].querySelector(".race__bolid");
+            nextBolid.classList.add("_arrive");
+
+
+            slides[currentSlide].classList.add("_opacity")
+
+            setTimeout(() => {
+                currentBolid.classList.remove("_move");
+                nextBolid.classList.remove("_arrive");
+                currentSlide = nextSlide;
+
+                updateSlider(currentSlide);
+                slides.forEach(slide =>{
+                    slide.classList.remove("_opacity")
+                })
+            }, 1500);
+        }
+
+        slideMoveLeft.addEventListener("click", () => moveSlide("prev"));
+        slideMoveRight.addEventListener("click", () => moveSlide("next"));
+
+        updateSlider(currentSlide);
 
 
 
@@ -59,27 +89,32 @@
         startCountdown(endOfMonth);
 
         function startSmoke(carSelector, smokeClass, maxCount, interval, delay, fadeTime, removeDelay, extraClass = '', activeClass = false) {
-            const car = document.querySelector(carSelector);
+            const cars = document.querySelectorAll(carSelector);
+            cars.forEach(car =>{
+                if (!car) return;
+                console.log(car.parentElement.parentElement.classList.contains("_active"))
 
-            function createSmoke() {
-                if(activeClass){
-                    if (!car || !car.parentElement.parentElement.classList.contains("_active")) return;
+                function createSmoke() {
+                    if(activeClass){
+                        if (!car || !car.parentElement.parentElement.classList.contains("_active")) return;
+                    }
+                    if (car.querySelectorAll(`.${smokeClass}${extraClass ? `.${extraClass}` : ''}`).length < maxCount) {
+                        const smoke = document.createElement('div');
+                        smoke.classList.add(smokeClass);
+                        if (extraClass) smoke.classList.add(extraClass);
+                        car.appendChild(smoke);
+                        setTimeout(() => smoke.classList.add("_opacity"), fadeTime);
+                        setTimeout(() => smoke.remove(), fadeTime + removeDelay);
+                    }
                 }
-                if (car.querySelectorAll(`.${smokeClass}${extraClass ? `.${extraClass}` : ''}`).length < maxCount) {
-                    const smoke = document.createElement('div');
-                    smoke.classList.add(smokeClass);
-                    if (extraClass) smoke.classList.add(extraClass);
-                    car.appendChild(smoke);
-                    setTimeout(() => smoke.classList.add("_opacity"), fadeTime);
-                    setTimeout(() => smoke.remove(), fadeTime + removeDelay);
-                }
-            }
-            createSmoke();
-            setTimeout(createSmoke, delay);
-            setInterval(() => {
                 createSmoke();
                 setTimeout(createSmoke, delay);
-            }, interval);
+                setInterval(() => {
+                    createSmoke();
+                    setTimeout(createSmoke, delay);
+                }, interval);
+            })
+
         }
         // startSmoke('.race__bolid-car', 'race__bolid-smoke-front', 4, 900, 500, 100, 800, "", true);
         // startSmoke('.race__bolid-car', 'race__bolid-smoke-back', 8, 900, 500, 100, 800, "", true);

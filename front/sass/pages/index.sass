@@ -12,7 +12,9 @@ $font-exo2-bold: Exo2-Bold, sans-serif
 $font-exo2-ex-bold: Exo2-ExtraBold, sans-serif
 $font-exo2-black: Exo2-Black, sans-serif
 
-//._opacity
+._opacity
+  opacity: 0 !important
+  transition: opacity 2s ease-in-out
 //  scale: 1.5
 
 ._title
@@ -261,6 +263,7 @@ body
       position: relative
       opacity: 1
       top: 0
+      transition: opacity 1s ease-in-out
       //.race
       //  &__item
       //    &-wrap
@@ -270,8 +273,8 @@ body
       flex-direction: column
       align-items: flex-start
       align-self: flex-start
-      perspective: 100px
-      transform: rotate3d(1, 1, 1, 0deg)
+      z-index: 3
+      position: relative
   &__text
     color: $white
     text-transform: uppercase
@@ -327,13 +330,15 @@ body
     &._arrive
       .race__bolid-car
         transform: translate(300%, -50%)
+      //.race__bolid-smoke
+      //  &-front, &-back
+      //    display: none
     &._move
       .race__bolid-car
         transform: translate(-300%, -50%)
-      .race__bolid-smoke
-        &-front, &-back
-          opacity: 0 !important
-          transition: opacity .2s linear
+      //.race__bolid-smoke
+      //  &-front, &-back
+      //    display: none
       .race__bolid-map
         opacity: 0
         transition: opacity 1s ease
@@ -374,7 +379,7 @@ body
         width: 48px
         height: 45px
         z-index: 2
-        animation: rotate360 1s linear infinite
+        animation: rotate360 .2s linear infinite
       &-front
         background: url("../img/race/front-wheel.png") no-repeat 0 0/contain
         bottom: 140px
@@ -382,7 +387,7 @@ body
       &-back
         background: url("../img/race/back-wheel.png") no-repeat 0 0/contain
         bottom: 138px
-        left: 503px
+        left: 507px
 
     &-car
       min-width: 100%
