@@ -81,12 +81,18 @@
                 setTimeout(createSmoke, delay);
             }, interval);
         }
-        startSmoke('.race__bolid-car', 'race__bolid-smoke-front', 2, 900, 500, 100, 800, "", true);
-        startSmoke('.race__bolid-car', 'race__bolid-smoke-back', 4, 900, 500, 100, 800, "", true);
-        startSmoke('.race__bolid-car', 'race__bolid-smoke-back', 2, 900, 500, 100, 800, "_large", true);
-        startSmoke('.welcome__pers-smoke-front', 'front-before', 2, 900, 500, 100, 800, "", false);
-        startSmoke('.welcome__pers-smoke-back', 'front-before', 2, 900, 500, 100, 800, "", false);
+        // startSmoke('.race__bolid-car', 'race__bolid-smoke-front', 4, 900, 500, 100, 800, "", true);
+        // startSmoke('.race__bolid-car', 'race__bolid-smoke-back', 8, 900, 500, 100, 800, "", true);
+        // startSmoke('.race__bolid-car', 'race__bolid-smoke-back', 4, 900, 500, 100, 800, "_large", true);
+        // startSmoke('.welcome__pers-smoke-front', 'front-before', 4, 900, 500, 100, 800, "", false);
+        // startSmoke('.welcome__pers-smoke-back', 'front-before', 4, 900, 500, 100, 800, "", false);
 
+
+        startSmoke('.race__bolid-car', 'race__bolid-smoke-front', 4, 900, 500, 200, 1600, "", true);
+        startSmoke('.race__bolid-car', 'race__bolid-smoke-back', 8, 900, 500, 200, 1600, "", true);
+        startSmoke('.race__bolid-car', 'race__bolid-smoke-back', 4, 900, 500, 200, 1600, "_large", true);
+        startSmoke('.welcome__pers-smoke-front', 'front-before', 4, 900, 500, 200, 1600, "", false);
+        startSmoke('.welcome__pers-smoke-back', 'front-before', 4, 900, 500, 200, 1600, "", false);
 
     })
 })()
