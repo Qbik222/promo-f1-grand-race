@@ -714,6 +714,14 @@ body
       height: 45px
       &:nth-child(odd)
         background: rgba(197, 179, 175, 0.30)
+      &.you
+        .bet
+          &__column
+            &-btn
+              display: none
+            &-you
+              display: flex
+              align-items: center
     &-place
       width: 35px
       height: 100%
@@ -772,6 +780,22 @@ body
       &:hover
         cursor: pointer
         background: #00EDA5
+    &-you
+      display: none
+      margin: 0 35px 0 auto
+      color: $blue
+      font-size: 14px
+      font-family: $font-exo2-semib
+      text-transform: uppercase
+      position: relative
+      &::before
+        content: ""
+        display: block
+        width: 22px
+        height: 22px
+        margin-right: 6px
+        background: url("../img/done.png") no-repeat 0 0/contain
+
   &__table
     margin-top: 15px
     display: none
@@ -976,7 +1000,7 @@ body
   display: flex
   flex-direction: column
   align-items: flex-start
-  padding-top: 65px
+  padding: 65px 0 20px 0
   &::before
     content: ""
     display: block
@@ -1000,12 +1024,14 @@ body
     &::before
       content: ""
       display: block
-      width: 43px
-      height: 37px
+      width: 48px
+      height: 48px
       position: absolute
-      left: 0
-      top: 0
-      background: url("../img/")
+      left: 60px
+      top: 30px
+      z-index: 4
+      background: url("../img/results/crown.png") no-repeat 0 0/contain
+      animation: shake .4s linear infinite
     .results
       &__top
         &-decor
@@ -1019,6 +1045,17 @@ body
     z-index: 2
     margin: 0 -10px 20px 10px
     position: relative
+    &::before
+      content: ""
+      display: block
+      width: 38px
+      height: 44px
+      position: absolute
+      right: 5px
+      bottom: 145px
+      z-index: 4
+      background: url("../img/results/star.png") no-repeat 0 0/contain
+      animation: shake .4s linear infinite
     .results
       &__top
         &-decor
@@ -1030,6 +1067,17 @@ body
     max-width: 142px
     z-index: 2
     position: relative
+    &::before
+      content: ""
+      display: block
+      width: 62px
+      height: 37px
+      position: absolute
+      left: -15px
+      top: 20px
+      z-index: 4
+      background: url("../img/results/lightning.png") no-repeat 0 0/contain
+      animation: shake .4s linear infinite
     .results
       &__top
         &-decor
@@ -1074,11 +1122,13 @@ body
       height: 300px
       width: 49px
       background: linear-gradient(180deg, #0000A7 0%, rgba(0, 0, 167, 0.00) 100%)
-      opacity: .7
+      //opacity: .7
       position: absolute
       left: 50%
       top: 0
-      transform: translate(-50%, 0)
+      //transform: translate(-50%, 0)
+      transform: translate(-50%, 20%)
+      opacity: 0
       z-index: 0
       border-radius: 4px
       display: flex
@@ -1086,6 +1136,11 @@ body
       color: $blue
       font-size: 44px
       font-family: $font-exo2-black
+      transition: all .7s ease-in-out
+      &._show
+        transform: translate(-50%, 0)
+        opacity: .7
+
     &-pers
       position: relative
       z-index: 1
@@ -1093,13 +1148,18 @@ body
       z-index: 2
       position: relative
       align-self: center
-      transform: translate(0, -100%)
+      transform: translate(0, -80%)
+      opacity: 0
       width: 140px
       height: 40px
       border-radius: 5px
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%)
       display: flex
       align-items: center
+      transition: all .7s ease-in-out
+      &._show
+        transform: translate(0, -100%)
+        opacity: 1
       &::before
         content: ""
         display: block
@@ -1319,18 +1379,22 @@ body
       padding: 16px
       text-align: start
       cursor: auto
+      border-radius: 8px
       border: 1px solid rgba($white, .2)
       background: rgba(0, 0, 61, 0.30)
       background-size: 100% 100%
       color: $white
       &-list
         max-height: 300px
-        overflow-y: scroll
+        overflow-y: auto
         padding-right: 20px
         scrollbar-width: auto
         font-family: $font-suisse-intl-reg
         font-size: 14px
         line-height: 22px
+        &._betStory
+          padding: 0 5px 0 0
+          max-height: 210px
         &::-webkit-scrollbar
           background: rgba($white, .3)
           width: 3px
@@ -1381,6 +1445,95 @@ body
           border-radius: 50%
           display: inline-block
           margin: 0 5px 3px 0
+  &__header, &__row
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 7px 20px
+    &-item
+      width: 33%
+      text-align: left
+      &:nth-child(2)
+        text-align:  center
+      &:nth-child(3)
+        text-align: right
+  &__header
+    opacity: .2
+  &__row
+    background: rgba(255, 255, 255, 0.05)
+    margin-top: 2px
+    border-radius: 8px
+
+
+.popups
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 5
+  width: 100%
+  height: 100%
+  background: rgba(#000, .8)
+  display: flex
+  align-items: center
+  justify-content: center
+  transition: opacity .7s ease
+
+  &__item
+    opacity: 0
+    position: absolute
+    pointer-events: none
+    width: 540px
+    height: 300px
+    display: flex
+    align-items: flex-end
+    justify-content: center
+    flex-direction: column
+    transition: opacity .7s ease
+    &-body
+      background: $white
+      padding: 16px
+      scrollbar-width: auto
+      width: 100%
+      max-height: 245px
+      overflow-y: auto
+      font-family: $font-exo2-reg
+      font-size: 16px
+      line-height: 25px
+      color: $blue
+      & > *
+        font-family: inherit
+      &::-webkit-scrollbar-thumb
+        width: 2px
+        background: $green
+      &::-webkit-scrollbar
+        background: rgba($green, .2)
+        border-radius: 5px
+        width: 2px
+    &-close
+      width: 24px
+      height: 24px
+      background: url("../img/close.png") no-repeat 0 0/contain
+      margin-bottom: 5px
+      &:hover
+        cursor: pointer
+  &._opacity
+    pointer-events: none
+  &._betPopup
+    ._betPopup
+      opacity: 1
+      position: relative
+      pointer-events: initial
+  &._confirmPopup
+    ._confirmPopup
+      opacity: 1
+      position: relative
+      pointer-events: initial
+  &._resultsPopup
+    ._resultsPopup
+      opacity: 1
+      position: relative
+      pointer-events: initial
+
 
 // animations
 
@@ -1583,6 +1736,14 @@ body
     transform: scale(1)
     opacity: 0
 
+
+@keyframes bottomToTop
+  0%
+    transform: translate(-50%, 30%)
+    opacity: 0
+  100%
+    transform: translate(-50%, 0)
+    opacity: .7
 
 .smokeAnim
   .front-before

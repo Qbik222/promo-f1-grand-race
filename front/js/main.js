@@ -5,6 +5,9 @@
         const slideMoveRight = document.querySelector(".race__nav-right")
         const slideCounter = document.querySelector(".race__nav-counter")
         const betTables = document.querySelectorAll(".bet__item")
+        const resultsFirst = document.querySelector(".results__first")
+        const resultsSecond = document.querySelector(".results__second")
+        const resultsThird = document.querySelector(".results__third")
 
         let currentRace = 3;
 
@@ -152,18 +155,76 @@
             })
 
         }
-        // startSmoke('.race__bolid-car', 'race__bolid-smoke-front', 4, 900, 500, 100, 800, "", true);
-        // startSmoke('.race__bolid-car', 'race__bolid-smoke-back', 8, 900, 500, 100, 800, "", true);
-        // startSmoke('.race__bolid-car', 'race__bolid-smoke-back', 4, 900, 500, 100, 800, "_large", true);
-        // startSmoke('.welcome__pers-smoke-front', 'front-before', 4, 900, 500, 100, 800, "", false);
-        // startSmoke('.welcome__pers-smoke-back', 'front-before', 4, 900, 500, 100, 800, "", false);
-
 
         startSmoke('.race__bolid-car', 'race__bolid-smoke-front', 4, 900, 500, 200, 1600, "", true);
         startSmoke('.race__bolid-car', 'race__bolid-smoke-back', 8, 900, 500, 200, 1600, "", true);
         startSmoke('.race__bolid-car', 'race__bolid-smoke-back', 4, 900, 500, 200, 1600, "_large", true);
         startSmoke('.welcome__pers-smoke-front', 'front-before', 4, 900, 500, 200, 1600, "", false);
         startSmoke('.welcome__pers-smoke-back', 'front-before', 4, 900, 500, 200, 1600, "", false);
+
+
+        function setPopups(triggerButton, popupClass) {
+            const popupsContainer = document.querySelector('.popups');
+            const popup = document.querySelector(`.popups__item.${popupClass}`);
+
+            if (!triggerButton || !popup || !popupsContainer) return;
+
+            triggerButton.addEventListener('click', () => {
+                popupsContainer.classList.remove('_opacity');
+                popupsContainer.classList.add(popupClass);
+                document.body.style.overflow = 'hidden';
+            });
+            const closeButton = popup.querySelector('.popups__item-close');
+
+            popupsContainer.addEventListener("click", (e) =>{
+                if (e.target === popupsContainer || e.target === closeButton){
+                    closePopup()
+                }
+            })
+
+            function closePopup() {
+                popupsContainer.classList.add('_opacity');
+                popupsContainer.classList.remove(popupClass);
+                document.body.style.overflow = '';
+            }
+        }
+
+        setPopups(document.querySelector('.bet__btn-item'), '_betPopup');
+        setPopups(document.querySelector('.confirm__upd-btn'), '_confirmPopup');
+        setPopups(document.querySelector('.results__popup-btn'), '_resultsPopup');
+
+        function animateOnScroll(element, animationClass, delay) {
+            const options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() =>{
+                            entry.target.classList.add(animationClass);
+                        }, delay)
+
+                    } else {
+                        entry.target.classList.remove(animationClass);
+                    }
+                });
+            }, options);
+
+            observer.observe(element);
+
+
+        }
+
+        animateOnScroll(resultsFirst.querySelector(".results__top-decor"), "_show", 0)
+        animateOnScroll(resultsSecond.querySelector(".results__top-decor"), "_show", 400)
+        animateOnScroll(resultsThird.querySelector(".results__top-decor"), "_show", 800)
+        animateOnScroll(resultsFirst.querySelector(".results__top-wrap"), "_show", 0)
+        animateOnScroll(resultsSecond.querySelector(".results__top-wrap"), "_show", 400)
+        animateOnScroll(resultsThird.querySelector(".results__top-wrap"), "_show", 800)
+
 
     })
 })()
