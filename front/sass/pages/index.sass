@@ -3,6 +3,7 @@ $white: #ffffff
 $magenta: #FF267E
 $green: #05C48A
 $black: #1B1B1F
+$grey: #AEAEAE
 
 $font-suisse-intl-reg: SuisseIntl-Regular, sans-serif
 $font-suisse-intl-bold: SuisseIntl-Bold, sans-serif
@@ -153,6 +154,100 @@ body
     min-width: 915px
     height: 410px
     z-index: 1
+    &-decor
+      position: absolute
+      z-index: 4
+      &._top
+        width: 100px
+        height: 100px
+        //background: $white
+        top: 80px
+        left: 30px
+        .welcome
+          &__pers
+            &-decor
+              &-item
+                position: absolute
+                &:nth-child(1)
+                  width: 15px
+                  height: 12px
+                  left: 20px
+                  top: 25px
+                  background: url("../img/welcome/top-decor/decor1.png") no-repeat 0 0/contain
+                  animation: shake .3s linear infinite
+                &:nth-child(2)
+                  width: 27px
+                  height: 19px
+                  background: url("../img/welcome/top-decor/decor2.png") no-repeat 0 0/contain
+                  bottom: 0
+                  animation: shake .4s linear infinite
+                &:nth-child(3)
+                  width: 18px
+                  height: 14px
+                  background: url("../img/welcome/top-decor/decor3.png") no-repeat 0 0/contain
+                  bottom: -2px
+                  left: 40px
+                  animation: shake .2s linear infinite
+                &:nth-child(4)
+                  width: 21px
+                  height: 21px
+                  right: 18px
+                  bottom: 26px
+                  background: url("../img/welcome/top-decor/decor4.png") no-repeat 0 0/contain
+                  animation: shake .3s linear infinite
+                &:nth-child(5)
+                  right: 0
+                  bottom: 40px
+                  width: 11px
+                  height: 10px
+                  background: url("../img/welcome/top-decor/decor5.png") no-repeat 0 0/contain
+                  animation: shake .4s linear infinite
+                &:nth-child(6)
+                  width: 22px
+                  height: 14px
+                  right: 10px
+                  top: 14px
+                  background: url("../img/welcome/top-decor/decor6.png") no-repeat 0 0/contain
+                  animation: shake .3s linear infinite
+      &._bottom
+        width: 50px
+        height: 50px
+        //background: $white
+        bottom: 110px
+        left: 180px
+        .welcome
+          &__pers
+            &-decor
+              &-item
+                position: absolute
+                &:nth-child(1)
+                  width: 22px
+                  height: 14px
+                  left: 0px
+                  top: 0px
+                  background: url("../img/welcome/top-decor/decor6.png") no-repeat 0 0/contain
+                  animation: shake .3s linear infinite
+                &:nth-child(2)
+                  width: 18px
+                  height: 14px
+                  background: url("../img/welcome/top-decor/decor5.png") no-repeat 0 0/contain
+                  top: 10px
+                  left: 15px
+                  animation: shake .4s linear infinite
+                &:nth-child(3)
+                  width: 18px
+                  height: 14px
+                  background: url("../img/welcome/top-decor/decor4.png") no-repeat 0 0/contain
+                  bottom: 8px
+                  left: 33px
+                  animation: shake .2s linear infinite
+                &:nth-child(4)
+                  width: 11px
+                  height: 9px
+                  right: 3px
+                  bottom: 36px
+                  background: url("../img/welcome/top-decor/decor1.png") no-repeat 0 0/contain
+                  animation: shake .3s linear infinite
     &-wheel
       position: absolute
       width: 75px
@@ -161,9 +256,6 @@ body
       left: 243px
       z-index: 3
       animation: spinWheel 1s linear infinite
-      //background: url("../img/welcome/wheel/frame6.png") no-repeat 0 0/cover
-      //background-size: 55px 110px
-      //background-position: 17px 19px
     &-img
       z-index: 2
       position: relative
@@ -259,6 +351,20 @@ body
     top: 25px
     opacity: 0
     width: 100%
+    &._lock
+      .race
+        &__bolid
+          &-car
+            display: none
+          &-lock
+            display: flex
+    &._done
+      .race
+        &__bolid
+          &-car
+            display: none
+          &-done
+            display: flex
     &._active
       position: relative
       opacity: 1
@@ -327,6 +433,77 @@ body
     position: relative
     pointer-events: none
     margin: 0 80px 0 auto
+    &-decor
+      position: absolute
+      z-index: 5
+      &._bottom
+        width: 50px
+        height: 50px
+        //background: $white
+        bottom: 120px
+        right: 10px
+        .race
+          &__bolid
+            &-decor
+              &-item
+                position: absolute
+                &:nth-child(1)
+                  width: 22px
+                  height: 14px
+                  left: 0px
+                  top: 0px
+                  background: url("../img/welcome/top-decor/decor6.png") no-repeat 0 0/contain
+                  animation: shake .3s linear infinite
+                &:nth-child(2)
+                  width: 18px
+                  height: 14px
+                  background: url("../img/welcome/top-decor/decor5.png") no-repeat 0 0/contain
+                  top: 10px
+                  left: 15px
+                  animation: shake .4s linear infinite
+                &:nth-child(3)
+                  width: 18px
+                  height: 14px
+                  background: url("../img/welcome/top-decor/decor4.png") no-repeat 0 0/contain
+                  bottom: 8px
+                  left: 33px
+                  animation: shake .2s linear infinite
+                &:nth-child(4)
+                  width: 11px
+                  height: 9px
+                  right: 3px
+                  bottom: 36px
+                  background: url("../img/welcome/top-decor/decor1.png") no-repeat 0 0/contain
+                  animation: shake .3s linear infinite
+    &-winer
+      display: flex
+      align-items: center
+      margin-top: 3px
+      padding: 0 3px
+    &-done, &-lock
+      display: none
+      //display: flex
+      flex-direction: column
+      align-items: center
+      z-index: 3
+      position: relative
+      margin: 0 auto
+      max-width: 400px
+      top: 40px
+      & > *
+        color: $blue
+        background: $white
+        text-transform: uppercase
+        font-family: $font-exo2-black
+        font-size: 22px
+        padding: 5px 3px
+        white-space: nowrap
+      &-img
+        padding: 0
+        display: block
+        width: 280px
+        background: transparent
+        margin-bottom: -40px
     &._arrive
       .race__bolid-car
         transform: translate(300%, -50%)
@@ -453,6 +630,20 @@ body
     //display: flex
     flex-direction: column
     width: 100%
+    &._done
+      .bet
+        &__table
+          display: block
+        &__wrap
+          display: none
+    &._lock
+      .bet
+        &__column
+          pointer-events: none
+          &-btn
+            background: $grey
+            color: rgba($blue, .2)
+
   &__text
     color: $white
     font-size: 17px
@@ -514,10 +705,10 @@ body
     max-width: 510px
     display: flex
     flex-direction: column
-    background: $white
+    background: $white url("../img/bet/dots-bg.png") repeat 0 0/cover
     border-radius: 8px
     padding: 6px 0
-    &-item
+    &-item, &-header
       display: flex
       align-items: center
       height: 45px
@@ -533,6 +724,15 @@ body
       font-family: $font-exo2-black
       font-size: 14px
       color: $blue
+      position: relative
+      &::before
+        content: ""
+        position: absolute
+        right: -2px
+        width: 4px
+        height: 4px
+        background: url("../img/bet/plus.png") no-repeat 0 0/contain
+        bottom: -2px
     &-flag
       margin: 0 0 0 12px
     &-name
@@ -560,9 +760,75 @@ body
       border-radius: 2px
       transition: background .7s ease-in-out
       text-transform: uppercase
+      position: relative
+      &::before
+        content: ""
+        position: absolute
+        left: -20px
+        width: 4px
+        height: 4px
+        background: url("../img/bet/plus.png") no-repeat 0 0/contain
+        bottom: -10px
       &:hover
         cursor: pointer
         background: #00EDA5
+  &__table
+    margin-top: 15px
+    display: none
+    .bet
+      &__column
+        width: 100%
+        max-width: 100%
+        &-header
+          background: transparent
+          height: 30px
+          &-id, &-date, &-prize, &-predict
+            display: flex
+            align-items: center
+            justify-content: center
+            font-family: $font-exo2-semib
+            color: rgba($blue, .5)
+            font-size: 14px
+            margin-right: auto
+            text-align: center
+            min-width: 150px
+          &-id
+            max-width: 100px
+            height: 100%
+            display: flex
+            align-items: center
+            padding: 0 6px
+            min-width: 100px
+
+
+        &-item
+          height: 30px
+          &:nth-child(even)
+            background: rgba(197, 179, 175, 0.30)
+        &-id, &-date, &-prize, &-predict
+          font-family: $font-exo2-semib
+          color: $blue
+          font-size: 14px
+          margin-right: auto
+          text-align: center
+          display: flex
+          align-items: center
+          justify-content: center
+          min-width: 150px
+        &-id
+          max-width: 100px
+          min-width: 100px
+          background: #C5B3AF
+          color: $blue
+          font-family: $font-exo2-semib
+          font-size: 14px
+          height: 100%
+          display: flex
+          align-items: center
+          padding: 0px 6px
+        &-date
+          color: rgba($blue, .5)
+
 
 
 .confirm
@@ -731,6 +997,15 @@ body
     z-index: 3
     margin: 0 -16px 80px -43px
     position: relative
+    &::before
+      content: ""
+      display: block
+      width: 43px
+      height: 37px
+      position: absolute
+      left: 0
+      top: 0
+      background: url("../img/")
     .results
       &__top
         &-decor
@@ -1255,7 +1530,15 @@ body
   93%
     transform: rotate(61deg)
 
-
+@keyframes shake
+  0%, 100%
+    transform: translate(0, 0)
+  25%
+    transform: translate(-1px, 2px)
+  50%
+    transform: translate(1px, -2px)
+  75%
+    transform: translate(-1px, 2px)
 
 @keyframes wheelAnim
   0%

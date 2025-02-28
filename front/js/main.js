@@ -4,14 +4,39 @@
         const slideMoveLeft = document.querySelector(".race__nav-left")
         const slideMoveRight = document.querySelector(".race__nav-right")
         const slideCounter = document.querySelector(".race__nav-counter")
+        const betTables = document.querySelectorAll(".bet__item")
 
-        let currentSlide = 0
+        let currentRace = 3;
+
+        slides.forEach((slide, i) =>{
+            if(i < currentRace){
+                slide.classList.add("_done")
+            }
+            if(i > currentRace){
+                slide.classList.add("_lock")
+            }
+        })
+
+
+        let currentSlide = currentRace
+
 
 
         function updateSlider(index) {
             slides.forEach(slide => slide.classList.remove("_active"));
             slides[index].classList.add("_active");
             slideCounter.textContent = `${index + 1}/${slides.length}`;
+            betTables.forEach(table =>{
+                if(currentSlide > currentRace){
+                    table.classList.add("_lock")
+                }
+                if(currentSlide < currentRace){
+                    table.classList.add("_done")
+                }
+                if(currentSlide === currentRace){
+                    table.classList.remove("_lock", "_done")
+                }
+            })
         }
 
         function moveSlide(direction) {
