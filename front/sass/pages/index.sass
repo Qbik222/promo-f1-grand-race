@@ -351,6 +351,12 @@ body
     top: 25px
     opacity: 0
     width: 100%
+    @media screen and (max-width: 1050px)
+      background: url("../img/race/slide-decor-tab.png") no-repeat 0 0/cover
+      background-size: 100% 100%
+    @media screen and (max-width: 600px)
+      background: url("../img/race/slide-decor-mob.png") no-repeat 0 0/cover
+      background-size: 100% 100%
     &._lock
       .race
         &__bolid
@@ -662,6 +668,7 @@ body
       margin-left: 10px
       background: linear-gradient(to left, rgba($white, 1), rgba($white, 0.1))
   &__your
+    opacity: .7
     &-wrap
       display: flex
       align-items: center
@@ -1012,6 +1019,10 @@ body
     background-size: 100% 100%
     position: absolute
     pointer-events: none
+    @media screen and (max-width: 1050px)
+      background: url("../img/results/results-decor-tab.png") no-repeat 0 0/cover
+      background-size: 100% 50%
+
   &__first, &__second, &__third
     display: flex
     flex-direction: column
@@ -1235,14 +1246,14 @@ body
     display: flex
     flex-direction: column
     align-items: flex-start
-    padding: 10px 17px 5px 0
+    padding: 12px 30px 5px 0
     background: url("../img/results/prize-decor.png") no-repeat 0 0/cover
     background-size: 100% 100%
     margin-top: 20px
     &-amount
       color: $magenta
       font-family: $font-exo2-ex-bold
-      font-size: 20px
+      font-size: 28px
       text-transform: uppercase
       display: flex
       align-items: center
@@ -1258,7 +1269,7 @@ body
       color: $magenta
       text-transform: uppercase
       font-family: $font-exo2-semib
-      font-size: 11px
+      font-size: 17px
       letter-spacing: 0
   &__you
     margin-top: 23px
