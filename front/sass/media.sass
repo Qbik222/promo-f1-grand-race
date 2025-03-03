@@ -9,7 +9,7 @@
       height: 260px
       left: 0
       bottom: -20px
-      scale: 1
+      transform: scale(1)
       &-img
         &::before
           width: 12px
@@ -29,11 +29,11 @@
         left: 124px
       &-decor
         &._bottom
-          scale: .7
+          transform: scale(.7)
           left: 79px
           bottom: 93px
         &._top
-          scale: .7
+          transform: scale(.7)
           top: 6px
           left: -7px
       &-smoke
@@ -98,7 +98,7 @@
         margin-top: 1px
       &-decor
         &._bottom
-          scale: .7
+          transform: scale(.7)
           bottom: 60px
           right: -10px
       &-smoke
@@ -157,7 +157,7 @@
     &__subtitle
       max-width: 335px
     &__top
-      scale: .85
+      transform: scale(.85)
       transform-origin: bottom right
       right: 10px
       top: 20px
@@ -181,8 +181,7 @@
     transform-origin: top left
     position: relative
     left: 50%
-    transform: translate(-50%, 0)
-    scale: .85
+    transform: translate(-50%, 0) scale(.85)
     min-width: 795px
     max-width: 795px
 
@@ -192,8 +191,7 @@
     min-width: 375px
   .fav-page
     left: 0
-    transform: none
-    scale: 1
+    transform: scale(1)
     min-width: 375px
     max-width: 100%
   .welcome
@@ -380,7 +378,7 @@
     &__top
       position: relative
       top: 0
-      scale: .85
+      transform: scale(.85)
       transform-origin: center top
       align-self: center
       max-width: 440px
@@ -423,9 +421,9 @@
 
 @media screen and (max-width: 395px)
   .race, .results
-    scale: .95
+    transform: scale(.95)
     margin: -20px 0 0 0
   .bet
-    scale: .95
+    transform: scale(.95)
     &._margin-top
       margin: -20px 0 0 0
