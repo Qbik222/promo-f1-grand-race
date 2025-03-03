@@ -1,9 +1,11 @@
+$dark-blue: #00003d
 $blue: #000055
 $white: #ffffff
 $magenta: #FF267E
 $green: #05C48A
 $black: #1B1B1F
 $grey: #AEAEAE
+$dark: #12131C
 
 $font-suisse-intl-reg: SuisseIntl-Regular, sans-serif
 $font-suisse-intl-bold: SuisseIntl-Bold, sans-serif
@@ -12,6 +14,14 @@ $font-exo2-semib: Exo2-SemiBold, sans-serif
 $font-exo2-bold: Exo2-Bold, sans-serif
 $font-exo2-ex-bold: Exo2-ExtraBold, sans-serif
 $font-exo2-black: Exo2-Black, sans-serif
+
+.menu-test
+  position: fixed
+  left: 0
+  top: 0
+  z-index: 10
+  display: flex
+  flex-direction: column
 
 ._opacity
   opacity: 0 !important
@@ -89,6 +99,7 @@ body
   align-items: center
   overflow: hidden
   font-family: $font-exo2-reg
+  overscroll-behavior: none
 
 .welcome
   display: flex
@@ -1393,10 +1404,9 @@ body
       display: flex
       align-items: center
       user-select: none
-      background: url("../img/drop-bg.png") no-repeat 0 0/cover
-      background-size: 100% 100%
-      //background: rgba($blue, .5)
-      //border: 1px solid rgba($white, .1)
+
+      background: rgba($dark-blue, .5)
+      border: 1px solid rgba($white, .1)
       border-radius: 10px
       color: $white
       ::-webkit-details-marker
@@ -1814,13 +1824,31 @@ body
     animation: frontSmokeBefore 2.3s linear
     opacity: 0
 
+//
+//// en styles
+//
+//.fav-page.en
 
-// en styles
 
-.fav-page.en
-  picture.light
-    display: none
-
-  picture.dark
-    display: block
+// DARK
+body.dark
+  background: $dark
+  .fav-page
+    background: $dark
+    picture.light
+      display: none
+    picture.dark
+      display: block
+    .welcome
+      background: url("../img/welcome/bg-desc-dark.jpg") no-repeat 0 0/cover
+      @media screen and (max-width: 1050px)
+        background: url("../img/welcome/bg-tab-dark.jpg") no-repeat 0 1px/cover
+      @media screen and (max-width: 600px)
+        background: url("../img/welcome/bg-mob-dark.jpg") no-repeat 0 0/cover
+        background-size: 100% 100%
+    .results
+      &__top
+        &-decor
+          background: linear-gradient(180deg, #25252C 0%, rgba(37, 37, 44, 0.00) 100%)
+          color: #444444
 

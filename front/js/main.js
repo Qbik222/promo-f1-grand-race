@@ -282,7 +282,9 @@
             updateScrollStatus();
         });
 
+    })
 
-
+    document.querySelector(".dark-btn").addEventListener("click", () =>{
+        document.body.classList.toggle("dark")
     })
 })()
