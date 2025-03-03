@@ -100,6 +100,12 @@ body
   background: url("../img/welcome/bg-desc.jpg") no-repeat 0 0/cover
   position: relative
   overflow: hidden
+  @media screen and (max-width: 1050px)
+    background: url("../img/welcome/bg-tab.jpg") no-repeat 0 1px/cover
+  @media screen and (max-width: 600px)
+    background: url("../img/welcome/bg-mob.jpg") no-repeat 0 0/cover
+    background-size: 100% 100%
+
   &__btn
     animation: welcomeBtn 1.2s ease-in-out
   &__right
@@ -352,11 +358,12 @@ body
     opacity: 0
     width: 100%
     @media screen and (max-width: 1050px)
-      background: url("../img/race/slide-decor-tab.png") no-repeat 0 0/cover
-      background-size: 100% 100%
+      padding-top: 0
+      background: url("../img/race/slide-decor-tab.png") no-repeat 70px 6px/cover
+      background-size: 90% 95%
     @media screen and (max-width: 600px)
-      background: url("../img/race/slide-decor-mob.png") no-repeat 0 0/cover
-      background-size: 100% 100%
+      background: url("../img/race/slide-decor-mob.png") no-repeat 100% 6px/cover
+      background-size: 285px 241px
     &._lock
       .race
         &__bolid
@@ -667,14 +674,21 @@ body
       background: $white
       margin-left: 10px
       background: linear-gradient(to left, rgba($white, 1), rgba($white, 0.1))
+  &__scroll
+    &-wrap, &-icon
+      display: none
   &__your
     opacity: .7
-    &-wrap
+    &-wrap, &-container
       display: flex
       align-items: center
       justify-content: space-between
       margin-top: 5px
       padding-right: 20px
+    &-container
+      flex-direction: column
+      justify-content: space-between
+      padding: 0
     &-item
       color: $white
       text-align: right
@@ -878,6 +892,17 @@ body
     top: 47%
     left: 0
     transform: translate(0, -50%)
+  &::after
+    content: ""
+    display: block
+    width: 480px
+    height: 480px
+    background: url("../img/confirm/light-bg.png") no-repeat 0 0/contain
+    position: absolute
+    left: 50%
+    top: -65px
+    z-index: 0
+    transform: translate(-50%, 0)
   &__prediction
     width: 555px
     height: 310px
@@ -1021,6 +1046,9 @@ body
     pointer-events: none
     @media screen and (max-width: 1050px)
       background: url("../img/results/results-decor-tab.png") no-repeat 0 0/cover
+      background-size: 100% 50%
+    @media screen and (max-width: 600px)
+      background: url("../img/results/results-decor-mob.png") no-repeat 0 0/cover
       background-size: 100% 50%
 
   &__first, &__second, &__third
@@ -1483,6 +1511,7 @@ body
   z-index: 5
   width: 100%
   height: 100%
+  max-height: 100vh
   background: rgba(#000, .8)
   display: flex
   align-items: center
@@ -1521,8 +1550,8 @@ body
         border-radius: 5px
         width: 2px
     &-close
-      width: 24px
-      height: 24px
+      min-width: 24px
+      min-height: 24px
       background: url("../img/close.png") no-repeat 0 0/contain
       margin-bottom: 5px
       &:hover

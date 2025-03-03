@@ -127,34 +127,70 @@
 
         startCountdown(endOfMonth);
 
+
         function startSmoke(carSelector, smokeClass, maxCount, interval, delay, fadeTime, removeDelay, extraClass = '', activeClass = false) {
             const cars = document.querySelectorAll(carSelector);
-            cars.forEach(car =>{
+
+            cars.forEach(car => {
                 if (!car) return;
-                console.log(car.parentElement.parentElement.classList.contains("_active"))
 
                 function createSmoke() {
-                    if(activeClass){
-                        if (!car || !car.parentElement.parentElement.classList.contains("_active")) return;
+                    if (activeClass) {
+                        if (!car.parentElement || !car.parentElement.parentElement || !car.parentElement.parentElement.classList.contains("_active")) return;
                     }
-                    if (car.querySelectorAll(`.${smokeClass}${extraClass ? `.${extraClass}` : ''}`).length < maxCount) {
+
+                    const extraClassName = extraClass ? `.${extraClass}` : '';
+                    if (car.querySelectorAll(`.${smokeClass}${extraClassName}`).length < maxCount) {
                         const smoke = document.createElement('div');
                         smoke.classList.add(smokeClass);
                         if (extraClass) smoke.classList.add(extraClass);
                         car.appendChild(smoke);
-                        setTimeout(() => smoke.classList.add("_opacity"), fadeTime);
+
+                        requestAnimationFrame(() => {
+                            setTimeout(() => smoke.classList.add("_opacity"), fadeTime);
+                        });
+
                         setTimeout(() => smoke.remove(), fadeTime + removeDelay);
                     }
                 }
-                createSmoke();
-                setTimeout(createSmoke, delay);
-                setInterval(() => {
-                    createSmoke();
-                    setTimeout(createSmoke, delay);
-                }, interval);
-            })
 
+                createSmoke();
+
+                setTimeout(() => {
+                    setInterval(createSmoke, interval);
+                }, delay);
+            });
         }
+
+
+        // function startSmoke(carSelector, smokeClass, maxCount, interval, delay, fadeTime, removeDelay, extraClass = '', activeClass = false) {
+        //     const cars = document.querySelectorAll(carSelector);
+        //     cars.forEach(car =>{
+        //         if (!car) return;
+        //         console.log(car.parentElement.parentElement.classList.contains("_active"))
+        //
+        //         function createSmoke() {
+        //             if(activeClass){
+        //                 if (!car || !car.parentElement.parentElement.classList.contains("_active")) return;
+        //             }
+        //             if (car.querySelectorAll(`.${smokeClass}${extraClass ? `.${extraClass}` : ''}`).length < maxCount) {
+        //                 const smoke = document.createElement('div');
+        //                 smoke.classList.add(smokeClass);
+        //                 if (extraClass) smoke.classList.add(extraClass);
+        //                 car.appendChild(smoke);
+        //                 setTimeout(() => smoke.classList.add("_opacity"), fadeTime);
+        //                 setTimeout(() => smoke.remove(), fadeTime + removeDelay);
+        //             }
+        //         }
+        //         createSmoke();
+        //         setTimeout(createSmoke, delay);
+        //         setInterval(() => {
+        //             createSmoke();
+        //             setTimeout(createSmoke, delay);
+        //         }, interval);
+        //     })
+        //
+        // }
 
         startSmoke('.race__bolid-car', 'race__bolid-smoke-front', 4, 900, 500, 200, 1600, "", true);
         startSmoke('.race__bolid-car', 'race__bolid-smoke-back', 8, 900, 500, 200, 1600, "", true);
@@ -224,6 +260,28 @@
         animateOnScroll(resultsFirst.querySelector(".results__top-wrap"), "_show", 0)
         animateOnScroll(resultsSecond.querySelector(".results__top-wrap"), "_show", 400)
         animateOnScroll(resultsThird.querySelector(".results__top-wrap"), "_show", 800)
+
+
+        document.querySelectorAll('.bet__item').forEach(item => {
+            const wrap = item.querySelector('.bet__wrap');
+            const navItems = item.querySelectorAll('.bet__scroll-nav-item');
+            const scrollCount = item.querySelector('.bet__scroll-count');
+            const firstColumn = item.querySelector('.bet__column');
+
+            const updateScrollStatus = () => {
+                const scrollLeft = wrap.scrollLeft;
+                const isFirstVisible = scrollLeft < firstColumn.clientWidth / 2;
+
+                navItems[0].classList.toggle('_active', isFirstVisible);
+                navItems[1].classList.toggle('_active', !isFirstVisible);
+
+                scrollCount.textContent = isFirstVisible ? '1/2' : '2/2';
+            };
+
+            wrap.addEventListener('scroll', updateScrollStatus);
+            updateScrollStatus();
+        });
+
 
 
     })
