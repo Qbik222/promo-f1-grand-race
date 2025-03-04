@@ -1,9 +1,11 @@
+$dark-blue: #00003d
 $blue: #000055
 $white: #ffffff
 $magenta: #FF267E
 $green: #05C48A
 $black: #1B1B1F
 $grey: #AEAEAE
+$dark: #12131C
 
 $font-suisse-intl-reg: SuisseIntl-Regular, sans-serif
 $font-suisse-intl-bold: SuisseIntl-Bold, sans-serif
@@ -12,6 +14,14 @@ $font-exo2-semib: Exo2-SemiBold, sans-serif
 $font-exo2-bold: Exo2-Bold, sans-serif
 $font-exo2-ex-bold: Exo2-ExtraBold, sans-serif
 $font-exo2-black: Exo2-Black, sans-serif
+
+.menu-test
+  position: fixed
+  left: 0
+  top: 0
+  z-index: 10
+  display: flex
+  flex-direction: column
 
 ._opacity
   opacity: 0 !important
@@ -53,6 +63,7 @@ body
   overscroll-behavior: none
   -webkit-tap-highlight-color: transparent
   background: $blue
+  overflow-x: hidden
   img
     max-width: 100%
     height: auto
@@ -89,6 +100,7 @@ body
   align-items: center
   overflow: hidden
   font-family: $font-exo2-reg
+  overscroll-behavior: none
 
 .welcome
   display: flex
@@ -100,6 +112,12 @@ body
   background: url("../img/welcome/bg-desc.jpg") no-repeat 0 0/cover
   position: relative
   overflow: hidden
+  @media screen and (max-width: 1050px)
+    background: url("../img/welcome/bg-tab.jpg") no-repeat 0 1px/cover
+  @media screen and (max-width: 600px)
+    background: url("../img/welcome/bg-mob.jpg") no-repeat 0 0/cover
+    background-size: 100% 100%
+
   &__btn
     animation: welcomeBtn 1.2s ease-in-out
   &__right
@@ -352,11 +370,12 @@ body
     opacity: 0
     width: 100%
     @media screen and (max-width: 1050px)
-      background: url("../img/race/slide-decor-tab.png") no-repeat 0 0/cover
-      background-size: 100% 100%
+      padding-top: 0
+      background: url("../img/race/slide-decor-tab.png") no-repeat 70px 6px/cover
+      background-size: 90% 95%
     @media screen and (max-width: 600px)
-      background: url("../img/race/slide-decor-mob.png") no-repeat 0 0/cover
-      background-size: 100% 100%
+      background: url("../img/race/slide-decor-mob.png") no-repeat 100% 6px/cover
+      background-size: 285px 241px
     &._lock
       .race
         &__bolid
@@ -667,14 +686,21 @@ body
       background: $white
       margin-left: 10px
       background: linear-gradient(to left, rgba($white, 1), rgba($white, 0.1))
+  &__scroll
+    &-wrap, &-icon
+      display: none
   &__your
     opacity: .7
-    &-wrap
+    &-wrap, &-container
       display: flex
       align-items: center
       justify-content: space-between
       margin-top: 5px
       padding-right: 20px
+    &-container
+      flex-direction: column
+      justify-content: space-between
+      padding: 0
     &-item
       color: $white
       text-align: right
@@ -878,6 +904,17 @@ body
     top: 47%
     left: 0
     transform: translate(0, -50%)
+  &::after
+    content: ""
+    display: block
+    width: 480px
+    height: 480px
+    background: url("../img/confirm/light-bg.png") no-repeat 0 0/contain
+    position: absolute
+    left: 50%
+    top: -65px
+    z-index: 0
+    transform: translate(-50%, 0)
   &__prediction
     width: 555px
     height: 310px
@@ -1021,6 +1058,9 @@ body
     pointer-events: none
     @media screen and (max-width: 1050px)
       background: url("../img/results/results-decor-tab.png") no-repeat 0 0/cover
+      background-size: 100% 50%
+    @media screen and (max-width: 600px)
+      background: url("../img/results/results-decor-mob.png") no-repeat 0 0/cover
       background-size: 100% 50%
 
   &__first, &__second, &__third
@@ -1365,10 +1405,9 @@ body
       display: flex
       align-items: center
       user-select: none
-      background: url("../img/drop-bg.png") no-repeat 0 0/cover
-      background-size: 100% 100%
-      //background: rgba($blue, .5)
-      //border: 1px solid rgba($white, .1)
+
+      background: rgba($dark-blue, .5)
+      border: 1px solid rgba($white, .1)
       border-radius: 10px
       color: $white
       ::-webkit-details-marker
@@ -1483,6 +1522,7 @@ body
   z-index: 5
   width: 100%
   height: 100%
+  max-height: 100vh
   background: rgba(#000, .8)
   display: flex
   align-items: center
@@ -1521,8 +1561,8 @@ body
         border-radius: 5px
         width: 2px
     &-close
-      width: 24px
-      height: 24px
+      min-width: 24px
+      min-height: 24px
       background: url("../img/close.png") no-repeat 0 0/contain
       margin-bottom: 5px
       &:hover
@@ -1571,13 +1611,13 @@ body
 
 @keyframes smokeRaceAnim
   0%
-    scale: .4
+    transform: scale(.4)
     opacity: 0
   50%
-    scale: 1.3
+    transform: scale(1.3)
     opacity: 1
   100%
-    scale: 1.5
+    transform: scale(1.5)
     opacity: 0
 
 
@@ -1643,22 +1683,22 @@ body
 
 @keyframes spinWheel
   0%, 100%
-    background: url("../img/welcome/wheel/frame1.png") no-repeat 0 0/cover
+    background: url("../img/welcome/wheel/frame1.png") no-repeat 0 0/contain
     background-size: 100% 100%
   16.6%
-    background: url("../img/welcome/wheel/frame2.png") no-repeat 0 0/cover
+    background: url("../img/welcome/wheel/frame2.png") no-repeat 0 0/contain
     background-size: 100% 100%
   33.2%
-    background: url("../img/welcome/wheel/frame3.png") no-repeat 0 0/cover
+    background: url("../img/welcome/wheel/frame3.png") no-repeat 0 0/contain
     background-size: 100% 100%
   49.8%
-    background: url("../img/welcome/wheel/frame4.png") no-repeat 0 0/cover
+    background: url("../img/welcome/wheel/frame4.png") no-repeat 0 0/contain
     background-size: 100% 100%
   66.4%
-    background: url("../img/welcome/wheel/frame5.png") no-repeat 0 0/cover
+    background: url("../img/welcome/wheel/frame5.png") no-repeat 0 0/contain
     background-size: 100% 100%
   83%
-    background: url("../img/welcome/wheel/frame6.png") no-repeat 0 0/cover
+    background: url("../img/welcome/wheel/frame6.png") no-repeat 0 0/contain
     background-size: 100% 100%
 
 
@@ -1772,26 +1812,44 @@ body
 .smokeScale
   &::before
     transition: all 1.8s linear
-    scale: 1.45
+    transform: scale(1.45)
 
 .smokeOpacity
   &::before
     transition: all .4s linear
     opacity: 0
-    scale: 1.55
+    transform: scale(1.55)
 
 .frontSmokeAfter
   &::before
     animation: frontSmokeBefore 2.3s linear
     opacity: 0
 
+//
+//// en styles
+//
+//.fav-page.en
 
-// en styles
 
-.fav-page.en
-  picture.light
-    display: none
-
-  picture.dark
-    display: block
+// DARK
+body.dark
+  background: $dark
+  .fav-page
+    background: $dark
+    picture.light
+      display: none
+    picture.dark
+      display: block
+    .welcome
+      background: url("../img/welcome/bg-desc-dark.jpg") no-repeat 0 0/cover
+      @media screen and (max-width: 1050px)
+        background: url("../img/welcome/bg-tab-dark.jpg") no-repeat 0 1px/cover
+      @media screen and (max-width: 600px)
+        background: url("../img/welcome/bg-mob-dark.jpg") no-repeat 0 0/cover
+        background-size: 100% 100%
+    .results
+      &__top
+        &-decor
+          background: linear-gradient(180deg, #25252C 0%, rgba(37, 37, 44, 0.00) 100%)
+          color: #444444
 
