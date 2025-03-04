@@ -128,6 +128,40 @@
         startCountdown(endOfMonth);
 
 
+        // function startSmoke(carSelector, smokeClass, maxCount, interval, delay, fadeTime, removeDelay, extraClass = '', activeClass = false) {
+        //     const cars = document.querySelectorAll(carSelector);
+        //
+        //     cars.forEach(car => {
+        //         if (!car) return;
+        //
+        //         function createSmoke() {
+        //             if (activeClass) {
+        //                 if (!car.parentElement || !car.parentElement.parentElement || !car.parentElement.parentElement.classList.contains("_active")) return;
+        //             }
+        //
+        //             const extraClassName = extraClass ? `.${extraClass}` : '';
+        //             if (car.querySelectorAll(`.${smokeClass}${extraClassName}`).length < maxCount) {
+        //                 const smoke = document.createElement('div');
+        //                 smoke.classList.add(smokeClass);
+        //                 if (extraClass) smoke.classList.add(extraClass);
+        //                 car.appendChild(smoke);
+        //
+        //                 requestAnimationFrame(() => {
+        //                     setTimeout(() => smoke.classList.add("_opacity"), fadeTime);
+        //                 });
+        //
+        //                 setTimeout(() => smoke.remove(), fadeTime + removeDelay);
+        //             }
+        //         }
+        //
+        //         createSmoke();
+        //
+        //         setTimeout(() => {
+        //             setInterval(createSmoke, interval);
+        //         }, delay);
+        //     });
+        // }
+
         function startSmoke(carSelector, smokeClass, maxCount, interval, delay, fadeTime, removeDelay, extraClass = '', activeClass = false) {
             const cars = document.querySelectorAll(carSelector);
 
@@ -136,7 +170,8 @@
 
                 function createSmoke() {
                     if (activeClass) {
-                        if (!car.parentElement || !car.parentElement.parentElement || !car.parentElement.parentElement.classList.contains("_active")) return;
+                        const parent = car.parentElement?.parentElement;
+                        if (!parent || !parent.classList.contains("_active")) return;
                     }
 
                     const extraClassName = extraClass ? `.${extraClass}` : '';
@@ -145,52 +180,16 @@
                         smoke.classList.add(smokeClass);
                         if (extraClass) smoke.classList.add(extraClass);
                         car.appendChild(smoke);
-
-                        requestAnimationFrame(() => {
-                            setTimeout(() => smoke.classList.add("_opacity"), fadeTime);
-                        });
-
                         setTimeout(() => smoke.remove(), fadeTime + removeDelay);
                     }
                 }
 
-                createSmoke();
-
                 setTimeout(() => {
+                    createSmoke();
                     setInterval(createSmoke, interval);
                 }, delay);
             });
         }
-
-
-        // function startSmoke(carSelector, smokeClass, maxCount, interval, delay, fadeTime, removeDelay, extraClass = '', activeClass = false) {
-        //     const cars = document.querySelectorAll(carSelector);
-        //     cars.forEach(car =>{
-        //         if (!car) return;
-        //         console.log(car.parentElement.parentElement.classList.contains("_active"))
-        //
-        //         function createSmoke() {
-        //             if(activeClass){
-        //                 if (!car || !car.parentElement.parentElement.classList.contains("_active")) return;
-        //             }
-        //             if (car.querySelectorAll(`.${smokeClass}${extraClass ? `.${extraClass}` : ''}`).length < maxCount) {
-        //                 const smoke = document.createElement('div');
-        //                 smoke.classList.add(smokeClass);
-        //                 if (extraClass) smoke.classList.add(extraClass);
-        //                 car.appendChild(smoke);
-        //                 setTimeout(() => smoke.classList.add("_opacity"), fadeTime);
-        //                 setTimeout(() => smoke.remove(), fadeTime + removeDelay);
-        //             }
-        //         }
-        //         createSmoke();
-        //         setTimeout(createSmoke, delay);
-        //         setInterval(() => {
-        //             createSmoke();
-        //             setTimeout(createSmoke, delay);
-        //         }, interval);
-        //     })
-        //
-        // }
 
         startSmoke('.race__bolid-car', 'race__bolid-smoke-front', 4, 900, 500, 200, 1600, "", true);
         startSmoke('.race__bolid-car', 'race__bolid-smoke-back', 8, 900, 500, 200, 1600, "", true);
