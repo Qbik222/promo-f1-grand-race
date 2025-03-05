@@ -1,4 +1,5 @@
-(function () {
+(async function () {
+    //18908465
     const API = 'https://fav-prom.com';
     const ENDPOINT = 'api_formula1_25';
     const RACES = [
@@ -126,8 +127,17 @@
     const currentDate = new Date();
     const racesById = [];
     RACES.forEach((r) => (racesById[r.number] = r));
+    // console.log(' racesById:', racesById);
     let userId = null;
-    const actionBtn = document.querySelector('.btn');
+    let users = [];
+    let existingUser = false;
+    const authBtnsEl = document.querySelectorAll('.unauth-msg');
+    const youAreInBtnsEl = document.querySelectorAll('.btn-join');
+    const predictionBtnEl = document.querySelector('.took-part');
+    const betColumnsBtnsEl = document.querySelectorAll('.bet__column-btn');
+    const yourBetInfoEl = document.querySelector('.bet__your');
+    const yourSeasonResEl = document.querySelector('.results__you');
+    const yourSeasonBetsEl = document.querySelector('.drop._bets');
 
     function formatDateString(dateString) {
         const date = new Date(dateString);
@@ -141,20 +151,6 @@
         return `${day}.${month}.${year} / ${hours}:${minutes}`;
     }
 
-    function request(link, extraOptions = {}) {
-        fetch(`${API}/${ENDPOINT}/${link}`, {
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            ...extraOptions,
-        }).then((res) => res.json());
-    }
-
-    function maskUserId(userIdToMask) {
-        return '**' + userIdToMask.toString().slice(2);
-    }
-
     function getCurrentRace() {
         const raceInfo = RACES.find(
             (r) => currentDate >= r.startDate && currentDate < r.endDate
@@ -162,60 +158,334 @@
         return raceInfo && raceInfo.number;
     }
 
-    // function checkUserAuth() {
-    //     if (userId) {
+    function maskUserId(userIdToMask) {
+        return '**' + userIdToMask.toString().slice(2);
+    }
 
-    //     } else {
-    //         chooseSelector.classList.add('hide');
-    //         scrollBtn.classList.add('hide');
-    //     }
-    // }
+    function animateOnScroll(element, animationClass, delay) {
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2,
+        };
 
-    // function getUsers(forceRefresh) {
-    //     const raceNumber = currentIndex + 1;
-    //     const raceStatus = getRaceStatus(raceNumber);
-    //     if (!raceStatus || raceStatus == 'closed') {
-    //         return Promise.resolve([]);
-    //     }
-    //     const cached = usersByRace[raceNumber];
-    //     if (!forceRefresh && !!cached) {
-    //         return Promise.resolve(cached);
-    //     }
-    //     return request(`/users/${raceNumber}`)
-    //         .then(res => {
-    //             usersByRace[raceNumber] = res;
-    //             return res;
-    //         });
-    // }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add(animationClass);
+                    }, delay);
+                } else {
+                    entry.target.classList.remove(animationClass);
+                }
+            });
+        }, options);
 
-    // const InitPage = (forceRefresh) => {
-    //     getUsers(forceRefresh).then((users) => {
-    //         renderUsers(users);
-    //         translate();
-    //     });
-    // };
+        observer.observe(element);
+    }
 
-    function init() {
-        // if (window.store) {
-        //     const state = window.store.getState();
-        //     userId = (state.auth.isAuthorized && state.auth.id) || '';
-        // } else {
-        //     // InitPage();
-        //     const c = 0;
-        //     const interval = setInterval(function () {
-        //         if (c < 50) {
-        //             if (window.g_user_id) {
-        //                 userId = window.g_user_id;
-        //                 // InitPage();
-        //                 checkUserAuth();
-        //                 clearInterval(interval);
-        //             }
-        //         } else {
-        //             clearInterval(interval);
-        //         }
-        //     }, 200);
-        // }
+    function request(link, extraOptions = {}) {
+        console.log('request link:', `${API}/${ENDPOINT}${link}`);
+        return fetch(`${API}/${ENDPOINT}${link}`, {
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            ...extraOptions,
+        });
+    }
+
+    async function getAllUsers() {
+        const response = await request('/users');
+        return response.json();
+    }
+
+    async function getSeasonalStandings() {
+        const response = await request('/seasonal-standings');
+        return response.json();
+    }
+
+    async function registerUser() {
+        const response = await request('/user', {
+            method: 'POST',
+            body: JSON.stringify({
+                userid: userId,
+            }),
+        });
+        return response.json();
+    }
+
+    async function getPredictionType(userIdentifier, raceNumber) {
+        try {
+            const response = await request(
+                `/prediction-type/${userIdentifier}/${raceNumber}`
+            );
+
+            const data = await response.json();
+            console.log('Prediction type response:', data);
+
+            return data;
+        } catch (error) {
+            console.error('Error getting prediction type:', error);
+            return null;
+        }
+    }
+    /* {
+        "predictionType": "fastestLap",
+        "isExisting": false
+    } 
+    
+    const predictionTypes = ['winner', 'fastestLap', 'bestTeam'];
+    
+    */
+
+    function checkUserAuth() {
+        console.log('checkUserAuth', userId);
+        if (!userId) {
+            predictionBtnEl.disabled = true;
+            yourSeasonResEl.classList.add('hidden');
+            yourSeasonBetsEl.classList.add('hidden');
+            betColumnsBtnsEl.forEach((button) => {
+                button.classList.add('_lock');
+            });
+            yourBetInfoEl.classList.add('hidden');
+        } else if (userId && !existingUser) {
+            yourSeasonResEl.classList.add('hidden');
+            yourBetInfoEl.classList.add('hidden');
+            betColumnsBtnsEl.forEach((button) => {
+                button.classList.add('_lock');
+            });
+            youAreInBtnsEl.forEach((btn) => {
+                btn.classList.remove('hidden');
+            });
+            authBtnsEl.forEach((btn) => {
+                btn.classList.add('hidden');
+            });
+        } else if (userId && existingUser) {
+            youAreInBtnsEl.forEach((btn) => {
+                btn.classList.remove('hidden');
+            });
+            yourBetInfoEl.classList.add('hidden');
+            authBtnsEl.forEach((btn) => {
+                btn.classList.add('hidden');
+            });
+            predictionBtnEl.classList.remove('_lock');
+        }
+    }
+
+    function checkUserReg() {
+        users.forEach((user) => {
+            if (user.userid === userId) {
+                existingUser = true;
+                checkUserAuth();
+            }
+        });
+        // renderUsers(users);
+        // translate();
+    }
+
+    async function initRegistration() {
+        youAreInBtnsEl.forEach((btn) => {
+            btn.addEventListener('click', async function () {
+                const response = await registerUser();
+
+                if (response.success) {
+                    checkUserReg();
+                    await loadPredictionType();
+
+                }
+            });
+        });
+    }
+
+    async function loadPredictionType() {
+        const currentRaceNumber = getCurrentRace();
+        const predictionData = await getPredictionType(
+            userId,
+            currentRaceNumber
+        );
+
+        renderPredictionTable(predictionData.predictionType);
+    }
+
+    function renderPredictionTable(predictionType) {
+        //for test
+        predictionType = 'fastestLap';
+        const betContainer = document.querySelector('.bet._container');
+
+        switch (predictionType) {
+            case 'winner':
+                betContainer.classList.add('_winner');
+                break;
+            case 'fastestLap':
+                betContainer.classList.add('_fastestLap');
+                break;
+            case 'bestTeam':
+                betContainer.classList.add('_bestTeam');
+                break;
+            default:
+                betContainer.classList.add('_winner');
+        }
+    }
+
+    function renderSeasonalStandings(standings) {
+        console.log('standings:', standings);
+
+        if (!standings || !Array.isArray(standings) || standings.length === 0) {
+            return;
+        }
+
+        const usersWithPoints = standings.filter(
+            (user) => user.correctPredictions > 0
+        );
+
+        if (usersWithPoints.length === 0) {
+            console.log('No users with correct predictions found');
+            return;
+        }
+
+        const topThree = usersWithPoints.slice(0, 3);
+
+        topThree.forEach((user) => {
+            const position = user.position;
+            let containerClass = '';
+
+            switch (position) {
+                case 1:
+                    containerClass = '.results__first';
+                    break;
+                case 2:
+                    containerClass = '.results__second';
+                    break;
+                case 3:
+                    containerClass = '.results__third';
+                    break;
+                default:
+                    return;
+            }
+
+            const container = document.querySelector(containerClass);
+            if (!container) return;
+
+            if (user.correctPredictions > 0) {
+                animateOnScroll(
+                    container.querySelector('.results__top-decor'),
+                    '_show',
+                    0
+                );
+                animateOnScroll(
+                    container.querySelector('.results__top-wrap'),
+                    '_show',
+                    400
+                );
+
+                const placeEl = container.querySelector('.results__top-place');
+                if (placeEl) placeEl.textContent = position;
+
+                const userIdEl = container.querySelector(
+                    '.results__top-info-id'
+                );
+                if (userIdEl)
+                    userIdEl.textContent = `USER ${maskUserId(user.userid)}`;
+
+                const pointsEl = container.querySelector(
+                    '.results__top-info-points'
+                );
+                if (pointsEl) {
+                    const pointsText = pointsEl.querySelector(
+                        '[data-translate="points"]'
+                    );
+                    pointsEl.innerHTML = '';
+                    if (pointsText) pointsEl.appendChild(pointsText);
+                    pointsEl.appendChild(
+                        document.createTextNode(` ${user.correctPredictions}`)
+                    );
+                }
+            }
+        });
+    }
+
+    function renderUsersPlace(standings) {
+        if (!userId || !standings || !Array.isArray(standings)) {
+            return;
+        }
+
+        const currentUser = standings.find(
+            (user) => user.userid === parseInt(userId)
+        );
+        if (!currentUser) {
+            yourSeasonResEl.classList.add('hidden');
+            return;
+        }
+
+        yourSeasonResEl.classList.remove('hidden');
+        const placeEl = yourSeasonResEl.querySelector('.results__you-place');
+        if (placeEl) {
+            placeEl.textContent = currentUser.position;
+        }
+
+        const userIdEl = yourSeasonResEl.querySelector('.results__you-info-id');
+        if (userIdEl) {
+            userIdEl.textContent = maskUserId(userId);
+        }
+
+        const pointsWrapper = yourSeasonResEl.querySelector(
+            '.results__you-info-points'
+        );
+
+        if (pointsWrapper) {
+            const pointsValueEl =
+                pointsWrapper.querySelector('span:last-child');
+            if (pointsValueEl) {
+                pointsValueEl.textContent = `: ${currentUser.correctPredictions}`;
+            }
+        }
+    }
+
+    async function initPage() {
         // checkUserAuth();
+        users = await getAllUsers();
+        console.log('all USERS', users);
+        const standings = await getSeasonalStandings();
+        renderSeasonalStandings(standings);
+        checkUserReg();
+        console.log('existingUser:', existingUser);
+        if (!existingUser) {
+            await initRegistration();
+        } else {
+            renderUsersPlace(standings);
+        }
+    }
+
+    async function init() {
+        if (!window.store) {
+            console.log('window store');
+            // const state = window.store.getState();
+            // userId = (state.auth.isAuthorized && state.auth.id) || '';
+            userId = 18908465;
+            await initPage();
+        } else {
+            console.log('no window store');
+            await initPage();
+            let c = 0;
+            const interval = setInterval(function () {
+                if (c < 50) {
+                    if (window.g_user_id) {
+                        userId = window.g_user_id;
+                        (async () => {
+                            await initPage();
+                            checkUserAuth();
+                        })();
+                        clearInterval(interval);
+                    }
+                } else {
+                    clearInterval(interval);
+                    c++;
+                    console.log(c);
+                }
+            }, 200);
+        }
+        checkUserAuth();
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -228,7 +498,7 @@
         const resultsSecond = document.querySelector('.results__second');
         const resultsThird = document.querySelector('.results__third');
 
-        let currentRace = 3;
+        const currentRace = 3;
 
         slides.forEach((slide, i) => {
             if (i < currentRace) {
@@ -487,58 +757,58 @@
             '_resultsPopup'
         );
 
-        function animateOnScroll(element, animationClass, delay) {
-            const options = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.2,
-            };
+        // function animateOnScroll(element, animationClass, delay) {
+        //     const options = {
+        //         root: null,
+        //         rootMargin: '0px',
+        //         threshold: 0.2,
+        //     };
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.classList.add(animationClass);
-                        }, delay);
-                    } else {
-                        entry.target.classList.remove(animationClass);
-                    }
-                });
-            }, options);
+        //     const observer = new IntersectionObserver((entries) => {
+        //         entries.forEach((entry) => {
+        //             if (entry.isIntersecting) {
+        //                 setTimeout(() => {
+        //                     entry.target.classList.add(animationClass);
+        //                 }, delay);
+        //             } else {
+        //                 entry.target.classList.remove(animationClass);
+        //             }
+        //         });
+        //     }, options);
 
-            observer.observe(element);
-        }
+        //     observer.observe(element);
+        // }
 
-        animateOnScroll(
-            resultsFirst.querySelector('.results__top-decor'),
-            '_show',
-            0
-        );
-        animateOnScroll(
-            resultsSecond.querySelector('.results__top-decor'),
-            '_show',
-            400
-        );
-        animateOnScroll(
-            resultsThird.querySelector('.results__top-decor'),
-            '_show',
-            800
-        );
-        animateOnScroll(
-            resultsFirst.querySelector('.results__top-wrap'),
-            '_show',
-            0
-        );
-        animateOnScroll(
-            resultsSecond.querySelector('.results__top-wrap'),
-            '_show',
-            400
-        );
-        animateOnScroll(
-            resultsThird.querySelector('.results__top-wrap'),
-            '_show',
-            800
-        );
+        // animateOnScroll(
+        //     resultsFirst.querySelector('.results__top-decor'),
+        //     '_show',
+        //     0
+        // );
+        // animateOnScroll(
+        //     resultsSecond.querySelector('.results__top-decor'),
+        //     '_show',
+        //     400
+        // );
+        // animateOnScroll(
+        //     resultsThird.querySelector('.results__top-decor'),
+        //     '_show',
+        //     800
+        // );
+        // animateOnScroll(
+        //     resultsFirst.querySelector('.results__top-wrap'),
+        //     '_show',
+        //     0
+        // );
+        // animateOnScroll(
+        //     resultsSecond.querySelector('.results__top-wrap'),
+        //     '_show',
+        //     400
+        // );
+        // animateOnScroll(
+        //     resultsThird.querySelector('.results__top-wrap'),
+        //     '_show',
+        //     800
+        // );
 
         document.querySelectorAll('.bet__item').forEach((item) => {
             const wrap = item.querySelector('.bet__wrap');
@@ -564,4 +834,79 @@
     document.querySelector('.dark-btn').addEventListener('click', () => {
         document.body.classList.toggle('dark');
     });
+
+    // #region Translation
+    const ukLang = document.querySelector('#ukLang');
+    const enLang = document.querySelector('#enLang');
+    const mainPage = document.querySelector('.fav__page');
+    let i18nData = {};
+    let locale = 'uk';
+    if (ukLang) locale = 'uk';
+    if (enLang) locale = 'en';
+
+    async function loadTranslations() {
+        try {
+            const response = await fetch(
+                `${API}/${ENDPOINT}/translates/${locale}`
+            );
+            const json = await response.json();
+            i18nData = json;
+            translate();
+
+            const mutationObserver = new MutationObserver(function (mutations) {
+                translate();
+            });
+            mutationObserver.observe(document.getElementById('formula1_25'), {
+                childList: true,
+                subtree: true,
+            });
+        } catch (error) {
+            console.error('Error loading translations:', error);
+        }
+    }
+
+    function translate() {
+        const elems = document.querySelectorAll('[data-translate]');
+        if (elems && elems.length) {
+            elems.forEach((elem) => {
+                const key = elem.getAttribute('data-translate');
+                elem.innerHTML = translateKey(key);
+                elem.removeAttribute('data-translate');
+            });
+        }
+
+        if (locale === 'en') {
+            mainPage.classList.add('en');
+        }
+
+        refreshLocalizedClass();
+    }
+
+    function translateKey(key) {
+        if (!key) {
+            return;
+        }
+        return (
+            i18nData[key] || '*----NEED TO BE TRANSLATED----*   key:  ' + key
+        );
+    }
+
+    function refreshLocalizedClass(element, baseCssClass) {
+        if (!element) {
+            return;
+        }
+        for (const lang of ['uk', 'en']) {
+            element.classList.remove(baseCssClass + lang);
+        }
+        element.classList.add(baseCssClass + locale);
+    }
+
+    // #endregion
+
+    try {
+        await loadTranslations();
+        await init();
+    } catch (error) {
+        console.error('Error during initialization:', error);
+    }
 })();

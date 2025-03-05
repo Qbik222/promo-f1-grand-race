@@ -1,6 +1,6 @@
 .menu-test
     button.dark-btn dark
-.fav-page
+.fav-page#formula1_25
     .welcome
         .welcome__pers
             .welcome__pers-decor._top
@@ -39,7 +39,8 @@
                 .welcome__prize-item(data-translate="prizeFond") Призовий фонд
                 .welcome__prize-item(data-translate="prizeFondAmount") 1 500 000
                 .welcome__prize-item(data-translate="prizeFondText") Прогнозуй результати Гран-прі Змагайся за 40 000 ₴ кожного заїзду
-            .welcome__btn.btn взяти участь
+            a(href="/login/" role="button" data-translate="loginBtn").welcome__btn.btn.unauth-msg авторизуйся
+            div(data-translate="forecastBtn").welcome__btn.btn.btn-join.hidden взяти участь
     .race._container
         .race__slider
             .race__item
@@ -1145,7 +1146,7 @@
             .race__nav-left
             .race__nav-right
             .race__nav-counter 12/24
-    .bet._container._margin-top._racer
+    .bet._container._margin-top._racer(id="choose")
         .bet__item._racer
             .bet__text(data-translate="betText") етап
             .bet__title._title(data-translate="betTitleRacer") Обери переможця Гран-прі*
@@ -1166,7 +1167,7 @@
                             .bet__scroll-nav-item
             .bet__wrap
                 .bet__column
-                    .bet__column-item.you
+                    .bet__column-item
                         .bet__column-place 1
                         .bet__column-flag
                             img(src="./img/bet/flag/netherlands.svg" alt="flag")
@@ -1402,7 +1403,7 @@
                         .bet__column-predict Ландо Моріс
                         .bet__column-prize 731 UAH
 
-        .bet__item._map
+        .bet__item._lap
             .bet__text(data-translate="betText") етап
             .bet__title._title(data-translate="betTitleRacer") Обери переможця Гран-прі*
             .bet__your-wrap
@@ -1429,7 +1430,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="MaxVerstappen") Макс Ферстаппен
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1439,7 +1440,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="LandoNorris") Ландо Норріс
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1449,7 +1450,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="CharlesLeclerc") Шарль Леклер
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1459,7 +1460,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="OscarPiastri") Оскар Піастрі
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1469,7 +1470,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="CarlosSainz") Карлос Сайнс
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1479,7 +1480,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="GeorgeRussell") Джордж Рассел
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1489,7 +1490,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="LewisHamilton") Льюїс Гамільтон
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1499,7 +1500,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="LiamLawson") Ліам Лоусон
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1509,7 +1510,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="AndreaKimiAntonelli") Андреа Кімі Антонеллі
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1519,7 +1520,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="LanceStroll") Ленс Стролл
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                 .bet__column
@@ -1530,7 +1531,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="FernandoAlonso") Фернандо Алонсо
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1540,7 +1541,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="PierreGasly") П'єр Гаслі
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1550,7 +1551,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="JackDoohan") Джек Дуган
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1560,7 +1561,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="IsackHadjar") Ісак Хаджар
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1570,7 +1571,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="YukiTsunoda") Юкі Цунода
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1580,7 +1581,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="EstebanOcon") Естебан Окон
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1590,7 +1591,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="OliverBearman") Олівер Берман
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn Твій прогноз
+                        button(type="button" data-translate="playBtn").bet__column-btn Твій прогноз
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1600,7 +1601,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="AlexanderAlbon") Александр Албон
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1610,7 +1611,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="NicoHulkenberg") Ніко Хюлькенберг
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
@@ -1620,7 +1621,7 @@
                         .bet__column-name
                             .bet__column-name-item(data-translate="GabrielBortoleto") Габріель Бортолето
                             .bet__column-name-item McLaren
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
         .bet__item._team
             .bet__text(data-translate="betText") етап
@@ -1646,35 +1647,35 @@
                         .bet__column-place 1
                         .bet__column-name
                             .bet__column-name-item(data-translate="McLaren") КОМАНДА «МАКЛАРЕН»
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
                         .bet__column-place 2
                         .bet__column-name
                             .bet__column-name-item(data-translate="Ferrari") КОМАНДА «ФЕРАРІ»
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
                         .bet__column-place 3
                         .bet__column-name
                             .bet__column-name-item(data-translate="RedBull") КОМАНДА «РЕДБУЛ»
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
                         .bet__column-place 4
                         .bet__column-name
                             .bet__column-name-item(data-translate="Mercedes") КОМАНДА «МЕРСЕДЕС»
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
                         .bet__column-place 5
                         .bet__column-name
                             .bet__column-name-item(data-translate="Alpine") КОМАНДА «АЛЬПІН»
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                 .bet__column
@@ -1682,38 +1683,38 @@
                         .bet__column-place 6
                         .bet__column-name
                             .bet__column-name-item(data-translate="AstonMartin") КОМАНДА «АСТОН МАРТІН»
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
                         .bet__column-place 7
                         .bet__column-name
                             .bet__column-name-item(data-translate="Haas") КОМАНДА «ХААС»
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
                         .bet__column-place 8
                         .bet__column-name
                             .bet__column-name-item(data-translate="KickSauber") КОМАНДА «КІК САУБЕР»
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
                         .bet__column-place 9
                         .bet__column-name
                             .bet__column-name-item(data-translate="RacingBulls") КОМАНДА «РЕЙСІНГ БУЛС»
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
 
                     .bet__column-item
                         .bet__column-place 10
                         .bet__column-name
                             .bet__column-name-item(data-translate="Williams") КОМАНДА «ВІЛЬЯМС»
-                        a(href="#" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
+                        button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
     .confirm._container._margin-top
-        .confirm__prediction._betConfirmed
+        .confirm__prediction
             .confirm__prediction-no(data-translate="betNoConfirmed") Прогноз не підтверджено
             .confirm__prediction-yes(data-translate="betConfirmed") Прогноз підтверджено
             .confirm__upd
@@ -1740,7 +1741,7 @@
             .confirm__anim
                 .confirm__anim-body
                 .confirm__anim-arrow
-        .confirm__btn.btn погнали
+        .confirm__btn.btn.took-part._lock(data-translate="predictBtn") погнали
 
     .results._container
         .results__title._title(data-translate="resultsTitle") Сезонний Батл
@@ -1810,10 +1811,11 @@
                     source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/results/pers-you-mob.png")
                     source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/results/pers-you-desc.png")
                     img(src="./img/results/pers-you-desc.png" alt="Favbet")
-        .results__btn.btn взяти участь
+        a(href="/login/" role="button" data-translate="loginBtn").results__btn.btn.unauth-msg авторизуйся
+        div(data-translate="forecastBtn").results__btn.btn.btn-join.hidden взяти участь
         .results__bottom(data-translate="resultsBottom") *Загальний призовий фонд Акції «Грандіозні перегони» складається з 1 500 000 електронних грошових замінників. Деталі на сайті www.favbet.ua. Період дії акції – з 12:00 10.03.2025 до 23:59 07.12.2024 року
 
-    .drop
+    .drop._bets
         details.dropdown
             summary(data-translate="predictDrop") Історія прогнозів
             .drop-txt
