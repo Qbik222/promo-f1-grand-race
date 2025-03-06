@@ -1,5 +1,12 @@
 .menu-test
     button.dark-btn dark
+    button.btn-confirm bet confirm
+    button.auth-btn auth
+    button.btn-participante participante
+    button.lng-btn en
+    button.racer-btn racer
+    button.lap-btn lap
+    button.team-btn team
 .fav-page#formula1_25
     .welcome
         .welcome__pers
@@ -32,22 +39,23 @@
                 picture
                     source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/welcome/title-mob.png")
                     source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/welcome/title-mob.png")
-                    source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/welcome/title-mob.png")
+                    source(media="(min-width: 601px) and (max-width: 1050px)" srcset="./img/welcome/title-mob.png")
                     source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/welcome/title-desc.png")
                     img(src="./img/welcome/title-desc.png" alt="Favbet")
             .welcome__prize
                 .welcome__prize-item(data-translate="prizeFond") Призовий фонд
                 .welcome__prize-item(data-translate="prizeFondAmount") 1 500 000
                 .welcome__prize-item(data-translate="prizeFondText") Прогнозуй результати Гран-прі Змагайся за 40 000 ₴ кожного заїзду
-            a(href="/login/" role="button" data-translate="loginBtn").welcome__btn.btn.unauth-msg авторизуйся
+            a(href="/login/" role="button" data-translate="loginBtn").welcome__btn.btn.unauth-msg.hidden авторизуйся
             div(data-translate="forecastBtn").welcome__btn.btn.btn-join.hidden взяти участь
-    .race._container
+            div(data-translate="currentRaceBtn").welcome__btn.btn.current-race.hidden поточний етап
+    .race._container#predict
         .race__slider
             .race__item
                 .race__item-wrap
                     .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Britain") Велика Британія
-                    .race__date 04.07 — 06.07
+                    .race__country._title(data-translate="Australia")
+                    .race__date 14.03 — 16.03
                     .race__prize
                         .race__prize-amount(data-translate="racePrizeAmount") 40 000
                         .race__prize-fond(data-translate="prizeFond") Призовий фонд
@@ -89,60 +97,16 @@
                             source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
                             source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
                             img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
-                    .race__bolid-map
-                        img(src="./img/race/map/british.png" alt="Favbet")
-            .race__item
-                .race__item-wrap
-                    .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Australia") Австралія
-                    .race__date 04.07 — 06.07
-                    .race__prize
-                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
-                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
-                .race__bolid
-                    .race__bolid-car
-                        picture
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
-                            img(src="./img/race/car-desc.png" alt="Favbet")
-                        .race__bolid-wheel-front
-                        .race__bolid-wheel-back
-                        .race__bolid-decor._bottom
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                    .race__bolid-done
-                        picture.race__bolid-done-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-done-title(data-translate="done") Завершений
-                        .race__bolid-winer
-                            .race__bolid-winer-text(data-translate="winer") переможець:
-                            .race__bolid-winer-racer Макс Ферстапен
-                    .race__bolid-lock
-                        picture.race__bolid-lock-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 14.03
                     .race__bolid-map
                         img(src="./img/race/map/australia.png" alt="Favbet")
             .race__item
                 .race__item-wrap
                     .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Belgium") Бельгія
-                    .race__date 04.07 — 06.07
+                    .race__country._title(data-translate="China")
+                    .race__date 21.03 — 23.03
                     .race__prize
                         .race__prize-amount(data-translate="racePrizeAmount") 40 000
                         .race__prize-fond(data-translate="prizeFond") Призовий фонд
@@ -179,15 +143,16 @@
                             source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
                             source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
                             img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 21.03
                     .race__bolid-map
-                        img(src="./img/race/map/belgium.png" alt="Favbet")
+                        img(src="./img/race/map/china.png" alt="Favbet")
             .race__item
                 .race__item-wrap
                     .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Hungary") Угорщина
-                    .race__date 04.07 — 06.07
+                    .race__country._title(data-translate="Japan")
+                    .race__date 04.04 - 06.04
                     .race__prize
                         .race__prize-amount(data-translate="racePrizeAmount") 40 000
                         .race__prize-fond(data-translate="prizeFond") Призовий фонд
@@ -224,15 +189,16 @@
                             source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
                             source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
                             img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 04.04
                     .race__bolid-map
-                        img(src="./img/race/map/hungary.png" alt="Favbet")
+                        img(src="./img/race/map/japan.png" alt="Favbet")
             .race__item
                 .race__item-wrap
                     .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="AbuDhabi") Абу-Дабі
-                    .race__date 04.07 — 06.07
+                    .race__country._title(data-translate="Bahrain")
+                    .race__date 11.04 - 13.04
                     .race__prize
                         .race__prize-amount(data-translate="racePrizeAmount") 40 000
                         .race__prize-fond(data-translate="prizeFond") Призовий фонд
@@ -269,150 +235,16 @@
                             source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
                             source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
                             img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
-                    .race__bolid-map
-                        img(src="./img/race/map/abudhabi.png" alt="Favbet")
-            .race__item
-                .race__item-wrap
-                    .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Austria") Австрія
-                    .race__date 04.07 — 06.07
-                    .race__prize
-                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
-                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
-                .race__bolid
-                    .race__bolid-car
-                        picture
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
-                            img(src="./img/race/car-desc.png" alt="Favbet")
-                        .race__bolid-wheel-front
-                        .race__bolid-wheel-back
-                        .race__bolid-decor._bottom
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                    .race__bolid-done
-                        picture.race__bolid-done-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-done-title(data-translate="done") Завершений
-                        .race__bolid-winer
-                            .race__bolid-winer-text(data-translate="winer") переможець:
-                            .race__bolid-winer-racer Макс Ферстапен
-                    .race__bolid-lock
-                        picture.race__bolid-lock-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
-                    .race__bolid-map
-                        img(src="./img/race/map/austria.png" alt="Favbet")
-            .race__item
-                .race__item-wrap
-                    .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Azerbaijan") Азербайджан
-                    .race__date 04.07 — 06.07
-                    .race__prize
-                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
-                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
-                .race__bolid
-                    .race__bolid-car
-                        picture
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
-                            img(src="./img/race/car-desc.png" alt="Favbet")
-                        .race__bolid-wheel-front
-                        .race__bolid-wheel-back
-                        .race__bolid-decor._bottom
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                    .race__bolid-done
-                        picture.race__bolid-done-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-done-title(data-translate="done") Завершений
-                        .race__bolid-winer
-                            .race__bolid-winer-text(data-translate="winer") переможець:
-                            .race__bolid-winer-racer Макс Ферстапен
-                    .race__bolid-lock
-                        picture.race__bolid-lock-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
-                    .race__bolid-map
-                        img(src="./img/race/map/azerbaijan.png" alt="Favbet")
-            .race__item
-                .race__item-wrap
-                    .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Bahrain") Бахрейн
-                    .race__date 04.07 — 06.07
-                    .race__prize
-                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
-                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
-                .race__bolid
-                    .race__bolid-car
-                        picture
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
-                            img(src="./img/race/car-desc.png" alt="Favbet")
-                        .race__bolid-wheel-front
-                        .race__bolid-wheel-back
-                        .race__bolid-decor._bottom
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                    .race__bolid-done
-                        picture.race__bolid-done-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-done-title(data-translate="done") Завершений
-                        .race__bolid-winer
-                            .race__bolid-winer-text(data-translate="winer") переможець:
-                            .race__bolid-winer-racer Макс Ферстапен
-                    .race__bolid-lock
-                        picture.race__bolid-lock-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 11.04
                     .race__bolid-map
                         img(src="./img/race/map/bahrain.png" alt="Favbet")
             .race__item
                 .race__item-wrap
                     .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Brazil") Бразилія
-                    .race__date 04.07 — 06.07
+                    .race__country._title(data-translate="SaudiArabia")
+                    .race__date 18.04 - 20.04
                     .race__prize
                         .race__prize-amount(data-translate="racePrizeAmount") 40 000
                         .race__prize-fond(data-translate="prizeFond") Призовий фонд
@@ -449,15 +281,16 @@
                             source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
                             source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
                             img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 18.04
                     .race__bolid-map
-                        img(src="./img/race/map/brazil.png" alt="Favbet")
+                        img(src="./img/race/map/sauarabia.png" alt="Favbet")
             .race__item
                 .race__item-wrap
                     .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Canada") Канада
-                    .race__date 04.07 — 06.07
+                    .race__country._title(data-translate="Miami")
+                    .race__date 02.05 - 04.05
                     .race__prize
                         .race__prize-amount(data-translate="racePrizeAmount") 40 000
                         .race__prize-fond(data-translate="prizeFond") Призовий фонд
@@ -494,338 +327,17 @@
                             source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
                             source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
                             img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
-                    .race__bolid-map
-                        img(src="./img/race/map/canada.png" alt="Favbet")
-
-            .race__item
-                .race__item-wrap
-                    .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="China") Китай
-                    .race__date 04.07 — 06.07
-                    .race__prize
-                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
-                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
-                .race__bolid
-                    .race__bolid-car
-                        picture
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
-                            img(src="./img/race/car-desc.png" alt="Favbet")
-                        .race__bolid-wheel-front
-                        .race__bolid-wheel-back
-                        .race__bolid-decor._bottom
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                    .race__bolid-done
-                        picture.race__bolid-done-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-done-title(data-translate="done") Завершений
-                        .race__bolid-winer
-                            .race__bolid-winer-text(data-translate="winer") переможець:
-                            .race__bolid-winer-racer Макс Ферстапен
-                    .race__bolid-lock
-                        picture.race__bolid-lock-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
-                    .race__bolid-map
-                        img(src="./img/race/map/china.png" alt="Favbet")
-
-            .race__item
-                .race__item-wrap
-                    .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="EmiliaRomagna") Емілія-Романья
-                    .race__date 04.07 — 06.07
-                    .race__prize
-                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
-                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
-                .race__bolid
-                    .race__bolid-car
-                        picture
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
-                            img(src="./img/race/car-desc.png" alt="Favbet")
-                        .race__bolid-wheel-front
-                        .race__bolid-wheel-back
-                        .race__bolid-decor._bottom
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                    .race__bolid-done
-                        picture.race__bolid-done-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-done-title(data-translate="done") Завершений
-                        .race__bolid-winer
-                            .race__bolid-winer-text(data-translate="winer") переможець:
-                            .race__bolid-winer-racer Макс Ферстапен
-                    .race__bolid-lock
-                        picture.race__bolid-lock-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
-                    .race__bolid-map
-                        img(src="./img/race/map/emilia-romagna.png" alt="Favbet")
-
-            .race__item
-                .race__item-wrap
-                    .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Italy") Італія
-                    .race__date 04.07 — 06.07
-                    .race__prize
-                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
-                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
-                .race__bolid
-                    .race__bolid-car
-                        picture
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
-                            img(src="./img/race/car-desc.png" alt="Favbet")
-                        .race__bolid-wheel-front
-                        .race__bolid-wheel-back
-                        .race__bolid-decor._bottom
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                    .race__bolid-done
-                        picture.race__bolid-done-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-done-title(data-translate="done") Завершений
-                        .race__bolid-winer
-                            .race__bolid-winer-text(data-translate="winer") переможець:
-                            .race__bolid-winer-racer Макс Ферстапен
-                    .race__bolid-lock
-                        picture.race__bolid-lock-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
-                    .race__bolid-map
-                        img(src="./img/race/map/italy.png" alt="Favbet")
-
-            .race__item
-                .race__item-wrap
-                    .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Japan") Японія
-                    .race__date 04.07 — 06.07
-                    .race__prize
-                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
-                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
-                .race__bolid
-                    .race__bolid-car
-                        picture
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
-                            img(src="./img/race/car-desc.png" alt="Favbet")
-                        .race__bolid-wheel-front
-                        .race__bolid-wheel-back
-                        .race__bolid-decor._bottom
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                    .race__bolid-done
-                        picture.race__bolid-done-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-done-title(data-translate="done") Завершений
-                        .race__bolid-winer
-                            .race__bolid-winer-text(data-translate="winer") переможець:
-                            .race__bolid-winer-racer Макс Ферстапен
-                    .race__bolid-lock
-                        picture.race__bolid-lock-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
-                    .race__bolid-map
-                        img(src="./img/race/map/japan.png" alt="Favbet")
-
-            .race__item
-                .race__item-wrap
-                    .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="LasVegas") Лас-Вегас
-                    .race__date 04.07 — 06.07
-                    .race__prize
-                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
-                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
-                .race__bolid
-                    .race__bolid-car
-                        picture
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
-                            img(src="./img/race/car-desc.png" alt="Favbet")
-                        .race__bolid-wheel-front
-                        .race__bolid-wheel-back
-                        .race__bolid-decor._bottom
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                    .race__bolid-done
-                        picture.race__bolid-done-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-done-title(data-translate="done") Завершений
-                        .race__bolid-winer
-                            .race__bolid-winer-text(data-translate="winer") переможець:
-                            .race__bolid-winer-racer Макс Ферстапен
-                    .race__bolid-lock
-                        picture.race__bolid-lock-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
-                    .race__bolid-map
-                        img(src="./img/race/map/lasvegas.png" alt="Favbet")
-
-            .race__item
-                .race__item-wrap
-                    .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Mexico") Мексика
-                    .race__date 04.07 — 06.07
-                    .race__prize
-                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
-                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
-                .race__bolid
-                    .race__bolid-car
-                        picture
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
-                            img(src="./img/race/car-desc.png" alt="Favbet")
-                        .race__bolid-wheel-front
-                        .race__bolid-wheel-back
-                        .race__bolid-decor._bottom
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                    .race__bolid-done
-                        picture.race__bolid-done-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-done-title(data-translate="done") Завершений
-                        .race__bolid-winer
-                            .race__bolid-winer-text(data-translate="winer") переможець:
-                            .race__bolid-winer-racer Макс Ферстапен
-                    .race__bolid-lock
-                        picture.race__bolid-lock-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
-                    .race__bolid-map
-                        img(src="./img/race/map/mexico.png" alt="Favbet")
-
-            .race__item
-                .race__item-wrap
-                    .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Miami") Маямі
-                    .race__date 04.07 — 06.07
-                    .race__prize
-                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
-                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
-                .race__bolid
-                    .race__bolid-car
-                        picture
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
-                            img(src="./img/race/car-desc.png" alt="Favbet")
-                        .race__bolid-wheel-front
-                        .race__bolid-wheel-back
-                        .race__bolid-decor._bottom
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                            .race__bolid-decor-item
-                    .race__bolid-done
-                        picture.race__bolid-done-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-done-title(data-translate="done") Завершений
-                        .race__bolid-winer
-                            .race__bolid-winer-text(data-translate="winer") переможець:
-                            .race__bolid-winer-racer Макс Ферстапен
-                    .race__bolid-lock
-                        picture.race__bolid-lock-img
-                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
-                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
-                            img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 02.05
                     .race__bolid-map
                         img(src="./img/race/map/miami.png" alt="Favbet")
 
             .race__item
                 .race__item-wrap
                     .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Monaco") Монако
-                    .race__date 04.07 — 06.07
+                    .race__country._title(data-translate="Italy")
+                    .race__date 16.05 - 18.05
                     .race__prize
                         .race__prize-amount(data-translate="racePrizeAmount") 40 000
                         .race__prize-fond(data-translate="prizeFond") Призовий фонд
@@ -862,15 +374,202 @@
                             source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
                             source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
                             img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 16.05
+                    .race__bolid-map
+                        img(src="./img/race/map/italy.png" alt="Favbet")
+            .race__item
+                .race__item-wrap
+                    .race__text(data-translate="raceText") Гран-прі
+                    .race__country._title(data-translate="Monaco")
+                    .race__date 23.05 - 25.05
+                    .race__prize
+                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
+                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
+                .race__bolid
+                    .race__bolid-car
+                        picture
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
+                            img(src="./img/race/car-desc.png" alt="Favbet")
+                        .race__bolid-wheel-front
+                        .race__bolid-wheel-back
+                        .race__bolid-decor._bottom
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                    .race__bolid-done
+                        picture.race__bolid-done-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-done-title(data-translate="done") Завершений
+                        .race__bolid-winer
+                            .race__bolid-winer-text(data-translate="winer") переможець:
+                            .race__bolid-winer-racer Макс Ферстапен
+                    .race__bolid-lock
+                        picture.race__bolid-lock-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 23.05
                     .race__bolid-map
                         img(src="./img/race/map/monaco.png" alt="Favbet")
+            .race__item
+                .race__item-wrap
+                    .race__text(data-translate="raceText") Гран-прі
+                    .race__country._title(data-translate="Spain")
+                    .race__date 30.05 - 01.06
+                    .race__prize
+                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
+                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
+                .race__bolid
+                    .race__bolid-car
+                        picture
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
+                            img(src="./img/race/car-desc.png" alt="Favbet")
+                        .race__bolid-wheel-front
+                        .race__bolid-wheel-back
+                        .race__bolid-decor._bottom
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                    .race__bolid-done
+                        picture.race__bolid-done-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-done-title(data-translate="done") Завершений
+                        .race__bolid-winer
+                            .race__bolid-winer-text(data-translate="winer") переможець:
+                            .race__bolid-winer-racer Макс Ферстапен
+                    .race__bolid-lock
+                        picture.race__bolid-lock-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 30.05
+                    .race__bolid-map
+                        img(src="./img/race/map/spain.png" alt="Favbet")
+            .race__item
+                .race__item-wrap
+                    .race__text(data-translate="raceText") Гран-прі
+                    .race__country._title(data-translate="Canada")
+                    .race__date 13.06 - 15.06
+                    .race__prize
+                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
+                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
+                .race__bolid
+                    .race__bolid-car
+                        picture
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
+                            img(src="./img/race/car-desc.png" alt="Favbet")
+                        .race__bolid-wheel-front
+                        .race__bolid-wheel-back
+                        .race__bolid-decor._bottom
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                    .race__bolid-done
+                        picture.race__bolid-done-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-done-title(data-translate="done") Завершений
+                        .race__bolid-winer
+                            .race__bolid-winer-text(data-translate="winer") переможець:
+                            .race__bolid-winer-racer Макс Ферстапен
+                    .race__bolid-lock
+                        picture.race__bolid-lock-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 13.06
+                    .race__bolid-map
+                        img(src="./img/race/map/canada.png" alt="Favbet")
+
 
             .race__item
                 .race__item-wrap
                     .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Netherlands") Нідерланди
+                    .race__country._title(data-translate="Austria")
+                    .race__date 27.06 - 29.06
+                    .race__prize
+                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
+                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
+                .race__bolid
+                    .race__bolid-car
+                        picture
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
+                            img(src="./img/race/car-desc.png" alt="Favbet")
+                        .race__bolid-wheel-front
+                        .race__bolid-wheel-back
+                        .race__bolid-decor._bottom
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                    .race__bolid-done
+                        picture.race__bolid-done-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-done-title(data-translate="done") Завершений
+                        .race__bolid-winer
+                            .race__bolid-winer-text(data-translate="winer") переможець:
+                            .race__bolid-winer-racer Макс Ферстапен
+                    .race__bolid-lock
+                        picture.race__bolid-lock-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 27.06
+                    .race__bolid-map
+                        img(src="./img/race/map/austria.png" alt="Favbet")
+
+            .race__item
+                .race__item-wrap
+                    .race__text(data-translate="raceText") Гран-прі
+                    .race__country._title(data-translate="Britain")
                     .race__date 04.07 — 06.07
                     .race__prize
                         .race__prize-amount(data-translate="racePrizeAmount") 40 000
@@ -908,16 +607,158 @@
                             source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
                             source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
                             img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 04.07
+                    .race__bolid-map
+                        img(src="./img/race/map/british.png" alt="Favbet")
+
+            .race__item
+                .race__item-wrap
+                    .race__text(data-translate="raceText") Гран-прі
+                    .race__country._title(data-translate="Belgium")
+                    .race__date 25.07 - 27.07
+                    .race__prize
+                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
+                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
+                .race__bolid
+                    .race__bolid-car
+                        picture
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
+                            img(src="./img/race/car-desc.png" alt="Favbet")
+                        .race__bolid-wheel-front
+                        .race__bolid-wheel-back
+                        .race__bolid-decor._bottom
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                    .race__bolid-done
+                        picture.race__bolid-done-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-done-title(data-translate="done") Завершений
+                        .race__bolid-winer
+                            .race__bolid-winer-text(data-translate="winer") переможець:
+                            .race__bolid-winer-racer Макс Ферстапен
+                    .race__bolid-lock
+                        picture.race__bolid-lock-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 25.07
+                    .race__bolid-map
+                        img(src="./img/race/map/belgium.png" alt="Favbet")
+
+            .race__item
+                .race__item-wrap
+                    .race__text(data-translate="raceText") Гран-прі
+                    .race__country._title(data-translate="Hungary")
+                    .race__date 01.08 - 03.08
+                    .race__prize
+                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
+                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
+                .race__bolid
+                    .race__bolid-car
+                        picture
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
+                            img(src="./img/race/car-desc.png" alt="Favbet")
+                        .race__bolid-wheel-front
+                        .race__bolid-wheel-back
+                        .race__bolid-decor._bottom
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                    .race__bolid-done
+                        picture.race__bolid-done-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-done-title(data-translate="done") Завершений
+                        .race__bolid-winer
+                            .race__bolid-winer-text(data-translate="winer") переможець:
+                            .race__bolid-winer-racer Макс Ферстапен
+                    .race__bolid-lock
+                        picture.race__bolid-lock-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 01.08
+                    .race__bolid-map
+                        img(src="./img/race/map/hungary.png" alt="Favbet")
+
+            .race__item
+                .race__item-wrap
+                    .race__text(data-translate="raceText") Гран-прі
+                    .race__country._title(data-translate="Netherlands")
+                    .race__date 29.08 - 31.08
+                    .race__prize
+                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
+                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
+                .race__bolid
+                    .race__bolid-car
+                        picture
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
+                            img(src="./img/race/car-desc.png" alt="Favbet")
+                        .race__bolid-wheel-front
+                        .race__bolid-wheel-back
+                        .race__bolid-decor._bottom
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                    .race__bolid-done
+                        picture.race__bolid-done-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-done-title(data-translate="done") Завершений
+                        .race__bolid-winer
+                            .race__bolid-winer-text(data-translate="winer") переможець:
+                            .race__bolid-winer-racer Макс Ферстапен
+                    .race__bolid-lock
+                        picture.race__bolid-lock-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 29.08
                     .race__bolid-map
                         img(src="./img/race/map/netherlands.png" alt="Favbet")
 
             .race__item
                 .race__item-wrap
                     .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Qatar") Катар
-                    .race__date 04.07 — 06.07
+                    .race__country._title(data-translate="Italy")
+                    .race__date 05.09 - 07.09
                     .race__prize
                         .race__prize-amount(data-translate="racePrizeAmount") 40 000
                         .race__prize-fond(data-translate="prizeFond") Призовий фонд
@@ -954,16 +795,17 @@
                             source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
                             source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
                             img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 05.09
                     .race__bolid-map
-                        img(src="./img/race/map/qatar.png" alt="Favbet")
+                        img(src="./img/race/map/italy.png" alt="Favbet")
 
             .race__item
                 .race__item-wrap
                     .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="SaudiArabia") Саудівська Аравія
-                    .race__date 04.07 — 06.07
+                    .race__country._title(data-translate="Azerbaijan")
+                    .race__date 19.09 - 21.09
                     .race__prize
                         .race__prize-amount(data-translate="racePrizeAmount") 40 000
                         .race__prize-fond(data-translate="prizeFond") Призовий фонд
@@ -1000,16 +842,17 @@
                             source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
                             source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
                             img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 19.09
                     .race__bolid-map
-                        img(src="./img/race/map/sauarabia.png" alt="Favbet")
+                        img(src="./img/race/map/azerbaijan.png" alt="Favbet")
 
             .race__item
                 .race__item-wrap
                     .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Singapore") Сінгапур
-                    .race__date 04.07 — 06.07
+                    .race__country._title(data-translate="Singapore")
+                    .race__date 03.10 - 05.10
                     .race__prize
                         .race__prize-amount(data-translate="racePrizeAmount") 40 000
                         .race__prize-fond(data-translate="prizeFond") Призовий фонд
@@ -1046,16 +889,17 @@
                             source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
                             source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
                             img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 03.10
                     .race__bolid-map
                         img(src="./img/race/map/singapore.png" alt="Favbet")
 
             .race__item
                 .race__item-wrap
                     .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="Spain") Іспанія
-                    .race__date 04.07 — 06.07
+                    .race__country._title(data-translate="USA")
+                    .race__date 17.10 - 19.10
                     .race__prize
                         .race__prize-amount(data-translate="racePrizeAmount") 40 000
                         .race__prize-fond(data-translate="prizeFond") Призовий фонд
@@ -1092,16 +936,17 @@
                             source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
                             source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
                             img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 17.10
                     .race__bolid-map
-                        img(src="./img/race/map/spain.png" alt="Favbet")
+                        img(src="./img/race/map/usa.png" alt="Favbet")
 
             .race__item
                 .race__item-wrap
                     .race__text(data-translate="raceText") Гран-прі
-                    .race__country._title(data-translate="USA") США
-                    .race__date 04.07 — 06.07
+                    .race__country._title(data-translate="Mexico")
+                    .race__date 24.10 - 26.10
                     .race__prize
                         .race__prize-amount(data-translate="racePrizeAmount") 40 000
                         .race__prize-fond(data-translate="prizeFond") Призовий фонд
@@ -1138,18 +983,209 @@
                             source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
                             source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
                             img(src="./img/race/done-desc.png" alt="Favbet")
-                        .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
-                        .race__bolid-lock-subtitle(data-translate="unDoneSubtitle") на пошту про початок
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 24.10
                     .race__bolid-map
-                        img(src="./img/race/map/usa.png" alt="Favbet")
+                        img(src="./img/race/map/mexico.png" alt="Favbet")
+
+            .race__item
+                .race__item-wrap
+                    .race__text(data-translate="raceText") Гран-прі
+                    .race__country._title(data-translate="Brazil")
+                    .race__date 07.11 - 09.11
+                    .race__prize
+                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
+                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
+                .race__bolid
+                    .race__bolid-car
+                        picture
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
+                            img(src="./img/race/car-desc.png" alt="Favbet")
+                        .race__bolid-wheel-front
+                        .race__bolid-wheel-back
+                        .race__bolid-decor._bottom
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                    .race__bolid-done
+                        picture.race__bolid-done-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-done-title(data-translate="done") Завершений
+                        .race__bolid-winer
+                            .race__bolid-winer-text(data-translate="winer") переможець:
+                            .race__bolid-winer-racer Макс Ферстапен
+                    .race__bolid-lock
+                        picture.race__bolid-lock-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 07.11
+                    .race__bolid-map
+                        img(src="./img/race/map/brazil.png" alt="Favbet")
+
+            .race__item
+                .race__item-wrap
+                    .race__text(data-translate="raceText") Гран-прі
+                    .race__country._title(data-translate="LasVegas")
+                    .race__date 20.11 - 22.11
+                    .race__prize
+                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
+                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
+                .race__bolid
+                    .race__bolid-car
+                        picture
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
+                            img(src="./img/race/car-desc.png" alt="Favbet")
+                        .race__bolid-wheel-front
+                        .race__bolid-wheel-back
+                        .race__bolid-decor._bottom
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                    .race__bolid-done
+                        picture.race__bolid-done-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-done-title(data-translate="done") Завершений
+                        .race__bolid-winer
+                            .race__bolid-winer-text(data-translate="winer") переможець:
+                            .race__bolid-winer-racer Макс Ферстапен
+                    .race__bolid-lock
+                        picture.race__bolid-lock-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 20.11
+                    .race__bolid-map
+                        img(src="./img/race/map/lasvegas.png" alt="Favbet")
+
+            .race__item
+                .race__item-wrap
+                    .race__text(data-translate="raceText") Гран-прі
+                    .race__country._title(data-translate="Qatar")
+                    .race__date 28.11 - 30.11
+                    .race__prize
+                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
+                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
+                .race__bolid
+                    .race__bolid-car
+                        picture
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
+                            img(src="./img/race/car-desc.png" alt="Favbet")
+                        .race__bolid-wheel-front
+                        .race__bolid-wheel-back
+                        .race__bolid-decor._bottom
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                    .race__bolid-done
+                        picture.race__bolid-done-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-done-title(data-translate="done") Завершений
+                        .race__bolid-winer
+                            .race__bolid-winer-text(data-translate="winer") переможець:
+                            .race__bolid-winer-racer Макс Ферстапен
+                    .race__bolid-lock
+                        picture.race__bolid-lock-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 28.11
+                    .race__bolid-map
+                        img(src="./img/race/map/qatar.png" alt="Favbet")
+
+            .race__item
+                .race__item-wrap
+                    .race__text(data-translate="raceText") Гран-прі
+                    .race__country._title(data-translate="AbuDhabi")
+                    .race__date 05.12 - 07.12
+                    .race__prize
+                        .race__prize-amount(data-translate="racePrizeAmount") 40 000
+                        .race__prize-fond(data-translate="prizeFond") Призовий фонд
+                .race__bolid
+                    .race__bolid-car
+                        picture
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/car-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/car-desc.png")
+                            img(src="./img/race/car-desc.png" alt="Favbet")
+                        .race__bolid-wheel-front
+                        .race__bolid-wheel-back
+                        .race__bolid-decor._bottom
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                            .race__bolid-decor-item
+                    .race__bolid-done
+                        picture.race__bolid-done-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-done-title(data-translate="done") Завершений
+                        .race__bolid-winer
+                            .race__bolid-winer-text(data-translate="winer") переможець:
+                            .race__bolid-winer-racer Макс Ферстапен
+                    .race__bolid-lock
+                        picture.race__bolid-lock-img
+                            source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/race/done-mob.png")
+                            source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/race/done-desc.png")
+                            img(src="./img/race/done-desc.png" alt="Favbet")
+                        .race__bolid-lock-text
+                            .race__bolid-lock-title(data-translate="unDoneTitle") ще не розпочався, ми повідомимо
+                            .race__bolid-lock-subtitle 05.12
+                    .race__bolid-map
+                        img(src="./img/race/map/abudhabi.png" alt="Favbet")
         .race__nav
             .race__nav-left
             .race__nav-right
-            .race__nav-counter 12/24
-    .bet._container._margin-top._racer(id="choose")
+            .race__nav-counter
+    .bet._container._margin-top(id="choose")
         .bet__item._racer
             .bet__text(data-translate="betText") етап
             .bet__title._title(data-translate="betTitleRacer") Обери переможця Гран-прі*
+            .bet__title._title._done(data-translate="results")
+            .bet__title._title._lock(data-translate="predictionTypeUnknown")
             .bet__your-wrap
                 .bet__btn
                     .bet__btn-item._btn-popup
@@ -1166,6 +1202,22 @@
                             .bet__scroll-nav-item
                             .bet__scroll-nav-item
             .bet__wrap
+                .bet__lock
+                    .bet__lock-wrap
+                        .bet__lock-title(data-translate="possiblePredictionTypes")
+                        .bet__lock-body
+                            .bet__lock-row
+                                .bet__lock-row-item(data-translate="dropHeaderType")
+                                .bet__lock-row-item(data-translate="dropHeaderDetails")
+                            .bet__lock-row
+                                .bet__lock-row-item(data-translate="betTitleRacer")
+                                .bet__lock-row-item(data-translate="participantTask-1")
+                            .bet__lock-row
+                                .bet__lock-row-item(data-translate="betTitleLap")
+                                .bet__lock-row-item(data-translate="participantTask-2")
+                            .bet__lock-row
+                                .bet__lock-row-item(data-translate="betTitleTeam")
+                                .bet__lock-row-item(data-translate="participantTask-3")
                 .bet__column
                     .bet__column-item
                         .bet__column-place 1
@@ -1403,9 +1455,13 @@
                         .bet__column-predict Ландо Моріс
                         .bet__column-prize 731 UAH
 
+                .bet__scroll-icon
+                    img(src="./img/bet/scroll-icon.svg" alt="favbet")
         .bet__item._lap
             .bet__text(data-translate="betText") етап
-            .bet__title._title(data-translate="betTitleRacer") Обери переможця Гран-прі*
+            .bet__title._title(data-translate="betTitleLap") Обери переможця Гран-прі*
+            .bet__title._title._done(data-translate="results")
+            .bet__title._title._lock(data-translate="predictionTypeUnknown")
             .bet__your-wrap
                 .bet__btn
                     .bet__btn-item._btn-popup
@@ -1422,6 +1478,22 @@
                             .bet__scroll-nav-item
                             .bet__scroll-nav-item
             .bet__wrap
+                .bet__lock
+                    .bet__lock-wrap
+                        .bet__lock-title(data-translate="possiblePredictionTypes")
+                        .bet__lock-body
+                            .bet__lock-row
+                                .bet__lock-row-item(data-translate="dropHeaderType")
+                                .bet__lock-row-item(data-translate="dropHeaderDetails")
+                            .bet__lock-row
+                                .bet__lock-row-item(data-translate="betTitleRacer")
+                                .bet__lock-row-item(data-translate="participantTask-1")
+                            .bet__lock-row
+                                .bet__lock-row-item(data-translate="betTitleLap")
+                                .bet__lock-row-item(data-translate="participantTask-2")
+                            .bet__lock-row
+                                .bet__lock-row-item(data-translate="betTitleTeam")
+                                .bet__lock-row-item(data-translate="participantTask-3")
                 .bet__column
                     .bet__column-item
                         .bet__column-place 1
@@ -1623,9 +1695,50 @@
                             .bet__column-name-item McLaren
                         button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
+            .bet__table
+                .bet__column
+                    .bet__column-header
+                        .bet__column-header-id(data-translate="betTableId") ID гравця
+                        .bet__column-header-date(data-translate="betTableDate") Дата та час прогнозу
+                        .bet__column-header-predict(data-translate="betTablePredict") Прогноз
+                        .bet__column-header-prize(data-translate="betTablePrize") Приз
+                    .bet__column-item
+                        .bet__column-id 100300268
+                        .bet__column-date 08.12.2024/13:26
+                        .bet__column-predict Ландо Моріс
+                        .bet__column-prize 731 UAH
+
+                    .bet__column-item
+                        .bet__column-id 100300268
+                        .bet__column-date 08.12.2024/13:26
+                        .bet__column-predict Ландо Моріс
+                        .bet__column-prize 731 UAH
+
+                    .bet__column-item
+                        .bet__column-id 100300268
+                        .bet__column-date 08.12.2024/13:26
+                        .bet__column-predict Ландо Моріс
+                        .bet__column-prize 731 UAH
+
+                    .bet__column-item
+                        .bet__column-id 100300268
+                        .bet__column-date 08.12.2024/13:26
+                        .bet__column-predict Ландо Моріс
+                        .bet__column-prize 731 UAH
+
+                    .bet__column-item
+                        .bet__column-id 100300268
+                        .bet__column-date 08.12.2024/13:26
+                        .bet__column-predict Ландо Моріс
+                        .bet__column-prize 731 UAH
+
+                .bet__scroll-icon
+                    img(src="./img/bet/scroll-icon.svg" alt="favbet")
         .bet__item._team
             .bet__text(data-translate="betText") етап
-            .bet__title._title(data-translate="betTitleRacer") Обери переможця Гран-прі*
+            .bet__title._title(data-translate="betTitleTeam") Обери переможця Гран-прі*
+            .bet__title._title._done(data-translate="results")
+            .bet__title._title._lock(data-translate="predictionTypeUnknown")
             .bet__your-wrap
                 .bet__btn
                     .bet__btn-item._btn-popup
@@ -1642,6 +1755,22 @@
                             .bet__scroll-nav-item
                             .bet__scroll-nav-item
             .bet__wrap
+                .bet__lock
+                    .bet__lock-wrap
+                        .bet__lock-title(data-translate="possiblePredictionTypes")
+                        .bet__lock-body
+                            .bet__lock-row
+                                .bet__lock-row-item(data-translate="dropHeaderType")
+                                .bet__lock-row-item(data-translate="dropHeaderDetails")
+                            .bet__lock-row
+                                .bet__lock-row-item(data-translate="betTitleRacer")
+                                .bet__lock-row-item(data-translate="participantTask-1")
+                            .bet__lock-row
+                                .bet__lock-row-item(data-translate="betTitleLap")
+                                .bet__lock-row-item(data-translate="participantTask-2")
+                            .bet__lock-row
+                                .bet__lock-row-item(data-translate="betTitleTeam")
+                                .bet__lock-row-item(data-translate="participantTask-3")
                 .bet__column
                     .bet__column-item
                         .bet__column-place 1
@@ -1713,17 +1842,58 @@
                             .bet__column-name-item(data-translate="Williams") КОМАНДА «ВІЛЬЯМС»
                         button(type="button" data-translate="playBtn").bet__column-btn ЗРОБИТИ ПРОГНОЗ
                         .bet__column-you(data-translate="yourBet") твій прогноз
+            .bet__table
+                .bet__column
+                    .bet__column-header
+                        .bet__column-header-id(data-translate="betTableId") ID гравця
+                        .bet__column-header-date(data-translate="betTableDate") Дата та час прогнозу
+                        .bet__column-header-predict(data-translate="betTablePredict") Прогноз
+                        .bet__column-header-prize(data-translate="betTablePrize") Приз
+                    .bet__column-item
+                        .bet__column-id 100300268
+                        .bet__column-date 08.12.2024/13:26
+                        .bet__column-predict Ландо Моріс
+                        .bet__column-prize 731 UAH
+
+                    .bet__column-item
+                        .bet__column-id 100300268
+                        .bet__column-date 08.12.2024/13:26
+                        .bet__column-predict Ландо Моріс
+                        .bet__column-prize 731 UAH
+
+                    .bet__column-item
+                        .bet__column-id 100300268
+                        .bet__column-date 08.12.2024/13:26
+                        .bet__column-predict Ландо Моріс
+                        .bet__column-prize 731 UAH
+
+                    .bet__column-item
+                        .bet__column-id 100300268
+                        .bet__column-date 08.12.2024/13:26
+                        .bet__column-predict Ландо Моріс
+                        .bet__column-prize 731 UAH
+
+                    .bet__column-item
+                        .bet__column-id 100300268
+                        .bet__column-date 08.12.2024/13:26
+                        .bet__column-predict Ландо Моріс
+                        .bet__column-prize 731 UAH
+
+                .bet__scroll-icon
+                    img(src="./img/bet/scroll-icon.svg" alt="favbet")
     .confirm._container._margin-top
         .confirm__prediction
             .confirm__prediction-no(data-translate="betNoConfirmed") Прогноз не підтверджено
             .confirm__prediction-yes(data-translate="betConfirmed") Прогноз підтверджено
             .confirm__upd
-                .confirm__upd-btn._btn-popup
+                .confirm__upd-btn._btn-popup._betConfirmed
+                .confirm__upd-btn._btn-popup._betNotConfirmed
                 .confirm__upd-text
                     .confirm__upd-text-item(data-translate="lastUpd") Останнє оновлення було о
                     .confirm__upd-text-item 23:45
         .confirm__timer
-            .confirm__timer-title(data-translate="timerTitle") Залишилось часу для прогнозу
+            .confirm__timer-title._betConfirmed(data-translate="timerTitle") Залишилось часу для прогнозу
+            .confirm__timer-title(data-translate="timerNotConfirmed") Залишилось часу для прогнозу
             .timer
                 .timer__days
                     span.timer__days-item 0
@@ -1811,8 +1981,9 @@
                     source(media="(min-width: 601px) and (max-width: 1050px) and (orientation: portrait)" srcset="./img/results/pers-you-mob.png")
                     source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/results/pers-you-desc.png")
                     img(src="./img/results/pers-you-desc.png" alt="Favbet")
-        a(href="/login/" role="button" data-translate="loginBtn").results__btn.btn.unauth-msg авторизуйся
+        a(href="/login/" role="button" data-translate="loginBtn").results__btn.btn.unauth-msg.hidden авторизуйся
         div(data-translate="forecastBtn").results__btn.btn.btn-join.hidden взяти участь
+        div(data-translate="currentRaceBtn").results__btn.btn.current-race.hidden поточний етап
         .results__bottom(data-translate="resultsBottom") *Загальний призовий фонд Акції «Грандіозні перегони» складається з 1 500 000 електронних грошових замінників. Деталі на сайті www.favbet.ua. Період дії акції – з 12:00 10.03.2025 до 23:59 07.12.2024 року
 
     .drop._bets
@@ -1882,7 +2053,19 @@
                 source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/road/car-desc.png")
                 img(src="./img/road/car-desc.png" alt="Favbet")
     .popups._opacity
-        .popups__item._betPopup
+        .popups__item._betPopupRacer
+            .popups__item-close
+            .popups__item-body
+                .popups__item-text(data-translate="betPopupRacer").
+                    Обери гонщика, який переможе у Гран-прі, та підтверджуй свій прогноз ставкою від 300 ₴ на Формулу-1.Приймаються ординари з коефіцієнтом від 1.5 та експреси, в яких є хоча б одна ставка на Формулу-1 з коефіцієнтом від 1.5.Призовий фонд заїзду у розмірі 40 000 ₴ буде розподілений між усіма гравцями, які зробили правильний прогноз та підтвердили його ставкою на Формулу-1.
+                    Обери гонщика, який переможе у Гран-прі, та підтверджуй свій прогноз ставкою від 300 ₴ на Формулу-1.Приймаються ординари з коефіцієнтом від 1.5 та експреси, в яких є хоча б одна ставка на Формулу-1 з коефіцієнтом від 1.5.Призовий фонд заїзду у розмірі 40 000 ₴ буде розподілений між усіма гравцями, які зробили правильний прогноз та підтвердили його ставкою на Формулу-1.
+        .popups__item._betPopupLap
+            .popups__item-close
+            .popups__item-body
+                .popups__item-text(data-translate="betPopupLap").
+                    Обери гонщика, який переможе у Гран-прі, та підтверджуй свій прогноз ставкою від 300 ₴ на Формулу-1.Приймаються ординари з коефіцієнтом від 1.5 та експреси, в яких є хоча б одна ставка на Формулу-1 з коефіцієнтом від 1.5.Призовий фонд заїзду у розмірі 40 000 ₴ буде розподілений між усіма гравцями, які зробили правильний прогноз та підтвердили його ставкою на Формулу-1.
+                    Обери гонщика, який переможе у Гран-прі, та підтверджуй свій прогноз ставкою від 300 ₴ на Формулу-1.Приймаються ординари з коефіцієнтом від 1.5 та експреси, в яких є хоча б одна ставка на Формулу-1 з коефіцієнтом від 1.5.Призовий фонд заїзду у розмірі 40 000 ₴ буде розподілений між усіма гравцями, які зробили правильний прогноз та підтвердили його ставкою на Формулу-1.
+        .popups__item._betPopupTeam
             .popups__item-close
             .popups__item-body
                 .popups__item-text(data-translate="betPopup").
@@ -1892,6 +2075,11 @@
             .popups__item-close
             .popups__item-body
                 .popups__item-text(data-translate="confirmPopup").
+                    Обери гонщика, який переможе у Гран-прі, та підтверджуй свій прогноз ставкою від 300 ₴ на Формулу-1.Приймаються ординари з коефіцієнтом від 1.5 та експреси, в яких є хоча б одна ставка на Формулу-1 з коефіцієнтом від 1.5.Призовий фонд заїзду у розмірі 40 000 ₴ буде розподілений між усіма гравцями, які зробили правильний прогноз та підтвердили його ставкою на Формулу-1.
+        .popups__item._notConfirmPopup
+            .popups__item-close
+            .popups__item-body
+                .popups__item-text(data-translate="notConfirmPopup").
                     Обери гонщика, який переможе у Гран-прі, та підтверджуй свій прогноз ставкою від 300 ₴ на Формулу-1.Приймаються ординари з коефіцієнтом від 1.5 та експреси, в яких є хоча б одна ставка на Формулу-1 з коефіцієнтом від 1.5.Призовий фонд заїзду у розмірі 40 000 ₴ буде розподілений між усіма гравцями, які зробили правильний прогноз та підтвердили його ставкою на Формулу-1.
         .popups__item._resultsPopup
             .popups__item-close

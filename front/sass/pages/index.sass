@@ -21,14 +21,22 @@ $font-exo2-black: Exo2-Black, sans-serif
     display: flex !important     
 ._lock
     pointer-events: none
-    filter: grayscale(100%)
+    //filter: grayscale(100%)
 .menu-test
   position: fixed
   left: 0
   top: 0
-  z-index: 10
+  z-index: 20
   display: flex
+  gap: 2px
   flex-direction: column
+  & > button
+    width: fit-content
+    background: white
+    color: black
+    padding: 2px
+    font-family: inherit
+    border-radius: 2px
 
 ._opacity
   opacity: 0 !important
@@ -122,6 +130,7 @@ body
   background: url("../img/welcome/bg-desc.jpg") no-repeat 0 0/cover
   position: relative
   overflow: hidden
+  min-height: 450px
   @media screen and (max-width: 1050px)
     background: url("../img/welcome/bg-tab.jpg") no-repeat 0 1px/cover
   @media screen and (max-width: 600px)
@@ -137,6 +146,7 @@ body
     max-width: 410px
     width: 100%
     z-index: 2
+    height: 375px
   &__title
     max-width: 300px
     animation: welcomeTitle .5s ease-in-out
@@ -393,6 +403,10 @@ body
             display: none
           &-lock
             display: flex
+            &-text
+              display: flex
+              align-items: center
+              gap: 0.5em
     &._done
       .race
         &__bolid
@@ -631,7 +645,7 @@ body
       width: 44px
       height: 35px
       background: url("../img/race/slider-arrow.png") no-repeat 0 0/contain
-      transition: background .7s ease-in-out
+      transition: background .3s ease-in-out
       &:hover
         cursor: pointer
         background: url("../img/race/slider-arrow-hover.png") no-repeat 0 0/contain
@@ -649,6 +663,9 @@ body
   display: flex
   flex-direction: column
   align-items: center
+  &__title
+    &._done, &._lock
+      display: none
   &._racer
     .bet__item._racer
       display: flex
@@ -671,6 +688,23 @@ body
           display: block
         &__wrap
           display: none
+        &__title
+          display: none
+          &._done
+            display: block
+        &__btn, &__text
+          display: none
+    &._lock
+      .bet
+        &__lock
+          display: flex
+        &__title
+          display: none
+          &._lock
+            display: block
+        &__btn
+          display: none
+
     &._lock
       .bet
         &__column
@@ -678,6 +712,7 @@ body
           &-btn
             background: $grey
             color: rgba($blue, .2)
+
 
   &__text
     color: $white
@@ -719,6 +754,11 @@ body
     display: flex
     align-items: center
     gap: 8px
+    &:hover
+      cursor: pointer
+      .bet__btn-item:nth-child(1)
+        background: url(../img/popup-icon-hover.png) no-repeat 0 0 / contain
+        cursor: pointer
     &-item
       color: $white
       font-family: $font-exo2-reg
@@ -738,11 +778,69 @@ body
           left: 50%
           bottom: -1px
           transform: translate(-50%, 0)
+  &__lock
+    display: none
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background: rgba($blue, .5)
+    backdrop-filter: blur(5px)
+    z-index: 3
+    border-radius: 8px
+    align-items: center
+    justify-content: center
+    &-title
+      font-size: 16px
+      font-family: $font-exo2-reg
+      color: $blue
+      margin-bottom: 16px
+    &-body
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: flex-start
+    &-row
+      display: flex
+      align-items: center
+      justify-content: space-between
+      width: 100%
+      padding: 8px 12px
+      &:nth-child(even)
+        background: rgba(197, 179, 175, 0.30)
+      &:nth-child(1)
+        .bet__lock-row
+          &-item
+            color: $blue
+            font-family: $font-exo2-reg
+            font-size: 14px
+            opacity: .5
+      &-item
+        width: 50%
+        &:nth-child(1)
+          color: $blue
+          font-family: $font-exo2-semib
+          font-size: 14px
+        &:nth-child(2)
+          color: $blue
+          font-family: $font-exo2-reg
+          font-size: 14px
+    &-wrap
+      width: 540px
+      background: $white url("../img/bet/dots-bg.png") repeat 0 0/cover
+      display: flex
+      align-items: center
+      justify-content: center
+      flex-direction: column
+      padding: 16px
+
   &__wrap
     display: flex
     align-items: center
     justify-content: space-between
     margin-top: 16px
+    position: relative
   &__column
     width: 50%
     max-width: 510px
@@ -847,7 +945,13 @@ body
   &__table
     margin-top: 15px
     display: none
+    margin-bottom: -40px
     .bet
+      &__scroll
+        &-icon
+          margin-top: 10px
+          position: sticky
+          left: 0
       &__column
         width: 100%
         max-width: 100%
@@ -949,14 +1053,7 @@ body
     &-yes
       display: none
       color: $green
-    &._betConfirmed
-      background: url("../img/confirm/confirm-yes.png") no-repeat 0 0/contain
-      .confirm
-        &__prediction
-          &-no
-            display: none
-          &-yes
-            display: block
+
   &__upd
     display: flex
     align-items: center
@@ -964,6 +1061,10 @@ body
     &-btn
       width: 22px
       height: 22px
+      &._betConfirmed
+        display: none
+      &._betNotConfirmed
+        display: block
     &-text
       display: flex
       align-items: center
@@ -1030,6 +1131,8 @@ body
       text-transform: uppercase
       max-width: 180px
       z-index: 2
+      &._betConfirmed
+        display: none
   &__anim
     min-width: 128px
     max-width: 128px
@@ -1053,6 +1156,25 @@ body
       animation: speedometer 5s ease infinite
   &__btn
     margin-top: 20px
+  &._betConfirmed
+    .confirm
+      &__upd
+        &-btn
+          &._betConfirmed
+            display: block
+          &._betNotConfirmed
+            display: none
+      &__timer
+        &-title
+          display: none
+          &._betConfirmed
+            display: block
+      &__prediction
+        background: url("../img/confirm/confirm-yes.png") no-repeat 0 0/contain
+        &-no
+          display: none
+        &-yes
+          display: block
 
 .results
   position: relative
@@ -1278,6 +1400,11 @@ body
     align-items: center
     gap: 8px
     margin-top: 16px
+    &:hover
+      cursor: pointer
+      .results__popup-btn
+        background: url(../img/popup-icon-hover.png) no-repeat 0 0 / contain
+        cursor: pointer
     &-text
       color: $white
       font-family: $font-exo2-reg
@@ -1368,6 +1495,12 @@ body
     font-size: 10px
     opacity: .7
     margin-top: 11px
+  &.auth
+    padding-bottom: 60px
+    @media screen and (max-width: 600px)
+      padding-bottom: 0px
+    @media screen and (max-width: 345px)
+      padding-bottom: 30px
 
 .road
   min-width: 575px
@@ -1398,6 +1531,11 @@ body
   margin: auto
   z-index: 3
   padding: 10px 0
+  & > *
+    font-family: inherit
+  table, th, td
+    border: 1px solid $white
+    border-collapse: collapse
   .dropdown
     outline: none!important
     cursor: pointer
@@ -1584,13 +1722,28 @@ body
         cursor: pointer
   &._opacity
     pointer-events: none
-  &._betPopup
-    ._betPopup
+  &._betPopupRacer
+    ._betPopupRacer
+      opacity: 1
+      position: relative
+      pointer-events: initial
+  &._betPopupLap
+    ._betPopupLap
+      opacity: 1
+      position: relative
+      pointer-events: initial
+  &._betPopupTeam
+    ._betPopupTeam
       opacity: 1
       position: relative
       pointer-events: initial
   &._confirmPopup
     ._confirmPopup
+      opacity: 1
+      position: relative
+      pointer-events: initial
+  &._notConfirmPopup
+    ._notConfirmPopup
       opacity: 1
       position: relative
       pointer-events: initial
@@ -1867,3 +2020,11 @@ body.dark
         &-decor
           background: linear-gradient(180deg, #25252C 0%, rgba(37, 37, 44, 0.00) 100%)
           color: #444444
+
+/// en styles
+
+.fav-page.en
+  picture.uk
+    display: none
+  picture.en
+    display: block

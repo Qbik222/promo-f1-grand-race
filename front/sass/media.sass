@@ -2,6 +2,8 @@
   .welcome
     max-width: 768px
     min-width: 768px
+    max-height: 310px
+    min-height: 310px
     padding: 30px 40px 15px 0
     &__pers
       max-width: 467px
@@ -60,6 +62,7 @@
           font-size: 13px
     &__right
       max-width: 345px
+      height: 256px
   ._title
     font-size: 20px
     line-height: 20px
@@ -179,9 +182,11 @@
 @media screen and (max-width: 725px)
   .fav-page
     transform-origin: top left
-    transform: scale(.85)
+    transform: scale(.8) translate(-50%, 0)
     min-width: 795px
     max-width: 795px
+    position: relative
+    left: 50%
 
 @media screen and (max-width: 600px)
   ._container
@@ -195,8 +200,12 @@
   .welcome
     max-width: 450px
     min-width: 450px
+    max-height: 470px
+    min-height: 470px
     padding: 20px 0
     justify-content: center
+    &__right
+      height: 426px
     &__btn
       align-self: center
       margin-top: 170px
@@ -210,6 +219,20 @@
   .bet
     &._margin-top
       margin-top: 0
+    &__table
+      overflow-x: scroll
+      max-width: 100%
+      scrollbar-width: auto
+      &::-webkit-scrollbar-thumb
+        background: transparent
+        opacity: 0
+      &::-webkit-scrollbar
+        background: transparent
+        opacity: 0
+      .bet
+        &__column
+          min-width: fit-content
+
   .race
     padding-bottom: 20px
     &__item
