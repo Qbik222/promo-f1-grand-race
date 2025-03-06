@@ -15,6 +15,13 @@ $font-exo2-bold: Exo2-Bold, sans-serif
 $font-exo2-ex-bold: Exo2-ExtraBold, sans-serif
 $font-exo2-black: Exo2-Black, sans-serif
 
+.hidden
+    display: none !important
+.visible
+    display: flex !important     
+._lock
+    pointer-events: none
+    filter: grayscale(100%)
 .menu-test
   position: fixed
   left: 0
@@ -86,6 +93,9 @@ body
   text-transform: uppercase
   padding: 2px 5px 4px 5px
   transition: background .7s ease-in-out
+  &._lock
+    pointer-events: none
+    filter: grayscale(100%)
   &:hover
     cursor: pointer
     background: url("../img/btn-hover.png") no-repeat 0 0/cover
@@ -642,8 +652,8 @@ body
   &._racer
     .bet__item._racer
       display: flex
-  &._map
-    .bet__item._map
+  &._lap
+    .bet__item._lap
       display: flex
   &._team
     .bet__item._team
@@ -741,6 +751,11 @@ body
     background: $white url("../img/bet/dots-bg.png") repeat 0 0/cover
     border-radius: 8px
     padding: 6px 0
+    input
+      position: absolute
+      top: 0
+      opacity: 0
+      z-index: -1
     &-item, &-header
       display: flex
       align-items: center
@@ -1852,4 +1867,3 @@ body.dark
         &-decor
           background: linear-gradient(180deg, #25252C 0%, rgba(37, 37, 44, 0.00) 100%)
           color: #444444
-
