@@ -1057,4 +1057,8 @@
     renderPredictionTable()
 
 
+    document.querySelector(".menu-btn").addEventListener("click", () =>{
+        document.querySelector(".menu-test").classList.toggle("hidden")
+    })
+
 })();
