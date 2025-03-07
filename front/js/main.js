@@ -552,7 +552,8 @@
 
         toCurrentRaceBtns.forEach(btn =>{
             btn.addEventListener("click", () =>{
-                currentRace = getCurrentRace() ? getCurrentRace() : 1;
+                // currentRace = getCurrentRace() ? getCurrentRace() : 1;
+                currentRace = 2;
                 currentSlide = currentRace - 1;
                 updateSlider(currentSlide)
 
