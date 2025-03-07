@@ -663,6 +663,7 @@ body
   display: flex
   flex-direction: column
   align-items: center
+  z-index: 2
   &__title
     &._done, &._lock
       display: none
@@ -694,6 +695,9 @@ body
             display: block
         &__btn, &__text
           display: none
+        &__your
+          &-container
+            display: none
     &._lock
       .bet
         &__lock
@@ -704,6 +708,9 @@ body
             display: block
         &__btn
           display: none
+        &__your
+          &-container
+            display: none
 
     &._lock
       .bet
@@ -915,6 +922,8 @@ body
       transition: background .7s ease-in-out
       text-transform: uppercase
       position: relative
+      &._lock
+        filter: grayscale(100%)
       &::before
         content: ""
         position: absolute
@@ -1496,7 +1505,7 @@ body
     opacity: .7
     margin-top: 11px
   &.auth
-    padding-bottom: 60px
+    padding-bottom: 90px
     @media screen and (max-width: 600px)
       padding-bottom: 0px
     @media screen and (max-width: 345px)

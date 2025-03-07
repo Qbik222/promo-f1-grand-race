@@ -289,7 +289,7 @@
                 btn.classList.add('hidden');
             });
             yourBetInfoEl.forEach(item =>{
-                item.classList.add('hidden');
+                item.classList.remove('hidden');
             })
             authBtnsEl.forEach((btn) => {
                 btn.classList.add('hidden');
@@ -536,7 +536,8 @@
         const resultsSecond = document.querySelector('.results__second');
         const resultsThird = document.querySelector('.results__third');
 
-        let currentRace = getCurrentRace() ? getCurrentRace() : 3;
+        // let currentRace = getCurrentRace() ? getCurrentRace() : 1;
+        let currentRace = 2;
 
         slides.forEach((slide, i) => {
             if (i < currentRace - 1) {
