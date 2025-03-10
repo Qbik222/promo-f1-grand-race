@@ -192,7 +192,7 @@ body
         font-family: $font-exo2-reg
         font-size: 17px
         color: $white
-        max-width: 300px
+        max-width: 280px
   &__pers
     position: absolute
     left: 0
@@ -673,6 +673,10 @@ body
   flex-direction: column
   align-items: center
   z-index: 2
+  &__item._lock._team
+    .bet
+      &__wrap
+        min-height: 330px
   &__title
     &._done, &._lock
       display: none
@@ -799,12 +803,12 @@ body
     position: absolute
     left: 0
     top: 0
-    width: 100%
+    width: 100.1%
     height: 100%
     background: rgba($blue, .5)
     backdrop-filter: blur(5px)
     z-index: 3
-    border-radius: 8px
+    //border-radius: 8px
     align-items: center
     justify-content: center
     &-title
@@ -963,7 +967,7 @@ body
   &__table
     margin-top: 15px
     display: none
-    margin-bottom: -40px
+    margin-bottom: -30px
     .bet
       &__scroll
         &-icon
@@ -1200,6 +1204,7 @@ body
   flex-direction: column
   align-items: flex-start
   padding: 65px 0 20px 0
+  z-index: 1
   &::before
     content: ""
     display: block
@@ -1508,7 +1513,7 @@ body
   &__btn
     margin-top: 20px
   &__bottom
-    max-width: 352px
+    max-width: 326px
     color: $white
     font-size: 10px
     opacity: .7
@@ -1581,15 +1586,20 @@ body
       border: 1px solid rgba($white, .1)
       border-radius: 10px
       color: $white
-      ::-webkit-details-marker
+      &::-webkit-details-marker
         display: none
       &:after
         content: ''
         background: url("../img/drop-arrow.png") no-repeat 0 0/contain
         display: inline-block
-        width: 24px
+        min-width: 24px
+        max-width: 24px
         height: 24px
         margin-left: auto
+      br
+        display: none
+        @media screen and (max-width: 600px)
+          display: block
     &[open]
       summary
         &:after
@@ -1705,7 +1715,7 @@ body
     position: absolute
     pointer-events: none
     width: 540px
-    height: 300px
+    max-height: 300px
     display: flex
     align-items: flex-end
     justify-content: center
@@ -1722,6 +1732,11 @@ body
       font-size: 16px
       line-height: 25px
       color: $blue
+      .popups__item-text
+        br
+          display: none
+          @media screen and (max-width: 600px)
+            display: block
       & > *
         font-family: inherit
       &::-webkit-scrollbar-thumb
@@ -2028,6 +2043,17 @@ body.dark
       display: block
     .welcome
       background: url("../img/welcome/bg-desc-dark.jpg") no-repeat 0 0/cover
+      &::before
+        content: ""
+        display: block
+        width: 100%
+        height: 15%
+        position: absolute
+        bottom: 0
+        left: 0
+        z-index: 0
+        pointer-events: none
+        background: linear-gradient(180deg, rgba($white, 0) 0%, #12131C 100%)
       @media screen and (max-width: 1050px)
         background: url("../img/welcome/bg-tab-dark.jpg") no-repeat 0 1px/cover
       @media screen and (max-width: 600px)
@@ -2038,6 +2064,8 @@ body.dark
         &-decor
           background: linear-gradient(180deg, #25252C 0%, rgba(37, 37, 44, 0.00) 100%)
           color: #444444
+      @media screen and (max-width: 600px)
+        background: linear-gradient(180deg, $dark 0%, $dark 80%, transparent 100%)
 
 /// en styles
 

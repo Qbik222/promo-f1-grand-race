@@ -232,6 +232,11 @@
       .bet
         &__column
           min-width: fit-content
+    &__lock
+      &-row
+        &-item
+          &:nth-child(2)
+            font-size: 12px
 
   .race
     padding-bottom: 20px
@@ -294,6 +299,7 @@
       &._lock
         .bet
           &__your
+            display: none
             &-container
               display: none
     &__your
@@ -377,6 +383,7 @@
       max-height: 115px
       &-title
         font-size: 13px
+        max-width: 150px
       .timer
         grid-column-start: 1
         grid-row-start: 2
@@ -407,6 +414,9 @@
       margin: 70px 0 -70px 0
     &__btn
       align-self: center
+    &__bottom
+      margin: 10px auto 0 auto
+      text-align: center
     &__prize
       position: absolute
       top: 20px
@@ -472,7 +482,7 @@
   .confirm
     transform: scale(.8)
     &._margin-top
-      margin: -120px 0 -100px 0
+      margin: -100px 0 -100px 0
   .road
     min-width: 275px
     max-width: 275px
@@ -502,3 +512,10 @@
     min-width: 275px
     max-width: 275px
     height: 235px
+
+@media screen and (max-width: 950px) and (max-height: 450px) and (orientation: landscape)
+  .road
+    &__bg
+      left: 0
+      transform: none
+      top: -270px

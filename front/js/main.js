@@ -532,6 +532,7 @@
         const slideMoveRight = document.querySelector('.race__nav-right');
         const slideCounter = document.querySelector('.race__nav-counter');
         const betTables = document.querySelectorAll('.bet__item');
+        const betWrapColumns = document.querySelectorAll('.bet__wrap');
         const resultsFirst = document.querySelector('.results__first');
         const resultsSecond = document.querySelector('.results__second');
         const resultsThird = document.querySelector('.results__third');
@@ -565,12 +566,19 @@
                 });
             })
         })
+        betWrapColumns.forEach(column => {
+            column.scrollLeft = 0;
+        });
 
         function updateSlider(index) {
+            betWrapColumns.forEach(column => {
+                column.scrollLeft = 0;
+            });
             slides.forEach((slide) => slide.classList.remove('_active'));
             slides[index].classList.add('_active');
             slideCounter.textContent = `${index + 1}/${slides.length}`;
             betTables.forEach((table) => {
+                table.classList.remove('_lock', '_done');
                 if (currentSlide > currentRace - 1) {
                     table.classList.add('_lock');
                 }
@@ -1059,6 +1067,18 @@
 
     document.querySelector(".menu-btn").addEventListener("click", () =>{
         document.querySelector(".menu-test").classList.toggle("hidden")
+    })
+
+    betColumnsBtnsEl.forEach((btn, i) =>{
+        btn.addEventListener("click", (e) =>{
+            e.preventDefault()
+            document.querySelectorAll(".bet__column-item").forEach((elem, j) =>{
+                elem.classList.remove("you")
+                if(i === j){
+                    elem.classList.add("you")
+                }
+            })
+        })
     })
 
 })();
