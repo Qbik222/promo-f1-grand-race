@@ -37,12 +37,18 @@ button.menu-btn menu
                     img(src="./img/welcome/car-desc.png" alt="Favbet")
         .welcome__right
             .welcome__title
-                picture
+                picture.uk
                     source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/welcome/title-mob.png")
                     source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/welcome/title-mob.png")
                     source(media="(min-width: 601px) and (max-width: 1050px)" srcset="./img/welcome/title-mob.png")
                     source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/welcome/title-desc.png")
                     img(src="./img/welcome/title-desc.png" alt="Favbet")
+                picture.en
+                    source(media="(max-width: 600px) and (orientation: portrait)" srcset="./img/welcome/title-mob-en.png")
+                    source(media="(max-width: 950px) and (orientation: landscape) and (max-height: 450px)" srcset="./img/welcome/title-mob-en.png")
+                    source(media="(min-width: 601px) and (max-width: 1050px)" srcset="./img/welcome/title-mob-en.png")
+                    source(media="(min-width: 601px) and (orientation: landscape)" srcset="./img/welcome/title-desc-en.png")
+                    img(src="./img/welcome/title-desc-en.png" alt="Favbet")
             .welcome__prize
                 .welcome__prize-item(data-translate="prizeFond") Призовий фонд
                 .welcome__prize-item(data-translate="prizeFondAmount") 1 500 000

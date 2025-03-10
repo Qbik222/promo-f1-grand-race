@@ -924,7 +924,7 @@
     // #region Translation
     const ukLang = document.querySelector('#ukLang');
     const enLang = document.querySelector('#enLang');
-    const mainPage = document.querySelector('.fav__page');
+    const mainPage = document.querySelector('.fav-page');
     let i18nData = {};
     // let locale = 'uk';
     let locale = sessionStorage.getItem("locale") ?? "uk"

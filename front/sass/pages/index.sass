@@ -2069,8 +2069,19 @@ body.dark
 
 /// en styles
 
+picture.uk
+  display: block
+picture.en
+  display: none
+
+
 .fav-page.en
   picture.uk
     display: none
   picture.en
     display: block
+  .welcome
+    &__title
+      max-width: 360px
+      @media screen and (max-width: 1050px)
+        max-width: 315px
