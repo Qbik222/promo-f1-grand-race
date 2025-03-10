@@ -553,7 +553,6 @@
 
         toCurrentRaceBtns.forEach(btn =>{
             btn.addEventListener("click", () =>{
-                // currentRace = getCurrentRace() ? getCurrentRace() : 1;
                 currentRace = 2;
                 currentSlide = currentRace - 1;
                 updateSlider(currentSlide)
@@ -579,14 +578,17 @@
             slideCounter.textContent = `${index + 1}/${slides.length}`;
             betTables.forEach((table) => {
                 table.classList.remove('_lock', '_done');
+                table.parentElement.classList.remove('_result'); // тут
                 if (currentSlide > currentRace - 1) {
                     table.classList.add('_lock');
                 }
                 if (currentSlide < currentRace - 1) {
                     table.classList.add('_done');
+                    table.parentElement.classList.add('_result'); // тут
                 }
                 if (currentSlide === currentRace - 1) {
                     table.classList.remove('_lock', '_done');
+                    table.parentElement.classList.remove('_result'); // тут
                 }
             });
         }
