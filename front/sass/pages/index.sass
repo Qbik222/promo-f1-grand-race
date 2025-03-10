@@ -192,7 +192,9 @@ body
         font-family: $font-exo2-reg
         font-size: 17px
         color: $white
-        max-width: 280px
+        max-width: 300px
+        @media screen and (max-width: 1050px)
+          max-width: 260px
   &__pers
     position: absolute
     left: 0
@@ -891,6 +893,7 @@ body
       //&:nth-child(odd)
       //  background: rgba(197, 179, 175, 0.30)
       &.you
+        border:  2px solid $green
         .bet
           &__column
             &-btn
@@ -1013,6 +1016,21 @@ body
           height: 30px
           &:nth-child(even)
             background: rgba(197, 179, 175, 0.30)
+          &.you
+            .bet
+              &__column
+                &-id
+                  position: relative
+                  &::before
+                    content: "ти"
+                    display: block
+                    font-family: $font-exo2-semib
+                    position: absolute
+                    color: $green
+                    text-transform: uppercase
+                    right: -5px
+                    top: 50%
+                    transform: translate(100%, -50%)
         &-id, &-date, &-prize, &-predict
           font-family: $font-exo2-semib
           color: $blue
@@ -2096,3 +2114,17 @@ picture.en
       max-width: 360px
       @media screen and (max-width: 1050px)
         max-width: 315px
+  .results
+    &__bottom
+      max-width: 290px
+  .bet__table
+    .bet
+      &__column
+        &-item
+          &.you
+            .bet
+              &__column
+                &-id
+                  position: relative
+                  &::before
+                    content: "you"

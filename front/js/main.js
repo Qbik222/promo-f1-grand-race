@@ -588,7 +588,7 @@
                 }
                 if (currentSlide === currentRace - 1) {
                     table.classList.remove('_lock', '_done');
-                    table.parentElement.classList.remove('_result'); // тут
+                    table.parentElement.classList.remove('_result');
                 }
             });
         }
@@ -906,7 +906,7 @@
 
             const updateScrollStatus = () => {
                 const scrollLeft = wrap.scrollLeft;
-                const isFirstVisible = scrollLeft < firstColumn.clientWidth / 2;
+                const isFirstVisible = scrollLeft < firstColumn.clientWidth / 2 + 20;
 
                 navItems[0].classList.toggle('_active', isFirstVisible);
                 navItems[1].classList.toggle('_active', !isFirstVisible);
